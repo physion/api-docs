@@ -1,9 +1,12 @@
 --- 
 
-title: Ovation for Service Labs 
+title: Ovation API Reference 
 
 language_tabs: 
-   - shell 
+   - shell
+   - ruby
+   - python
+   - javascript
 
 includes: 
    - errors 
@@ -22,74 +25,13 @@ LIMS+: logical sample tracking, document and training record management
 
 |apiKey|*API Key*|
 |---|---| 
+# Requisitions
+## Get Requisitions 
 
-# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/TEST_PANELS
-## ***GET*** 
-
-**Summary:** Get available Test Panels
-
-### HTTP Request 
-`***GET*** /v3/project_templates/{project_template_id}/test_panels` 
-
-**Parameters**
-
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| project_template_id | path | Associated project_template group | Yes | string |
-
-**Responses**
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | Test Panels |
-
-# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/SAMPLE_LABELS
-## ***GET*** 
-
-**Summary:** Get available sample labels
+**Summary:** Get Requisitions
 
 ### HTTP Request 
-`***GET*** /v3/project_templates/{project_template_id}/sample_labels` 
-
-**Parameters**
-
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| project_template_id | path | Associated project_template group | Yes | string |
-
-**Responses**
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | Sample Labels |
-
-# /V3/PROJECT_TEMPLATES
-## ***GET*** 
-
-**Summary:** Get available project templates for a given organization
-
-### HTTP Request 
-`***GET*** /v3/project_templates` 
-
-**Parameters**
-
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | query | Associated organization | Yes | string |
-
-**Responses**
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | Project Templates |
-
-# /V3/PROJECT_TEMPLATES/{PROJECTTEMPLATEID}/REQUISITIONS
-## ***GET*** 
-
-**Summary:** Get a Requisition
-
-### HTTP Request 
-`***GET*** /v3/project_templates/{projectTemplateId}/requisitions` 
+`GET /v3/project_templates/{projectTemplateId}/requisitions` 
 
 **Parameters**
 
@@ -106,13 +48,31 @@ LIMS+: logical sample tracking, document and training record management
 | Code | Description |
 | ---- | ----------- |
 | 200 | Requisition record |
+## Get Requisition
 
-## ***POST*** 
+**Summary:** Get a Requisition
+
+### HTTP Request 
+`GET /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| identifier | path | Requisition identifier | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition record |
+## Post Requisition
 
 **Summary:** Create a new Requisition
 
 ### HTTP Request 
-`***POST*** /v3/project_templates/{projectTemplateId}/requisitions` 
+`POST /v3/project_templates/{projectTemplateId}/requisitions` 
 
 **Parameters**
 
@@ -130,33 +90,12 @@ LIMS+: logical sample tracking, document and training record management
 | 404 | Project Template ID not found |
 | 422 | Validation Error |
 
-# /V3/PROJECT_TEMPLATES/{PROJECTTEMPLATEID}/REQUISITIONS/{IDENTIFIER}
-## ***GET*** 
-
-**Summary:** Get a Requisition
-
-### HTTP Request 
-`***GET*** /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
-
-**Parameters**
-
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| projectTemplateId | path | Associated project_template group | Yes | string |
-| identifier | path | Requisition identifier | Yes | string |
-
-**Responses**
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | Requisition record |
-
-## ***PUT*** 
+## Put Requisition
 
 **Summary:** Update a Requisition
 
 ### HTTP Request 
-`***PUT*** /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+`PUT /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
 
 **Parameters**
 
@@ -172,12 +111,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Requisition record |
 
-## ***DELETE*** 
+## Archive Requisition
 
-**Summary:** Delete a Requisition
+**Summary:** Archive a Requisition
 
 ### HTTP Request 
-`***DELETE*** /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+`DELETE /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
 
 **Parameters**
 
@@ -192,13 +131,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Requisition deleted |
 
-# /V3/SALES_REPS
-## ***POST*** 
+# Sales Rep
+## Post Sales Rep
 
-**Summary:** Sales Rep
+**Summary:** Create a Sales Rep
 
 ### HTTP Request 
-`***POST*** /v3/sales_reps` 
+`POST /v3/sales_reps` 
 
 **Parameters**
 
@@ -212,12 +151,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Created Sales Rep Record |
 
-## ***GET*** 
+## Get Sales Reps
 
-**Summary:** Sales Rep
+**Summary:** Get All Sales Reps
 
 ### HTTP Request 
-`***GET*** /v3/sales_reps` 
+`GET /v3/sales_reps` 
 
 **Parameters**
 
@@ -234,14 +173,31 @@ LIMS+: logical sample tracking, document and training record management
 | Code | Description |
 | ---- | ----------- |
 | 200 | Get all Sales Reps |
+## Get Sales Rep 
 
-# /V3/SALES_REPS/{ID}
-## ***PUT*** 
-
-**Summary:** Sales Rep
+**Summary:** Get a Sales Rep
 
 ### HTTP Request 
-`***PUT*** /v3/sales_reps/{id}` 
+`GET /v3/sales_reps/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Rep ID | Yes | integer |
+| organizationId | query | Organization ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Sales Rep Record |
+## Put Sales Rep 
+
+**Summary:** Update a Sales Rep
+
+### HTTP Request 
+`PUT /v3/sales_reps/{id}` 
 
 **Parameters**
 
@@ -256,32 +212,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Updated Sales Rep Record |
 
-## ***GET*** 
+## Delete Sales Rep
 
-**Summary:** Sales Rep
-
-### HTTP Request 
-`***GET*** /v3/sales_reps/{id}` 
-
-**Parameters**
-
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Rep ID | Yes | integer |
-| organizationId | query | Organization ID | Yes | integer |
-
-**Responses**
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | Get Sales Rep Record |
-
-## ***DELETE*** 
-
-**Summary:** Delete Sales Rep
+**Summary:** Delete a Sales Rep
 
 ### HTTP Request 
-`***DELETE*** /v3/sales_reps/{id}` 
+`DELETE /v3/sales_reps/{id}` 
 
 **Parameters**
 
@@ -296,13 +232,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Sales Rep archived |
 
-# /V3/SALES_GROUPS
-## ***POST*** 
+# Sales Group
+## Post Sales Group 
 
-**Summary:** Sales Group
+**Summary:** Create a Sales Group
 
 ### HTTP Request 
-`***POST*** /v3/sales_groups` 
+`POST /v3/sales_groups` 
 
 **Parameters**
 
@@ -316,12 +252,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Created Sales Group Record |
 
-## ***GET*** 
+## Get Sales Groups
 
-**Summary:** Sales Group
+**Summary:** Get All Sales Groups
 
 ### HTTP Request 
-`***GET*** /v3/sales_groups` 
+`GET /v3/sales_groups` 
 
 **Parameters**
 
@@ -338,14 +274,12 @@ LIMS+: logical sample tracking, document and training record management
 | Code | Description |
 | ---- | ----------- |
 | 200 | Get all Sales Group |
+## Put Sales Group 
 
-# /V3/SALES_GROUPS/{ID}
-## ***PUT*** 
-
-**Summary:** Sales Group
+**Summary:** Update a Sales Group
 
 ### HTTP Request 
-`***PUT*** /v3/sales_groups/{id}` 
+`PUT /v3/sales_groups/{id}` 
 
 **Parameters**
 
@@ -360,12 +294,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Updated Sales Group Record |
 
-## ***GET*** 
+## Get Sales Group 
 
-**Summary:** Sales Groups
+**Summary:** Get a Sales Group
 
 ### HTTP Request 
-`***GET*** /v3/sales_groups/{id}` 
+`GET /v3/sales_groups/{id}` 
 
 **Parameters**
 
@@ -380,12 +314,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Get Sales Group Record |
 
-## ***DELETE*** 
+## Delete Sales Group 
 
-**Summary:** Delete Sales Group
+**Summary:** Delete a Sales Group
 
 ### HTTP Request 
-`***DELETE*** /v3/sales_groups/{id}` 
+`DELETE /v3/sales_groups/{id}` 
 
 **Parameters**
 
@@ -400,13 +334,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Sales Group archived |
 
-# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/WEBHOOK_ENDPOINTS
-## ***GET*** 
+# Webhook Endpoints
+## Get Webhook Endpoints 
 
-**Summary:** Get webhooks
+**Summary:** Get Webhook Endpoints
 
 ### HTTP Request 
-`***GET*** /v3/project_templates/{project_template_id}/webhook_endpoints` 
+`GET /v3/project_templates/{project_template_id}/webhook_endpoints` 
 
 **Parameters**
 
@@ -420,12 +354,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Webhook Endpoints |
 
-## ***POST*** 
+## Post Webhook Endpoint 
 
 **Summary:** Create a Webhook Endpoint
 
 ### HTTP Request 
-`***POST*** /v3/project_templates/{project_template_id}/webhook_endpoints` 
+`POST /v3/project_templates/{project_template_id}/webhook_endpoints` 
 
 **Parameters**
 
@@ -440,13 +374,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 201 | Created Webhook Endpoint |
 
-# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/WEBHOOK_ENDPOINTS/{ID}
-## ***GET*** 
+## Get Webhook Endpoint
 
-**Summary:** Get webhooks
+**Summary:** Get a Webhook Endpoint
 
 ### HTTP Request 
-`***GET*** /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+`GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
 
 **Parameters**
 
@@ -461,13 +394,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Webhook Endpoint |
 
-# /V3/WEBHOOK_ENDPOINT_EVENTS
-## ***GET*** 
+# Webhook Endpoint Events
+## Get Webhook Endpoint Events
 
-**Summary:** Get webhook endpoint events
+**Summary:** Get All Webhook Endpoint Events
 
 ### HTTP Request 
-`***GET*** /v3/webhook_endpoint_events` 
+`GET /v3/webhook_endpoint_events` 
 
 **Parameters**
 
@@ -490,13 +423,12 @@ LIMS+: logical sample tracking, document and training record management
 | 200 | Webhook Endpoint Events |
 | 422 | "param" not found |
 
-# /V3/WEBHOOK_ENDPOINT_EVENTS/RETRY_EVENTS
-## ***POST*** 
+## Retry Webhook Endpoint Events
 
 **Summary:** Retry webhook endpoint events
 
 ### HTTP Request 
-`***POST*** /v3/webhook_endpoint_events/retry_events` 
+`POST /v3/webhook_endpoint_events/retry_events` 
 
 **Parameters**
 
@@ -511,13 +443,13 @@ LIMS+: logical sample tracking, document and training record management
 | 200 | All webhook endpoint events successfully submitted. |
 | 422 | Error while trying to requeue Webhook Endpoint Events |
 
-# /V3/DOCUMENTS
-## ***GET*** 
+# Documents
+## Get Documents 
 
 **Summary:** Get all Documents for Project Template
 
 ### HTTP Request 
-`***GET*** /v3/documents` 
+`GET /v3/documents` 
 
 **Parameters**
 
@@ -538,12 +470,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | All documents for a Project Template |
 
-## ***POST*** 
+## Post Document 
 
 **Summary:** Create a new Document
 
 ### HTTP Request 
-`***POST*** /v3/documents` 
+`POST /v3/documents` 
 
 **Parameters**
 
@@ -557,13 +489,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Created Document |
 
-# /V3/WORKFLOW_DEFINITIONS
-## ***GET*** 
+# Workflow Definitions
+## Get Workflow Definitions
 
 **Summary:** Get all Workflow Definitions for an Organization
 
 ### HTTP Request 
-`***GET*** /v3/workflow_definitions` 
+`GET /v3/workflow_definitions` 
 
 **Parameters**
 
@@ -577,13 +509,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Get all Workflow Definitions for an Organization |
 
-# /V3/RESOURCES
-## ***POST*** 
+# Resources
+## Post Resource 
 
 **Summary:** Create a Resource
 
 ### HTTP Request 
-`***POST*** /v3/resources` 
+`POST /v3/resources` 
 
 **Parameters**
 
@@ -597,13 +529,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 201 | Resource record |
 
-# /V3/PROVIDER_ACCOUNTS
-## ***GET*** 
+# Provider Accounts
+## Get Provider Accounts
 
-**Summary:** Get Provider Accounts
+**Summary:** Get All Provider Accounts
 
 ### HTTP Request 
-`***GET*** /v3/provider_accounts` 
+`GET /v3/provider_accounts` 
 
 **Parameters**
 
@@ -622,12 +554,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Provider Accounts |
 
-## ***POST*** 
+## Post Provider Account
 
-**Summary:** Create Provider Account
+**Summary:** Create a Provider Account
 
 ### HTTP Request 
-`***POST*** /v3/provider_accounts` 
+`POST /v3/provider_accounts` 
 
 **Parameters**
 
@@ -641,13 +573,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Created Provider |
 
-# /V3/PROVIDER_ACCOUNTS/{ID}
-## ***GET*** 
+## Get Provider Account
 
-**Summary:** Get Provider Account
+**Summary:** Get a Provider Account
 
 ### HTTP Request 
-`***GET*** /v3/provider_accounts/{id}` 
+`GET /v3/provider_accounts/{id}` 
 
 **Parameters**
 
@@ -662,12 +593,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Provider record |
 
-## ***PUT*** 
+## Put Provider Account
 
-**Summary:** Update Provider
+**Summary:** Update a Provider Account
 
 ### HTTP Request 
-`***PUT*** /v3/provider_accounts/{id}` 
+`PUT /v3/provider_accounts/{id}` 
 
 **Parameters**
 
@@ -682,12 +613,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Provider record |
 
-## ***DELETE*** 
+## Delete Provider Account
 
-**Summary:** Delete Provider Account
+**Summary:** Delete a Provider Account
 
 ### HTTP Request 
-`***DELETE*** /v3/provider_accounts/{id}` 
+`DELETE /v3/provider_accounts/{id}` 
 
 **Parameters**
 
@@ -702,13 +633,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Provider Account archived |
 
-# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDER_ACCOUNT_CONTACTS
-## ***POST*** 
+# Provider Account Contacts
+## Post Provider Account Contact
 
 **Summary:** Create a Provider Account Contact
 
 ### HTTP Request 
-`***POST*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+`POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
 
 **Parameters**
 
@@ -723,12 +654,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Created Provider Account Contact |
 
-## ***GET*** 
+## Get Provider Account Contacts
 
-**Summary:** Get Provider Account Contacts
+**Summary:** Get a Provider Account Contacts
 
 ### HTTP Request 
-`***GET*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
 
 **Parameters**
 
@@ -746,13 +677,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Get Provider Account Contacts |
 
-# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDER_ACCOUNT_CONTACTS/{ID}
-## ***GET*** 
+## Get Provider Account Contact 
 
 **Summary:** Get a Provider Account Contact
 
 ### HTTP Request 
-`***GET*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
 
 **Parameters**
 
@@ -767,12 +697,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Got Provider Account Contact |
 
-## ***PUT*** 
+## Put Provider Account Contact 
 
 **Summary:** Update a Provider Account Contact
 
 ### HTTP Request 
-`***PUT*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+`PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
 
 **Parameters**
 
@@ -788,12 +718,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Created Provider Account Contact |
 
-## ***DELETE*** 
+## Delete Provider Account Contact
 
-**Summary:** Delete Provider Account Contact
+**Summary:** Delete a Provider Account Contact
 
 ### HTTP Request 
-`***DELETE*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+`DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
 
 **Parameters**
 
@@ -808,13 +738,13 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Provider Account Contact archived |
 
-# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDERS
-## ***GET*** 
+# Providers
+## Get Providers 
 
-**Summary:** Get Providers
+**Summary:** Get All Providers
 
 ### HTTP Request 
-`***GET*** /v3/provider_accounts/{providerAccountId}/providers` 
+`GET /v3/provider_accounts/{providerAccountId}/providers` 
 
 **Parameters**
 
@@ -833,12 +763,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Get Providers |
 
-## ***POST*** 
+## Post Provider 
 
-**Summary:** Create Provider
+**Summary:** Create a Provider
 
 ### HTTP Request 
-`***POST*** /v3/provider_accounts/{providerAccountId}/providers` 
+`POST /v3/provider_accounts/{providerAccountId}/providers` 
 
 **Parameters**
 
@@ -853,13 +783,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Provider record |
 
-# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDERS/{ID}
-## ***GET*** 
+## Get Provider
 
-**Summary:** Get Provider
+**Summary:** Get a Provider
 
 ### HTTP Request 
-`***GET*** /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+`GET /v3/provider_accounts/{providerAccountId}/providers/{id}` 
 
 **Parameters**
 
@@ -874,12 +803,12 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Get Provider |
 
-## ***DELETE*** 
+## Delete Provider
 
-**Summary:** Delete Provider
+**Summary:** Delete a Provider
 
 ### HTTP Request 
-`***DELETE*** /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+`DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}` 
 
 **Parameters**
 
@@ -893,3 +822,63 @@ LIMS+: logical sample tracking, document and training record management
 | Code | Description |
 | ---- | ----------- |
 | 200 | Provider archived |
+
+# Test Panels
+## Get All Test Panels
+
+**Summary:** Get available Test Panels
+
+### HTTP Request 
+`GET /v3/project_templates/{project_template_id}/test_panels` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Test Panels |
+
+# Sample Labels
+## Get All Sample Labels
+
+**Summary:** Get available sample labels
+
+### HTTP Request 
+`GET /v3/project_templates/{project_template_id}/sample_labels` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Sample Labels |
+
+# Project Templates
+## Get All Project Templates
+
+**Summary:** Get available project templates for a given organization
+
+### HTTP Request 
+`GET /v3/project_templates` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Associated organization | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Project Templates |
