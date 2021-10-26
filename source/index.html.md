@@ -1,245 +1,901 @@
----
-title: API Reference
+--- 
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
+title: Ovation for Service Labs 
 
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
+language_tabs: 
+   - shell 
 
-includes:
-  - errors
+toc_footers: 
+   - <a href='#'>Sign Up for a Developer Key</a> 
+   - <a href='https://github.com/lavkumarv'>Documentation Powered by lav</a> 
 
-search: true
+includes: 
+   - errors 
 
-code_clipboard: true
+search: true 
 
-meta:
-  - name: description
-    content: Documentation for the Kittn API
----
+--- 
 
-# Introduction
+# Introduction 
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+LIMS+: logical sample tracking, document and training record management 
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+**Version:** 1.0.0 
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Authentication 
 
-# Authentication
+|apiKey|*API Key*|
+|---|---| 
 
-> To authorize, use this code:
+# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/TEST_PANELS
+## ***GET*** 
 
-```ruby
-require 'kittn'
+**Summary:** Get available Test Panels
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+### HTTP Request 
+`***GET*** /v3/project_templates/{project_template_id}/test_panels` 
 
-```python
-import kittn
+**Parameters**
 
-api = kittn.authorize('meowmeowmeow')
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here" \
-  -H "Authorization: meowmeowmeow"
-```
+**Responses**
 
-```javascript
-const kittn = require('kittn');
+| Code | Description |
+| ---- | ----------- |
+| 200 | Test Panels |
 
-let api = kittn.authorize('meowmeowmeow');
-```
+# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/SAMPLE_LABELS
+## ***GET*** 
 
-> Make sure to replace `meowmeowmeow` with your API key.
+**Summary:** Get available sample labels
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+### HTTP Request 
+`***GET*** /v3/project_templates/{project_template_id}/sample_labels` 
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+**Parameters**
 
-`Authorization: meowmeowmeow`
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+**Responses**
 
-# Kittens
+| Code | Description |
+| ---- | ----------- |
+| 200 | Sample Labels |
 
-## Get All Kittens
+# /V3/PROJECT_TEMPLATES
+## ***GET*** 
 
-```ruby
-require 'kittn'
+**Summary:** Get available project templates for a given organization
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+### HTTP Request 
+`***GET*** /v3/project_templates` 
 
-```python
-import kittn
+**Parameters**
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Associated organization | Yes | string |
 
-```shell
-curl "http://example.com/api/kittens" \
-  -H "Authorization: meowmeowmeow"
-```
+**Responses**
 
-```javascript
-const kittn = require('kittn');
+| Code | Description |
+| ---- | ----------- |
+| 200 | Project Templates |
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+# /V3/PROJECT_TEMPLATES/{PROJECTTEMPLATEID}/REQUISITIONS
+## ***GET*** 
 
-> The above command returns JSON structured like this:
+**Summary:** Get a Requisition
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+### HTTP Request 
+`***GET*** /v3/project_templates/{projectTemplateId}/requisitions` 
 
-This endpoint retrieves all kittens.
+**Parameters**
 
-### HTTP Request
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| startDate | query | Filters documents created_at starting from this date. | Yes | string |
+| endDate | query | Filters requisitions created_at ending on this date. | Yes | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
 
-`GET http://example.com/api/kittens`
+**Responses**
 
-### Query Parameters
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition record |
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+## ***POST*** 
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+**Summary:** Create a new Requisition
 
-## Get a Specific Kitten
+### HTTP Request 
+`***POST*** /v3/project_templates/{projectTemplateId}/requisitions` 
 
-```ruby
-require 'kittn'
+**Parameters**
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| body | body | Requisition record | Yes |  |
 
-```python
-import kittn
+**Responses**
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+| Code | Description |
+| ---- | ----------- |
+| 201 | Created Requisition |
+| 401 | Authentication Error |
+| 404 | Project Template ID not found |
+| 422 | Validation Error |
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -H "Authorization: meowmeowmeow"
-```
+# /V3/PROJECT_TEMPLATES/{PROJECTTEMPLATEID}/REQUISITIONS/{IDENTIFIER}
+## ***GET*** 
 
-```javascript
-const kittn = require('kittn');
+**Summary:** Get a Requisition
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
+### HTTP Request 
+`***GET*** /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
 
-> The above command returns JSON structured like this:
+**Parameters**
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| identifier | path | Requisition identifier | Yes | string |
 
-This endpoint retrieves a specific kitten.
+**Responses**
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition record |
 
-### HTTP Request
+## ***PUT*** 
 
-`GET http://example.com/kittens/<ID>`
+**Summary:** Update a Requisition
 
-### URL Parameters
+### HTTP Request 
+`***PUT*** /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+**Parameters**
 
-## Delete a Specific Kitten
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| identifier | path | Requisition identifier | Yes | string |
+| body | body | Requisition record | Yes |  |
 
-```ruby
-require 'kittn'
+**Responses**
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition record |
 
-```python
-import kittn
+## ***DELETE*** 
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+**Summary:** Delete a Requisition
 
-```shell
-curl "http://example.com/api/kittens/2" \
-  -X DELETE \
-  -H "Authorization: meowmeowmeow"
-```
+### HTTP Request 
+`***DELETE*** /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
 
-```javascript
-const kittn = require('kittn');
+**Parameters**
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| identifier | path | Requisition identifier | Yes | string |
 
-> The above command returns JSON structured like this:
+**Responses**
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition deleted |
 
-This endpoint deletes a specific kitten.
+# /V3/SALES_REPS
+## ***POST*** 
 
-### HTTP Request
+**Summary:** Sales Rep
 
-`DELETE http://example.com/kittens/<ID>`
+### HTTP Request 
+`***POST*** /v3/sales_reps` 
 
-### URL Parameters
+**Parameters**
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Sales Rep Record | Yes |  |
 
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Sales Rep Record |
+
+## ***GET*** 
+
+**Summary:** Sales Rep
+
+### HTTP Request 
+`***GET*** /v3/sales_reps` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization ID | Yes | integer |
+| sales_group_id | query | Sales Group ID | No | integer |
+| email | query | Sales Group Email | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get all Sales Reps |
+
+# /V3/SALES_REPS/{ID}
+## ***PUT*** 
+
+**Summary:** Sales Rep
+
+### HTTP Request 
+`***PUT*** /v3/sales_reps/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Rep ID | Yes | integer |
+| body | body | Sales Rep Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Updated Sales Rep Record |
+
+## ***GET*** 
+
+**Summary:** Sales Rep
+
+### HTTP Request 
+`***GET*** /v3/sales_reps/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Rep ID | Yes | integer |
+| organizationId | query | Organization ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Sales Rep Record |
+
+## ***DELETE*** 
+
+**Summary:** Delete Sales Rep
+
+### HTTP Request 
+`***DELETE*** /v3/sales_reps/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Rep ID | Yes | integer |
+| organizationId | query | Organization ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Sales Rep archived |
+
+# /V3/SALES_GROUPS
+## ***POST*** 
+
+**Summary:** Sales Group
+
+### HTTP Request 
+`***POST*** /v3/sales_groups` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Sales Group Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Sales Group Record |
+
+## ***GET*** 
+
+**Summary:** Sales Group
+
+### HTTP Request 
+`***GET*** /v3/sales_groups` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization id | Yes | integer |
+| name | query | Sales Group Name. | No | string |
+| parentId | query | Sales Group Parent ID. | No | integer |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get all Sales Group |
+
+# /V3/SALES_GROUPS/{ID}
+## ***PUT*** 
+
+**Summary:** Sales Group
+
+### HTTP Request 
+`***PUT*** /v3/sales_groups/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Group id | Yes | integer |
+| body | body | Sales Group Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Updated Sales Group Record |
+
+## ***GET*** 
+
+**Summary:** Sales Groups
+
+### HTTP Request 
+`***GET*** /v3/sales_groups/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Group id | Yes | integer |
+| organizationId | query | Organization id | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Sales Group Record |
+
+## ***DELETE*** 
+
+**Summary:** Delete Sales Group
+
+### HTTP Request 
+`***DELETE*** /v3/sales_groups/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Group id | Yes | integer |
+| organizationId | query | Organization id | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Sales Group archived |
+
+# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/WEBHOOK_ENDPOINTS
+## ***GET*** 
+
+**Summary:** Get webhooks
+
+### HTTP Request 
+`***GET*** /v3/project_templates/{project_template_id}/webhook_endpoints` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoints |
+
+## ***POST*** 
+
+**Summary:** Create a Webhook Endpoint
+
+### HTTP Request 
+`***POST*** /v3/project_templates/{project_template_id}/webhook_endpoints` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+| body | body | Webhook Endpoint Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 201 | Created Webhook Endpoint |
+
+# /V3/PROJECT_TEMPLATES/{PROJECT_TEMPLATE_ID}/WEBHOOK_ENDPOINTS/{ID}
+## ***GET*** 
+
+**Summary:** Get webhooks
+
+### HTTP Request 
+`***GET*** /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+| id | path |  | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoint |
+
+# /V3/WEBHOOK_ENDPOINT_EVENTS
+## ***GET*** 
+
+**Summary:** Get webhook endpoint events
+
+### HTTP Request 
+`***GET*** /v3/webhook_endpoint_events` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization ID | Yes | integer |
+| project_template_ids | query | Project Template Ids | No | array |
+| webhook_endpoint_ids | query | Webhook Endpoint Ids | No | array |
+| event_type | query | Type of event. | No | string |
+| event_status | query | Status of event. | No | string |
+| start_date | query | Beginning date to query data. | No | string |
+| end_date | query | End date to query data. | No | string |
+| per_page | query | Results per page. Max 1000 | No | integer |
+| page | query | Page of results. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoint Events |
+| 422 | "param" not found |
+
+# /V3/WEBHOOK_ENDPOINT_EVENTS/RETRY_EVENTS
+## ***POST*** 
+
+**Summary:** Retry webhook endpoint events
+
+### HTTP Request 
+`***POST*** /v3/webhook_endpoint_events/retry_events` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Sales Group Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | All webhook endpoint events successfully submitted. |
+| 422 | Error while trying to requeue Webhook Endpoint Events |
+
+# /V3/DOCUMENTS
+## ***GET*** 
+
+**Summary:** Get all Documents for Project Template
+
+### HTTP Request 
+`***GET*** /v3/documents` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | query | Filters documents by project template. | Yes | integer |
+| requisitionIdentifier | query | Filters documents for specific Requisition Identifier | No | string |
+| requisitionId | query | Filters documents for specific Requisition ID | No | integer |
+| folderName | query | Filters documents by folder name. | No | string |
+| startDate | query | Filters documents created_at starting from this date. | Yes | string |
+| endDate | query | Filters documents created_at ending from this date. | Yes | string |
+| page | query | Page number being requested. | No | integer |
+| perPage | query | Number of documents to return per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | All documents for a Project Template |
+
+## ***POST*** 
+
+**Summary:** Create a new Document
+
+### HTTP Request 
+`***POST*** /v3/documents` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Document record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Document |
+
+# /V3/WORKFLOW_DEFINITIONS
+## ***GET*** 
+
+**Summary:** Get all Workflow Definitions for an Organization
+
+### HTTP Request 
+`***GET*** /v3/workflow_definitions` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Filters workflow definitions by organization. | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get all Workflow Definitions for an Organization |
+
+# /V3/RESOURCES
+## ***POST*** 
+
+**Summary:** Create a Resource
+
+### HTTP Request 
+`***POST*** /v3/resources` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Resource record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 201 | Resource record |
+
+# /V3/PROVIDER_ACCOUNTS
+## ***GET*** 
+
+**Summary:** Get Provider Accounts
+
+### HTTP Request 
+`***GET*** /v3/provider_accounts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization ID | Yes | integer |
+| name | query | Provider Account Name | No | string |
+| externalIdentifier | query | Provider Account External Identifier. | No | string |
+| accountNumber | query | Provider Account Number | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider Accounts |
+
+## ***POST*** 
+
+**Summary:** Create Provider Account
+
+### HTTP Request 
+`***POST*** /v3/provider_accounts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Provider Account record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Provider |
+
+# /V3/PROVIDER_ACCOUNTS/{ID}
+## ***GET*** 
+
+**Summary:** Get Provider Account
+
+### HTTP Request 
+`***GET*** /v3/provider_accounts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Account ID | Yes | integer |
+| organizationId | query | OrganizationId | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider record |
+
+## ***PUT*** 
+
+**Summary:** Update Provider
+
+### HTTP Request 
+`***PUT*** /v3/provider_accounts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Account ID | Yes | integer |
+| body | body | Provider Account record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider record |
+
+## ***DELETE*** 
+
+**Summary:** Delete Provider Account
+
+### HTTP Request 
+`***DELETE*** /v3/provider_accounts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Provider Account ID | Yes | integer |
+| organizationId | query | Organization ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider Account archived |
+
+# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDER_ACCOUNT_CONTACTS
+## ***POST*** 
+
+**Summary:** Create a Provider Account Contact
+
+### HTTP Request 
+`***POST*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| body | body | Provider Account Contact record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Provider Account Contact |
+
+## ***GET*** 
+
+**Summary:** Get Provider Account Contacts
+
+### HTTP Request 
+`***GET*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| externalIdentifier | query | Provider Account Contact External ID. | No | string |
+| name | query | Provider Account Contact Email. | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Provider Account Contacts |
+
+# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDER_ACCOUNT_CONTACTS/{ID}
+## ***GET*** 
+
+**Summary:** Get a Provider Account Contact
+
+### HTTP Request 
+`***GET*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| id | path | Provider Account Contact ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Got Provider Account Contact |
+
+## ***PUT*** 
+
+**Summary:** Update a Provider Account Contact
+
+### HTTP Request 
+`***PUT*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| id | path | Provider Account Contact ID | Yes | integer |
+| body | body | Provider Account Contact record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Provider Account Contact |
+
+## ***DELETE*** 
+
+**Summary:** Delete Provider Account Contact
+
+### HTTP Request 
+`***DELETE*** /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| id | path | Provider Account Contact ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider Account Contact archived |
+
+# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDERS
+## ***GET*** 
+
+**Summary:** Get Providers
+
+### HTTP Request 
+`***GET*** /v3/provider_accounts/{providerAccountId}/providers` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| registryIdentifier | query | Provider Registry Identifier. | No | string |
+| licensingRegistry | query | Provider Licensing Identifier | No | string |
+| name | query | Provider Name | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Providers |
+
+## ***POST*** 
+
+**Summary:** Create Provider
+
+### HTTP Request 
+`***POST*** /v3/provider_accounts/{providerAccountId}/providers` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| body | body | Provider record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider record |
+
+# /V3/PROVIDER_ACCOUNTS/{PROVIDERACCOUNTID}/PROVIDERS/{ID}
+## ***GET*** 
+
+**Summary:** Get Provider
+
+### HTTP Request 
+`***GET*** /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| id | path | Provider ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Provider |
+
+## ***DELETE*** 
+
+**Summary:** Delete Provider
+
+### HTTP Request 
+`***DELETE*** /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| id | path | Provider ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider archived |
+
+<!-- Converted with the swagger-to-slate https://github.com/lavkumarv/swagger-to-slate -->
