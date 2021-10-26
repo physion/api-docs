@@ -6,8 +6,8 @@ language_tabs:
    - shell
    - ruby
 
-includes: 
-   - errors 
+# includes: 
+#    - errors 
 
 search: true 
 
