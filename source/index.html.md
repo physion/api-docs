@@ -5,8 +5,6 @@ title: Ovation API Reference
 language_tabs: 
    - shell
    - ruby
-   - python
-   - javascript
 
 includes: 
    - errors 
@@ -30,6 +28,40 @@ LIMS+: logical sample tracking, document and training record management
 
 **Summary:** Get Requisitions
 
+```json
+{
+  "requisitions": [
+    {
+      "identifier": "string",
+      "templateId": 0,
+      "status": "processing",
+      "accession_status": "incomplete",
+      "processing_status": "unprocessed",
+      "reporting_status": "not-started",
+      "billing_status": "not-submitted",
+      "createdAt": "date string",
+      "updatedAt": "date string"
+    },
+    {
+      "identifier": "string",
+      "templateId": 0,
+      "status": "processing",
+      "accession_status": "incomplete",
+      "processing_status": "unprocessed",
+      "reporting_status": "not-started",
+      "billing_status": "not-submitted",
+      "createdAt": "date string",
+      "updatedAt": "date string"
+    }
+  ],
+    "meta": {
+        "currentPage": 1,
+        "perPage": 5000,
+        "totalEntries": 2
+    }
+}
+```
+
 ### HTTP Request 
 `GET /v3/project_templates/{projectTemplateId}/requisitions` 
 
@@ -51,6 +83,137 @@ LIMS+: logical sample tracking, document and training record management
 ## Get Requisition
 
 **Summary:** Get a Requisition
+
+```json
+{
+  "requisition": {
+    "identifier": "string",
+    "requestedTests": [{
+      "panelCode": "string",
+      "tests": [{
+        "testCode": "string"
+      }]
+    }],
+    "diagnosis": [
+      "string"
+    ],
+    "medications": [{
+      "rxcui": "string",
+      "name": "string"
+    }],
+    "sampleType": "string",
+    "sampleCollectionDate": "string",
+    "status": "processing",
+    "accession_status": "incomplete",
+    "processing_status": "unprocessed",
+    "reporting_status": "not-started",
+    "billing_status": "not-submitted",
+    "orderNotes": "string",
+    "customAttributes": {},
+    "legacyMedications": [],
+    "test": "boolean",
+    "projectName": "string",
+    "projectTemplateId": "integer",
+    "template": "string",
+    "enteredBy": {
+      "name": "string",
+      "email": "string"
+    },
+    "heldReasons": [],
+    "patient": {
+      "identifier": "string",
+      "mrn": "string",
+      "lastName": "string",
+      "middleName": "string",
+      "firstName": "string",
+      "streetAddress": "string",
+      "streetAddressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "dateOfBirth": "string",
+      "phoneNumber": "string",
+      "email": "string",
+      "gender": "M",
+      "height": "string",
+      "weight": "integer",
+      "race": "string",
+      "ethnicity": "string",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    },
+    "providerAccount": {
+      "name": "string",
+      "accountNumber": "string"
+    },
+    "physician": {
+      "npi": "string"
+    },
+    "billingInformation": {
+      "billTo": "Medicare",
+      "memberId": "string",
+      "name": "string",
+      "email": "string",
+      "phoneNumber": "string",
+      "state": "string",
+      "city": "string",
+      "street": "string",
+      "zip": "string",
+      "insuranceInformations": [{
+        "subscriberNumber": "string",
+        "idNumber": "string",
+        "groupNumber": "string",
+        "nameOfPersonInsured": "string",
+        "relationshipToInsured": "string",
+        "otherRelationshipToInsured": "string",
+        "dobOfInsured": "string",
+        "insuranceType": "Primary",
+        "insuranceProviderName": "string",
+        "reimbursementEligibilityVerified": true,
+        "preAuthorization": {
+          "authorizationNumber": "string",
+          "numTests": 0,
+          "effectiveStartDate": "string",
+          "effectiveEndDate": "string",
+          "contactName": "string",
+          "contactPhoneNumber": "string"
+        }
+      }]
+    },
+    "samples": [{
+      "identifier": "string",
+      "containerType": "Tube",
+      "containerBarcodeLabel": "string",
+      "position": "string",
+      "label": "string",
+      "dateReceived": "string",
+      "collectionDateTime": "string",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    }],
+    "reports": [{
+      "status": "sent-for-generation",
+      "documentName": "string",
+      "sampleIdentifier": "string",
+      "displayName": "string",
+      "downloadLink": "string",
+      "createdDate": "string",
+      "sampleTatHours": "integer",
+      "signedBy": [{
+        "name": "string",
+        "email": "string",
+        "signedDateTime": "string"
+      }],
+      "workflowId": "integer",
+      "workflowName": "string"
+    }]
+  }
+}
+```
 
 ### HTTP Request 
 `GET /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
@@ -131,7 +294,7 @@ LIMS+: logical sample tracking, document and training record management
 | ---- | ----------- |
 | 200 | Requisition deleted |
 
-# Sales Rep
+# Sales Reps
 ## Post Sales Rep
 
 **Summary:** Create a Sales Rep
@@ -378,6 +541,18 @@ LIMS+: logical sample tracking, document and training record management
 
 **Summary:** Get a Webhook Endpoint
 
+```json
+{
+    "webhook_endpoint": {
+        "id": 1,
+        "target_url": "http://api.test.com/",
+        "event": "report_signed",
+        "username": "test",
+        "project_requisition_template_association_id": 1
+    }
+}
+```
+
 ### HTTP Request 
 `GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
 
@@ -401,6 +576,40 @@ LIMS+: logical sample tracking, document and training record management
 
 ### HTTP Request 
 `GET /v3/webhook_endpoint_events` 
+
+```json
+{
+  "webhook_endpoints": [{
+    "id": 1,
+    "target_url": "https://test.api.com",
+    "event": "report_signed",
+    "username": "user",
+    "project_requisition_template_association_id": 5
+  }],
+  "webhook_endpoint_events": [{
+    "id": 111,
+    "status": "send-failed",
+    "eventType": "report_signed",
+    "lastSentAt": "datetime",
+    "responseMsg": {},
+    "requisitionIdentifier": "string",
+    "webhook_endpoint_id": 1
+  }, {
+    "id": 112,
+    "status": "pending",
+    "eventType": "report_signed",
+    "lastSentAt": null,
+    "responseMsg": null,
+    "requisitionIdentifier": "string",
+    "webhook_endpoint_id": 1
+  }],
+  "meta": {
+    "currentPage": 1,
+    "perPage": 1000,
+    "totalEntries": 2
+  }
+}
+```
 
 **Parameters**
 
@@ -447,6 +656,36 @@ LIMS+: logical sample tracking, document and training record management
 ## Get Documents 
 
 **Summary:** Get all Documents for Project Template
+
+```json
+{
+    "documents": [
+        {
+            "id": 1,
+            "name": "test1.pdf",
+            "requisitionId": 10,
+            "requisitionIdentifier": "REQ-1",
+            "downloadLink": "https://...",
+            "createdAt": "2021-01-25T22:06:21.000Z",
+            "uploadLink": null
+        },
+        {
+            "id": 2,
+            "name": "test2.pdf",
+            "requisitionId": 11,
+            "requisitionIdentifier": "REQ-2",
+            "downloadLink": "https://...",
+            "createdAt": "2021-01-25T22:06:21.000Z",
+            "uploadLink": null
+        }
+    ],
+    "meta": {
+        "currentPage": 1,
+        "perPage": 5000,
+        "totalEntries": 11
+    }
+}
+```
 
 ### HTTP Request 
 `GET /v3/documents` 
@@ -496,6 +735,21 @@ LIMS+: logical sample tracking, document and training record management
 
 ### HTTP Request 
 `GET /v3/workflow_definitions` 
+
+```json
+{
+  "workflow_definitions": [
+      {
+          "id": 1,
+          "name": "Covid"
+      },
+      {
+          "id": 2,
+          "name": "PGx"
+      }
+  ]
+}
+```
 
 **Parameters**
 
@@ -870,6 +1124,23 @@ LIMS+: logical sample tracking, document and training record management
 
 ### HTTP Request 
 `GET /v3/project_templates` 
+
+```json
+{
+  "project_templates": [
+      {
+          "id": 1,
+          "projectName": "Covid",
+          "templateName": "Covid form 1"
+      },
+      {
+          "id": 2,
+          "projectName": "PGx",
+          "templateName": "PGx form 1"
+      }
+  ]
+}
+```
 
 **Parameters**
 
