@@ -1,0 +1,270 @@
+# Requisitions
+## Get Requisitions 
+
+**Summary:** Get Requisitions
+
+```json
+{
+  "requisitions": [
+    {
+      "identifier": "string",
+      "templateId": 0,
+      "status": "processing",
+      "accession_status": "incomplete",
+      "processing_status": "unprocessed",
+      "reporting_status": "not-started",
+      "billing_status": "not-submitted",
+      "createdAt": "date string",
+      "updatedAt": "date string"
+    },
+    {
+      "identifier": "string",
+      "templateId": 0,
+      "status": "processing",
+      "accession_status": "incomplete",
+      "processing_status": "unprocessed",
+      "reporting_status": "not-started",
+      "billing_status": "not-submitted",
+      "createdAt": "date string",
+      "updatedAt": "date string"
+    }
+  ],
+    "meta": {
+        "currentPage": 1,
+        "perPage": 5000,
+        "totalEntries": 2
+    }
+}
+```
+
+### HTTP Request 
+`GET /v3/project_templates/{projectTemplateId}/requisitions` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| startDate | query | Filters documents created_at starting from this date. | Yes | string |
+| endDate | query | Filters requisitions created_at ending on this date. | Yes | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition record |
+## Get Requisition
+
+**Summary:** Get a Requisition
+
+```json
+{
+  "requisition": {
+    "identifier": "string",
+    "requestedTests": [{
+      "panelCode": "string",
+      "tests": [{
+        "testCode": "string"
+      }]
+    }],
+    "diagnosis": [
+      "string"
+    ],
+    "medications": [{
+      "rxcui": "string",
+      "name": "string"
+    }],
+    "sampleType": "string",
+    "sampleCollectionDate": "string",
+    "status": "processing",
+    "accession_status": "incomplete",
+    "processing_status": "unprocessed",
+    "reporting_status": "not-started",
+    "billing_status": "not-submitted",
+    "orderNotes": "string",
+    "customAttributes": {},
+    "legacyMedications": [],
+    "test": "boolean",
+    "projectName": "string",
+    "projectTemplateId": "integer",
+    "template": "string",
+    "enteredBy": {
+      "name": "string",
+      "email": "string"
+    },
+    "heldReasons": [],
+    "patient": {
+      "identifier": "string",
+      "mrn": "string",
+      "lastName": "string",
+      "middleName": "string",
+      "firstName": "string",
+      "streetAddress": "string",
+      "streetAddressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "dateOfBirth": "string",
+      "phoneNumber": "string",
+      "email": "string",
+      "gender": "M",
+      "height": "string",
+      "weight": "integer",
+      "race": "string",
+      "ethnicity": "string",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    },
+    "providerAccount": {
+      "name": "string",
+      "accountNumber": "string"
+    },
+    "physician": {
+      "npi": "string"
+    },
+    "billingInformation": {
+      "billTo": "Medicare",
+      "memberId": "string",
+      "name": "string",
+      "email": "string",
+      "phoneNumber": "string",
+      "state": "string",
+      "city": "string",
+      "street": "string",
+      "zip": "string",
+      "insuranceInformations": [{
+        "subscriberNumber": "string",
+        "idNumber": "string",
+        "groupNumber": "string",
+        "nameOfPersonInsured": "string",
+        "relationshipToInsured": "string",
+        "otherRelationshipToInsured": "string",
+        "dobOfInsured": "string",
+        "insuranceType": "Primary",
+        "insuranceProviderName": "string",
+        "reimbursementEligibilityVerified": true,
+        "preAuthorization": {
+          "authorizationNumber": "string",
+          "numTests": 0,
+          "effectiveStartDate": "string",
+          "effectiveEndDate": "string",
+          "contactName": "string",
+          "contactPhoneNumber": "string"
+        }
+      }]
+    },
+    "samples": [{
+      "identifier": "string",
+      "containerType": "Tube",
+      "containerBarcodeLabel": "string",
+      "position": "string",
+      "label": "string",
+      "dateReceived": "string",
+      "collectionDateTime": "string",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    }],
+    "reports": [{
+      "status": "sent-for-generation",
+      "documentName": "string",
+      "sampleIdentifier": "string",
+      "displayName": "string",
+      "downloadLink": "string",
+      "createdDate": "string",
+      "sampleTatHours": "integer",
+      "signedBy": [{
+        "name": "string",
+        "email": "string",
+        "signedDateTime": "string"
+      }],
+      "workflowId": "integer",
+      "workflowName": "string"
+    }]
+  }
+}
+```
+
+### HTTP Request 
+`GET /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| identifier | path | Requisition identifier | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition record |
+## Post Requisition
+
+**Summary:** Create a new Requisition
+
+### HTTP Request 
+`POST /v3/project_templates/{projectTemplateId}/requisitions` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| body | body | Requisition record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 201 | Created Requisition |
+| 401 | Authentication Error |
+| 404 | Project Template ID not found |
+| 422 | Validation Error |
+
+## Put Requisition
+
+**Summary:** Update a Requisition
+
+### HTTP Request 
+`PUT /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| identifier | path | Requisition identifier | Yes | string |
+| body | body | Requisition record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition record |
+
+## Archive Requisition
+
+**Summary:** Archive a Requisition
+
+### HTTP Request 
+`DELETE /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | path | Associated project_template group | Yes | string |
+| identifier | path | Requisition identifier | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Requisition deleted |

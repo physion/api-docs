@@ -1,0 +1,100 @@
+# Sales Reps
+## Post Sales Rep
+
+**Summary:** Create a Sales Rep
+
+### HTTP Request 
+`POST /v3/sales_reps` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Sales Rep Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Sales Rep Record |
+
+## Get Sales Reps
+
+**Summary:** Get All Sales Reps
+
+### HTTP Request 
+`GET /v3/sales_reps` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization ID | Yes | integer |
+| sales_group_id | query | Sales Group ID | No | integer |
+| email | query | Sales Group Email | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get all Sales Reps |
+## Get Sales Rep 
+
+**Summary:** Get a Sales Rep
+
+### HTTP Request 
+`GET /v3/sales_reps/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Rep ID | Yes | integer |
+| organizationId | query | Organization ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Sales Rep Record |
+## Put Sales Rep 
+
+**Summary:** Update a Sales Rep
+
+### HTTP Request 
+`PUT /v3/sales_reps/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Rep ID | Yes | integer |
+| body | body | Sales Rep Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Updated Sales Rep Record |
+
+## Delete Sales Rep
+
+**Summary:** Delete a Sales Rep
+
+### HTTP Request 
+`DELETE /v3/sales_reps/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Rep ID | Yes | integer |
+| organizationId | query | Organization ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Sales Rep archived |
