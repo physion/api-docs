@@ -282,7 +282,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-0e56eadd.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
@@ -299,7 +299,7 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-b1814057.png" class="logo" alt="" />
+      <img src="images/ov-logo-63df0128.png" class="logo center-img" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="ruby">ruby</a>
               <a href="#" data-language-name="json-doc">payload</a>
@@ -344,26 +344,6 @@
               </ul>
           </li>
           <li>
-            <a href="#provider-accounts" class="toc-h1 toc-link" data-title="Provider Accounts">Provider Accounts</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-provider-accounts" class="toc-h2 toc-link" data-title="Get Provider Accounts">Get Provider Accounts</a>
-                  </li>
-                  <li>
-                    <a href="#post-provider-account" class="toc-h2 toc-link" data-title="Post Provider Account">Post Provider Account</a>
-                  </li>
-                  <li>
-                    <a href="#get-provider-account" class="toc-h2 toc-link" data-title="Get Provider Account">Get Provider Account</a>
-                  </li>
-                  <li>
-                    <a href="#put-provider-account" class="toc-h2 toc-link" data-title="Put Provider Account">Put Provider Account</a>
-                  </li>
-                  <li>
-                    <a href="#delete-provider-account" class="toc-h2 toc-link" data-title="Delete Provider Account">Delete Provider Account</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#provider-account-contacts" class="toc-h1 toc-link" data-title="Provider Account Contacts">Provider Account Contacts</a>
               <ul class="toc-list-h2">
                   <li>
@@ -380,6 +360,26 @@
                   </li>
                   <li>
                     <a href="#delete-provider-account-contact" class="toc-h2 toc-link" data-title="Delete Provider Account Contact">Delete Provider Account Contact</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#provider-accounts" class="toc-h1 toc-link" data-title="Provider Accounts">Provider Accounts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-provider-accounts" class="toc-h2 toc-link" data-title="Get Provider Accounts">Get Provider Accounts</a>
+                  </li>
+                  <li>
+                    <a href="#post-provider-account" class="toc-h2 toc-link" data-title="Post Provider Account">Post Provider Account</a>
+                  </li>
+                  <li>
+                    <a href="#get-provider-account" class="toc-h2 toc-link" data-title="Get Provider Account">Get Provider Account</a>
+                  </li>
+                  <li>
+                    <a href="#put-provider-account" class="toc-h2 toc-link" data-title="Put Provider Account">Put Provider Account</a>
+                  </li>
+                  <li>
+                    <a href="#delete-provider-account" class="toc-h2 toc-link" data-title="Delete Provider Account">Delete Provider Account</a>
                   </li>
               </ul>
           </li>
@@ -493,6 +493,17 @@
               </ul>
           </li>
           <li>
+            <a href="#webhook-endpoint-events" class="toc-h1 toc-link" data-title="Webhook Endpoint Events">Webhook Endpoint Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Get Webhook Endpoint Events">Get Webhook Endpoint Events</a>
+                  </li>
+                  <li>
+                    <a href="#retry-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Retry Webhook Endpoint Events">Retry Webhook Endpoint Events</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#webhook-endpoints" class="toc-h1 toc-link" data-title="Webhook Endpoints">Webhook Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
@@ -506,17 +517,6 @@
                   </li>
                   <li>
                     <a href="#put-webhook-endpoint" class="toc-h2 toc-link" data-title="Put Webhook Endpoint">Put Webhook Endpoint</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#webhook-endpoint-events" class="toc-h1 toc-link" data-title="Webhook Endpoint Events">Webhook Endpoint Events</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Get Webhook Endpoint Events">Get Webhook Endpoint Events</a>
-                  </li>
-                  <li>
-                    <a href="#retry-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Retry Webhook Endpoint Events">Retry Webhook Endpoint Events</a>
                   </li>
               </ul>
           </li>
@@ -539,6 +539,7 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
+          %>
         <h1 id='introduction'>Introduction</h1>
 <p>LIMS+: logical sample tracking, document and training record management </p>
 
@@ -551,65 +552,72 @@
 </tr>
 </thead><tbody>
 </tbody></table>
-
-<p><h1 id='admin-reports'>Admin Reports</h1><h2 id='get-workflow-qc-report'>Get Workflow QC Report</h2>
+<h1 id='admin-reports'>Admin Reports</h1><h2 id='get-workflow-qc-report'>Get Workflow QC Report</h2>
 <p><strong>Summary:</strong> Get all Workflows and related data</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/admin_reports</code> </p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;workflows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"workflows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">[{</span><span class="w">
-        </span><span class="nl">&quot;Workflow Batch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-1&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Workflow Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Workflow Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Requisition ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-req-1&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Sample ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-sample-1&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Collection Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Received Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Overall Test Result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Previous Workflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch Creation&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 1 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 1 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:20 AM&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch plating&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 2 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 2 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:25 AM&quot;</span><span class="w">
+        </span><span class="nl">"Workflow Batch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Workflow Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Workflow Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Requisition ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-req-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sample ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-sample-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Collection Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Received Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Overall Test Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Previous Workflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batch Creation"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 1 Submitted By"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test User"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 1 Submitted Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 11:20 AM"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batch plating"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 2 Submitted By"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test User"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 2 Submitted Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 11:25 AM"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">&quot;Workflow Batch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-1&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Workflow Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Workflow Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Requisition ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-req-2&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Sample ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-sample-2&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Collection Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Received Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Overall Test Result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Previous Workflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch Creation&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 1 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 1 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:20 AM&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch plating&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 2 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;Activity 2 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:25 AM&quot;</span><span class="w">
+        </span><span class="nl">"Workflow Batch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Workflow Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Workflow Status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"completed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Requisition ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-req-2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Sample ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-sample-2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Collection Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Received Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Control"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Overall Test Result"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Previous Workflow"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batch Creation"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 1 Submitted By"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test User"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 1 Submitted Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 11:20 AM"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Batch plating"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 2 Submitted By"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test User"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"Activity 2 Submitted Date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01/01/2020 11:25 AM"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
-<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/admin_reports?type=workflow_report&amp;startDate=2022-01-01&amp;endDate=2022-01-12&amp;workflowDefinitionId=1&amp;perPage=10&amp;page=1&amp;workflowDefinitionId=1&quot;</span><span class="p">)</span></p>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/admin_reports?type=workflow_report&amp;startDate=2022-01-01&amp;endDate=2022-01-12&amp;workflowDefinitionId=1&amp;perPage=10&amp;page=1&amp;workflowDefinitionId=1"</span><span class="p">)</span>
 
-<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span></p>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
 
-<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div>
-<p><strong>Parameters</strong></p></p>
+<p><strong>Parameters</strong></p>
 
 <table><thead>
 <tr>
@@ -677,63 +685,62 @@
 <td>Get all Workflow Definitions for an Organization</td>
 </tr>
 </tbody></table>
-
-<p><h1 id='documents'>Documents</h1><h2 id='get-documents'>Get Documents</h2>
+<h1 id='documents'>Documents</h1><h2 id='get-documents'>Get Documents</h2>
 <p><strong>Summary:</strong> Get all Documents for Project Template</p>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
-<span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
-<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;{api_endpoint}/api/v3/documents&quot;</span><span class="p">)</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span></p>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/documents"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
-<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span></p>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
-<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;projectTemplateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">37081</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;requisitionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">73854</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;folderName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;raw data&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;startDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-01&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;endDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-01-01&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;perPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nl">"projectTemplateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">37081</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">73854</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"folderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raw data"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-01-01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test1.pdf&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;requisitionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQ-1&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;downloadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://...&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-25T22:06:21.000Z&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;uploadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1.pdf"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"downloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-25T22:06:21.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"uploadLink"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test2.pdf&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;requisitionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQ-2&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;downloadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://...&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-25T22:06:21.000Z&quot;</span><span class="p">,</span><span class="w">
-            </span><span class="nl">&quot;uploadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2.pdf"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-2"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"downloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-25T22:06:21.000Z"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"uploadLink"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="nl">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">&quot;currentPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;perPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;totalEntries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
+    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/documents</code></p></p>
+<p><code>GET /v3/documents</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -817,11 +824,8 @@
 <td>All documents for a Project Template</td>
 </tr>
 </tbody></table>
-
 <h2 id='post-document'>Post Document</h2>
-
 <p><strong>Summary:</strong> Creates a Document for Project Template</p>
-
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"json"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
@@ -937,7 +941,6 @@
 <td>Created Document</td>
 </tr>
 </tbody></table>
-
 <h1 id='project-templates'>Project Templates</h1><h2 id='get-all-project-templates'>Get All Project Templates</h2>
 <p><strong>Summary:</strong> Get available project templates for a given organization</p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -1008,254 +1011,6 @@
 <td>Project Templates</td>
 </tr>
 </tbody></table>
-
-<h1 id='provider-accounts'>Provider Accounts</h1><h2 id='get-provider-accounts'>Get Provider Accounts</h2>
-<p><strong>Summary:</strong> Get All Provider Accounts</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Organization ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>name</td>
-<td>query</td>
-<td>Provider Account Name</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>externalIdentifier</td>
-<td>query</td>
-<td>Provider Account External Identifier.</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>accountNumber</td>
-<td>query</td>
-<td>Provider Account Number</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>page</td>
-<td>query</td>
-<td>Page of results.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>perPage</td>
-<td>query</td>
-<td>Results per page. Maximum of 5000.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider Accounts</td>
-</tr>
-</tbody></table>
-<h2 id='post-provider-account'>Post Provider Account</h2>
-<p><strong>Summary:</strong> Create a Provider Account</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Created Provider</td>
-</tr>
-</tbody></table>
-<h2 id='get-provider-account'>Get Provider Account</h2>
-<p><strong>Summary:</strong> Get a Provider Account</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Sales Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>OrganizationId</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider record</td>
-</tr>
-</tbody></table>
-<h2 id='put-provider-account'>Put Provider Account</h2>
-<p><strong>Summary:</strong> Update a Provider Account</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /v3/provider_accounts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Sales Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider record</td>
-</tr>
-</tbody></table>
-<h2 id='delete-provider-account'>Delete Provider Account</h2>
-<p><strong>Summary:</strong> Delete a Provider Account</p>
-<h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE /v3/provider_accounts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Provider Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Organization ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider Account archived</td>
-</tr>
-</tbody></table>
-
 <h1 id='provider-account-contacts'>Provider Account Contacts</h1><h2 id='post-provider-account-contact'>Post Provider Account Contact</h2>
 <p><strong>Summary:</strong> Create a Provider Account Contact</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -1509,7 +1264,252 @@
 <td>Provider Account Contact archived</td>
 </tr>
 </tbody></table>
+<h1 id='provider-accounts'>Provider Accounts</h1><h2 id='get-provider-accounts'>Get Provider Accounts</h2>
+<p><strong>Summary:</strong> Get All Provider Accounts</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/provider_accounts</code> </p>
 
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Organization ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td>Provider Account Name</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>externalIdentifier</td>
+<td>query</td>
+<td>Provider Account External Identifier.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>accountNumber</td>
+<td>query</td>
+<td>Provider Account Number</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>Page of results.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>query</td>
+<td>Results per page. Maximum of 5000.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider Accounts</td>
+</tr>
+</tbody></table>
+<h2 id='post-provider-account'>Post Provider Account</h2>
+<p><strong>Summary:</strong> Create a Provider Account</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v3/provider_accounts</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Provider Account record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Created Provider</td>
+</tr>
+</tbody></table>
+<h2 id='get-provider-account'>Get Provider Account</h2>
+<p><strong>Summary:</strong> Get a Provider Account</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v3/provider_accounts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Sales Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>OrganizationId</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider record</td>
+</tr>
+</tbody></table>
+<h2 id='put-provider-account'>Put Provider Account</h2>
+<p><strong>Summary:</strong> Update a Provider Account</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /v3/provider_accounts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Sales Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Provider Account record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider record</td>
+</tr>
+</tbody></table>
+<h2 id='delete-provider-account'>Delete Provider Account</h2>
+<p><strong>Summary:</strong> Delete a Provider Account</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE /v3/provider_accounts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Provider Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Organization ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider Account archived</td>
+</tr>
+</tbody></table>
 <h1 id='providers'>Providers</h1><h2 id='get-providers'>Get Providers</h2>
 <p><strong>Summary:</strong> Get All Providers</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -1718,11 +1718,18 @@
 <td>Provider archived</td>
 </tr>
 </tbody></table>
-
 <h1 id='reports'>Reports</h1><h2 id='update-report'>Update Report</h2>
 <p><strong>Summary:</strong> Update empty Report with content</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>PUT /v3/reports/{id}</code> </p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="nl">"report"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
   </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"reportContent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
@@ -1749,7 +1756,6 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1798,42 +1804,41 @@
 <td>Will return the validation errors found. <br>e.g. <strong>&quot;Report ID required&quot;</strong>, <strong>&quot;Requisition not found&quot;</strong>, <strong>&quot;Report not found&quot;</strong>, or <strong>&quot;Invalid Requisition for Report&quot;</strong></td>
 </tr>
 </tbody></table>
-
-<p><h1 id='requisitions'>Requisitions</h1><h2 id='get-requisitions'>Get Requisitions</h2>
+<h1 id='requisitions'>Requisitions</h1><h2 id='get-requisitions'>Get Requisitions</h2>
 <p><strong>Summary:</strong> Get Requisitions</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;requisitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"requisitions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;templateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;accession_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;incomplete&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;processing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unprocessed&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;reporting_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-started&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;billing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-submitted&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="w">
+      </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accession_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"incomplete"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"processing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unprocessed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reporting_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-started"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-submitted"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;templateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;accession_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;incomplete&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;processing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unprocessed&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;reporting_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-started&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;billing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-submitted&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="p">,</span><span class="w">
-      </span><span class="nl">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="w">
+      </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"accession_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"incomplete"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"processing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unprocessed"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"reporting_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-started"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"billing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-submitted"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-    </span><span class="nl">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">&quot;currentPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;perPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">&quot;totalEntries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{projectTemplateId}/requisitions</code> </p></p>
+<p><code>GET /v3/project_templates/{projectTemplateId}/requisitions</code> </p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1896,11 +1901,8 @@
 <td>Requisition record</td>
 </tr>
 </tbody></table>
-
 <h2 id='get-requisition'>Get Requisition</h2>
-
 <p><strong>Summary:</strong> Get a Requisition</p>
-
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"requisition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -2226,7 +2228,6 @@
 <td>Requisition deleted</td>
 </tr>
 </tbody></table>
-
 <h1 id='resources'>Resources</h1><h2 id='post-resource'>Post Resource</h2>
 <p><strong>Summary:</strong> Create a Resource</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -2265,7 +2266,6 @@
 <td>Resource record</td>
 </tr>
 </tbody></table>
-
 <h1 id='sales-group'>Sales Group</h1><h2 id='post-sales-group'>Post Sales Group</h2>
 <p><strong>Summary:</strong> Create a Sales Group</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -2505,7 +2505,6 @@
 <td>Sales Group archived</td>
 </tr>
 </tbody></table>
-
 <h1 id='sales-reps'>Sales Reps</h1><h2 id='post-sales-rep'>Post Sales Rep</h2>
 <p><strong>Summary:</strong> Create a Sales Rep</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -2745,7 +2744,6 @@
 <td>Sales Rep archived</td>
 </tr>
 </tbody></table>
-
 <h1 id='sample-labels'>Sample Labels</h1><h2 id='get-all-sample-labels'>Get All Sample Labels</h2>
 <p><strong>Summary:</strong> Get available sample labels</p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -2803,7 +2801,6 @@
 <td>Sample Labels</td>
 </tr>
 </tbody></table>
-
 <h1 id='test-panels'>Test Panels</h1><h2 id='get-all-test-panels'>Get All Test Panels</h2>
 <p><strong>Summary:</strong> Get available Test Panels</p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -2875,435 +2872,16 @@
 <td>Test Panels</td>
 </tr>
 </tbody></table>
-
-<h1 id='webhook-endpoints'>Webhook Endpoints</h1><h2 id='get-webhook-endpoints'>Get Webhook Endpoints</h2>
-<p><strong>Summary:</strong> Get Webhook Endpoints</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">},{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_corrected"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
-<span class="nb">require</span> <span class="s2">"json"</span>
-<span class="nb">require</span> <span class="s2">"net/http"</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
-
-<p><strong>Permissions</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Access Level</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Webhook User</td>
-<td>read</td>
-<td>For Webhook User permission only webhook endpoints the user has access to within the organization will be returned</td>
-</tr>
-<tr>
-<td>Webhook Admin</td>
-<td>read</td>
-<td>For Webhook Admin permission all webhook endpoints within the organization will be returned</td>
-</tr>
-</tbody></table>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_template_id</td>
-<td>path</td>
-<td>Associated project_template group</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Webhook Endpoints</td>
-</tr>
-</tbody></table>
-<h2 id='get-webhook-endpoint'>Get Webhook Endpoint</h2>
-<p><strong>Summary:</strong> Get a Webhook Endpoint</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
-<span class="nb">require</span> <span class="s2">"json"</span>
-<span class="nb">require</span> <span class="s2">"net/http"</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}"</span><span class="p">)</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
-
-<p><strong>Permissions</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Access Level</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Webhook User</td>
-<td>read</td>
-<td>For Webhook User permission only webhook endpoints the user has access to within the organization will be returned</td>
-</tr>
-<tr>
-<td>Webhook Admin</td>
-<td>read</td>
-<td>For Webhook Admin permission all webhook endpoints within the organization will be returned</td>
-</tr>
-</tbody></table>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_template_id</td>
-<td>path</td>
-<td>Associated project_template group</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td></td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Webhook Endpoint</td>
-</tr>
-</tbody></table>
-<h2 id='post-webhook-endpoint'>Post Webhook Endpoint</h2>
-<p><strong>Summary:</strong> Create a Webhook Endpoint</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
-<span class="nb">require</span> <span class="s2">"json"</span>
-<span class="nb">require</span> <span class="s2">"net/http"</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"webhookEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"targetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://test.api.com"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
-<p><code>POST /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
-
-<p><strong>Permissions</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Access Level</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Webhook User</td>
-<td>write</td>
-<td></td>
-</tr>
-<tr>
-<td>Webhook Admin</td>
-<td>write</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_template_id</td>
-<td>path</td>
-<td>Associated project_template group</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>targetUrl</td>
-<td>body</td>
-<td>Host URL to send webhook payload to</td>
-<td>yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>username</td>
-<td>body</td>
-<td>Username to connect to host</td>
-<td>yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>password</td>
-<td>body</td>
-<td>Password to connect to host</td>
-<td>yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>event</td>
-<td>body</td>
-<td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
-<td>yes</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>201</td>
-<td>Created Webhook Endpoint</td>
-</tr>
-</tbody></table>
-<h2 id='put-webhook-endpoint'>Put Webhook Endpoint</h2>
-<p><strong>Summary:</strong> Update a Webhook Endpoint</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
-<span class="nb">require</span> <span class="s2">"json"</span>
-<span class="nb">require</span> <span class="s2">"net/http"</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}"</span><span class="p">)</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
-
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
-
-<p><strong>Permissions</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Access Level</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Webhook User</td>
-<td>admin</td>
-<td>User must be a user of the Webhook Endpoint with admin access on permission</td>
-</tr>
-<tr>
-<td>Webhook Admin</td>
-<td>admin</td>
-<td>User must have admin access on permission</td>
-</tr>
-</tbody></table>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_template_id</td>
-<td>path</td>
-<td>Associated project_template group</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td></td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>targetUrl</td>
-<td>body</td>
-<td>Host URL to send webhook payload to</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>username</td>
-<td>body</td>
-<td>Username to connect to host</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>password</td>
-<td>body</td>
-<td>Password to connect to host</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>event</td>
-<td>body</td>
-<td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
-<td>No</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Webhook Endpoint</td>
-</tr>
-</tbody></table>
-
 <h1 id='webhook-endpoint-events'>Webhook Endpoint Events</h1><h2 id='get-webhook-endpoint-events'>Get Webhook Endpoint Events</h2>
 <p><strong>Summary:</strong> Get All Webhook Endpoint Events</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"webhook_endpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3465,6 +3043,14 @@
 </tbody></table>
 <h2 id='retry-webhook-endpoint-events'>Retry Webhook Endpoint Events</h2>
 <p><strong>Summary:</strong> Retry webhook endpoint events</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"json"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
@@ -3544,11 +3130,475 @@
 <td>Error while trying to requeue Webhook Endpoint Events</td>
 </tr>
 </tbody></table>
+<h1 id='webhook-endpoints'>Webhook Endpoints</h1><h2 id='get-webhook-endpoints'>Get Webhook Endpoints</h2>
+<p><strong>Summary:</strong> Get Webhook Endpoints</p>
 
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_corrected"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>read</td>
+<td>For Webhook User permission only webhook endpoints the user has access to within the organization will be returned</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>read</td>
+<td>For Webhook Admin permission all webhook endpoints within the organization will be returned</td>
+</tr>
+</tbody></table>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_template_id</td>
+<td>path</td>
+<td>Associated project_template group</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Webhook Endpoints</td>
+</tr>
+</tbody></table>
+<h2 id='get-webhook-endpoint'>Get Webhook Endpoint</h2>
+<p><strong>Summary:</strong> Get a Webhook Endpoint</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>read</td>
+<td>For Webhook User permission only webhook endpoints the user has access to within the organization will be returned</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>read</td>
+<td>For Webhook Admin permission all webhook endpoints within the organization will be returned</td>
+</tr>
+</tbody></table>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_template_id</td>
+<td>path</td>
+<td>Associated project_template group</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Webhook Endpoint</td>
+</tr>
+</tbody></table>
+<h2 id='post-webhook-endpoint'>Post Webhook Endpoint</h2>
+<p><strong>Summary:</strong> Create a Webhook Endpoint</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"webhookEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"targetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://test.api.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>write</td>
+<td></td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>write</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_template_id</td>
+<td>path</td>
+<td>Associated project_template group</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>targetUrl</td>
+<td>body</td>
+<td>Host URL to send webhook payload to</td>
+<td>yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>username</td>
+<td>body</td>
+<td>Username to connect to host</td>
+<td>yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>body</td>
+<td>Password to connect to host</td>
+<td>yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>event</td>
+<td>body</td>
+<td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
+<td>yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Created Webhook Endpoint</td>
+</tr>
+</tbody></table>
+<h2 id='put-webhook-endpoint'>Put Webhook Endpoint</h2>
+<p><strong>Summary:</strong> Update a Webhook Endpoint</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>admin</td>
+<td>User must be a user of the Webhook Endpoint with admin access on permission</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>admin</td>
+<td>User must have admin access on permission</td>
+</tr>
+</tbody></table>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_template_id</td>
+<td>path</td>
+<td>Associated project_template group</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>targetUrl</td>
+<td>body</td>
+<td>Host URL to send webhook payload to</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>username</td>
+<td>body</td>
+<td>Username to connect to host</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>body</td>
+<td>Password to connect to host</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>event</td>
+<td>body</td>
+<td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Webhook Endpoint</td>
+</tr>
+</tbody></table>
 <h1 id='workflow-definitions'>Workflow Definitions</h1><h2 id='get-workflow-definitions'>Get Workflow Definitions</h2>
 <p><strong>Summary:</strong> Get all Workflow Definitions for an Organization</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/workflow_definitions</code> </p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"workflow_definitions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
@@ -3573,7 +3623,6 @@
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div>
-
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -3666,13 +3715,7 @@ This section describes any special permissions that may need to be added to use 
 - Used for users that should have access to all webhook endpoints within the organization.</p>
 
       </div>
-      <div class="dark-box">
-          <div class="lang-selector">
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="json-doc">payload</a>
-                <a href="#" data-language-name="json">response</a>
-          </div>
-      </div>
+      <div class="dark-box"></div>
     </div>
   </body>
 </html>
