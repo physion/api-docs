@@ -1,0 +1,71 @@
+# Webhook Endpoints
+## Get Webhook Endpoints 
+
+**Summary:** Get Webhook Endpoints
+
+### HTTP Request 
+`GET /v3/project_templates/{project_template_id}/webhook_endpoints` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoints |
+
+## Post Webhook Endpoint 
+
+**Summary:** Create a Webhook Endpoint
+
+### HTTP Request 
+`POST /v3/project_templates/{project_template_id}/webhook_endpoints` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+| body | body | Webhook Endpoint Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 201 | Created Webhook Endpoint |
+
+## Get Webhook Endpoint
+
+**Summary:** Get a Webhook Endpoint
+
+```json
+{
+    "webhook_endpoint": {
+        "id": 1,
+        "target_url": "http://api.test.com/",
+        "event": "report_signed",
+        "username": "test",
+        "project_requisition_template_association_id": 1
+    }
+}
+```
+
+### HTTP Request 
+`GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+| id | path |  | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoint |

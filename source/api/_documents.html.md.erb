@@ -1,0 +1,110 @@
+# Documents
+## Get Documents 
+
+**Summary:** Get all Documents for Project Template
+
+```json
+{
+    "documents": [
+        {
+            "id": 1,
+            "name": "test1.pdf",
+            "requisitionId": 10,
+            "requisitionIdentifier": "REQ-1",
+            "downloadLink": "https://...",
+            "createdAt": "2021-01-25T22:06:21.000Z",
+            "uploadLink": null
+        },
+        {
+            "id": 2,
+            "name": "test2.pdf",
+            "requisitionId": 11,
+            "requisitionIdentifier": "REQ-2",
+            "downloadLink": "https://...",
+            "createdAt": "2021-01-25T22:06:21.000Z",
+            "uploadLink": null
+        }
+    ],
+    "meta": {
+        "currentPage": 1,
+        "perPage": 5000,
+        "totalEntries": 11
+    }
+}
+```
+
+### HTTP Request 
+`GET /v3/documents` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| projectTemplateId | query | Filters documents by project template. | Yes | integer |
+| requisitionIdentifier | query | Filters documents for specific Requisition Identifier | No | string |
+| requisitionId | query | Filters documents for specific Requisition ID | No | integer |
+| folderName | query | Filters documents by folder name. | No | string |
+| startDate | query | Filters documents created_at starting from this date. | Yes | string |
+| endDate | query | Filters documents created_at ending from this date. | Yes | string |
+| page | query | Page number being requested. | No | integer |
+| perPage | query | Number of documents to return per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | All documents for a Project Template |
+
+## Post Document 
+
+**Summary:** Create a new Document
+
+### HTTP Request 
+`POST /v3/documents` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Document record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Document |
+
+# Workflow Definitions
+## Get Workflow Definitions
+
+**Summary:** Get all Workflow Definitions for an Organization
+
+### HTTP Request 
+`GET /v3/workflow_definitions` 
+
+```json
+{
+  "workflow_definitions": [
+      {
+          "id": 1,
+          "name": "Covid"
+      },
+      {
+          "id": 2,
+          "name": "PGx"
+      }
+  ]
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Filters workflow definitions by organization. | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get all Workflow Definitions for an Organization |

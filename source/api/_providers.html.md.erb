@@ -1,0 +1,124 @@
+# Providers
+## Get Providers 
+
+**Summary:** Get All Providers
+
+### HTTP Request 
+`GET /v3/provider_accounts/{providerAccountId}/providers` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| registryIdentifier | query | Provider Registry Identifier. | No | string |
+| licensingRegistry | query | Provider Licensing Identifier | No | string |
+| name | query | Provider Name | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Providers |
+
+## Post Provider 
+
+**Summary:** Create a Provider
+
+### HTTP Request 
+`POST /v3/provider_accounts/{providerAccountId}/providers` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| body | body | Provider record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider record |
+
+## Get Provider
+
+**Summary:** Get a Provider
+
+### HTTP Request 
+`GET /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| id | path | Provider ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Provider |
+
+## Delete Provider
+
+**Summary:** Delete a Provider
+
+### HTTP Request 
+`DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account id | Yes | integer |
+| id | path | Provider ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider archived |
+
+# Test Panels
+## Get All Test Panels
+
+**Summary:** Get available Test Panels
+
+### HTTP Request 
+`GET /v3/project_templates/{project_template_id}/test_panels` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Test Panels |
+
+# Sample Labels
+## Get All Sample Labels
+
+**Summary:** Get available sample labels
+
+### HTTP Request 
+`GET /v3/project_templates/{project_template_id}/sample_labels` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Sample Labels |

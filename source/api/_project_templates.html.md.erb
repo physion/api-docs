@@ -1,0 +1,36 @@
+# Project Templates
+## Get All Project Templates
+
+**Summary:** Get available project templates for a given organization
+
+### HTTP Request 
+`GET /v3/project_templates` 
+
+```json
+{
+  "project_templates": [
+      {
+          "id": 1,
+          "projectName": "Covid",
+          "templateName": "Covid form 1"
+      },
+      {
+          "id": 2,
+          "projectName": "PGx",
+          "templateName": "PGx form 1"
+      }
+  ]
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Associated organization | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Project Templates |

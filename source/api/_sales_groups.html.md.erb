@@ -1,0 +1,101 @@
+# Sales Group
+## Post Sales Group 
+
+**Summary:** Create a Sales Group
+
+### HTTP Request 
+`POST /v3/sales_groups` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Sales Group Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Sales Group Record |
+
+## Get Sales Groups
+
+**Summary:** Get All Sales Groups
+
+### HTTP Request 
+`GET /v3/sales_groups` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization id | Yes | integer |
+| name | query | Sales Group Name. | No | string |
+| parentId | query | Sales Group Parent ID. | No | integer |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get all Sales Group |
+## Put Sales Group 
+
+**Summary:** Update a Sales Group
+
+### HTTP Request 
+`PUT /v3/sales_groups/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Group id | Yes | integer |
+| body | body | Sales Group Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Updated Sales Group Record |
+
+## Get Sales Group 
+
+**Summary:** Get a Sales Group
+
+### HTTP Request 
+`GET /v3/sales_groups/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Group id | Yes | integer |
+| organizationId | query | Organization id | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Sales Group Record |
+
+## Delete Sales Group 
+
+**Summary:** Delete a Sales Group
+
+### HTTP Request 
+`DELETE /v3/sales_groups/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Group id | Yes | integer |
+| organizationId | query | Organization id | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Sales Group archived |

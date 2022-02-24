@@ -1,0 +1,82 @@
+# Webhook Endpoint Events
+## Get Webhook Endpoint Events
+
+**Summary:** Get All Webhook Endpoint Events
+
+### HTTP Request 
+`GET /v3/webhook_endpoint_events` 
+
+```json
+{
+  "webhook_endpoints": [{
+    "id": 1,
+    "target_url": "https://test.api.com",
+    "event": "report_signed",
+    "username": "user",
+    "project_requisition_template_association_id": 5
+  }],
+  "webhook_endpoint_events": [{
+    "id": 111,
+    "status": "send-failed",
+    "eventType": "report_signed",
+    "lastSentAt": "datetime",
+    "responseMsg": {},
+    "requisitionIdentifier": "string",
+    "webhook_endpoint_id": 1
+  }, {
+    "id": 112,
+    "status": "pending",
+    "eventType": "report_signed",
+    "lastSentAt": null,
+    "responseMsg": null,
+    "requisitionIdentifier": "string",
+    "webhook_endpoint_id": 1
+  }],
+  "meta": {
+    "currentPage": 1,
+    "perPage": 1000,
+    "totalEntries": 2
+  }
+}
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization ID | Yes | integer |
+| project_template_ids | query | Project Template Ids | No | array |
+| webhook_endpoint_ids | query | Webhook Endpoint Ids | No | array |
+| event_type | query | Type of event. | No | string |
+| event_status | query | Status of event. | No | string |
+| start_date | query | Beginning date to query data. | No | string |
+| end_date | query | End date to query data. | No | string |
+| per_page | query | Results per page. Max 1000 | No | integer |
+| page | query | Page of results. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoint Events |
+| 422 | "param" not found |
+
+## Retry Webhook Endpoint Events
+
+**Summary:** Retry webhook endpoint events
+
+### HTTP Request 
+`POST /v3/webhook_endpoint_events/retry_events` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Sales Group Record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | All webhook endpoint events successfully submitted. |
+| 422 | Error while trying to requeue Webhook Endpoint Events |

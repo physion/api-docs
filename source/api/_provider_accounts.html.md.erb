@@ -1,0 +1,103 @@
+# Provider Accounts
+## Get Provider Accounts
+
+**Summary:** Get All Provider Accounts
+
+### HTTP Request 
+`GET /v3/provider_accounts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| organizationId | query | Organization ID | Yes | integer |
+| name | query | Provider Account Name | No | string |
+| externalIdentifier | query | Provider Account External Identifier. | No | string |
+| accountNumber | query | Provider Account Number | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider Accounts |
+
+## Post Provider Account
+
+**Summary:** Create a Provider Account
+
+### HTTP Request 
+`POST /v3/provider_accounts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| body | body | Provider Account record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Provider |
+
+## Get Provider Account
+
+**Summary:** Get a Provider Account
+
+### HTTP Request 
+`GET /v3/provider_accounts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Account ID | Yes | integer |
+| organizationId | query | OrganizationId | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider record |
+
+## Put Provider Account
+
+**Summary:** Update a Provider Account
+
+### HTTP Request 
+`PUT /v3/provider_accounts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Sales Account ID | Yes | integer |
+| body | body | Provider Account record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider record |
+
+## Delete Provider Account
+
+**Summary:** Delete a Provider Account
+
+### HTTP Request 
+`DELETE /v3/provider_accounts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| id | path | Provider Account ID | Yes | integer |
+| organizationId | query | Organization ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider Account archived |

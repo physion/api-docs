@@ -1,0 +1,104 @@
+# Provider Account Contacts
+## Post Provider Account Contact
+
+**Summary:** Create a Provider Account Contact
+
+### HTTP Request 
+`POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| body | body | Provider Account Contact record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Provider Account Contact |
+
+## Get Provider Account Contacts
+
+**Summary:** Get a Provider Account Contacts
+
+### HTTP Request 
+`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| externalIdentifier | query | Provider Account Contact External ID. | No | string |
+| name | query | Provider Account Contact Email. | No | string |
+| page | query | Page of results. | No | integer |
+| perPage | query | Results per page. Maximum of 5000. | No | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get Provider Account Contacts |
+
+## Get Provider Account Contact 
+
+**Summary:** Get a Provider Account Contact
+
+### HTTP Request 
+`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| id | path | Provider Account Contact ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Got Provider Account Contact |
+
+## Put Provider Account Contact 
+
+**Summary:** Update a Provider Account Contact
+
+### HTTP Request 
+`PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| id | path | Provider Account Contact ID | Yes | integer |
+| body | body | Provider Account Contact record | Yes |  |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Created Provider Account Contact |
+
+## Delete Provider Account Contact
+
+**Summary:** Delete a Provider Account Contact
+
+### HTTP Request 
+`DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| providerAccountId | path | Provider Account ID | Yes | integer |
+| id | path | Provider Account Contact ID | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Provider Account Contact archived |
