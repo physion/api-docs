@@ -286,6 +286,9 @@
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-b12a2749.js"></script>
 
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
   </head>
 
   <body class="index" data-languages="[&quot;ruby&quot;,&quot;json-doc&quot;,&quot;json&quot;]">
@@ -528,6 +531,9 @@
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
+          <li>
+            <a href="#permissions" class="toc-h1 toc-link" data-title="Permissions">Permissions</a>
+          </li>
       </ul>
     </div>
     <div class="page-wrapper">
@@ -594,7 +600,7 @@
 </span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;{api_endpoint}/api/v3/admin_reports?type=workflow_report&amp;startDate=2022-01-01&amp;endDate=2022-01-12&amp;workflowDefinitionId=1&amp;perPage=10&amp;page=1&amp;workflowDefinitionId=1&quot;</span><span class="p">)</span></p>
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/admin_reports?type=workflow_report&amp;startDate=2022-01-01&amp;endDate=2022-01-12&amp;workflowDefinitionId=1&amp;perPage=10&amp;page=1&amp;workflowDefinitionId=1&quot;</span><span class="p">)</span></p>
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -1648,22 +1654,24 @@
 <span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
 <span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/reports/38640&quot;</span><span class="p">)</span></p>
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/reports/38640&quot;</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span></p>
 
 <p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-  <span class="s2">&quot;report&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">&quot;requisitionIdentifier&quot;</span><span class="p">:</span> <span class="s2">&quot;test0001&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;reportContent&quot;</span><span class="p">:</span> <span class="s2">&quot;base64 report content&quot;</span>
-  <span class="p">}</span>
-<span class="p">})</span></p>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span></p>
 
 <p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">&quot;report&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test0001&quot;</span><span class="p">,</span><span class="w">
+    </span><span class="nl">&quot;reportContent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;base64 report content&quot;</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p></p>
 
 <table><thead>
@@ -2772,6 +2780,27 @@
 </code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
 
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>read</td>
+<td>For Webhook User permission only webhook endpoints the user has access to within the organization will be returned</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>read</td>
+<td>For Webhook Admin permission all webhook endpoints within the organization will be returned</td>
+</tr>
+</tbody></table>
+
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -2832,40 +2861,27 @@
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
-<h2 id='post-webhook-endpoint'>Post Webhook Endpoint</h2>
-<p><strong>Summary:</strong> Create a Webhook Endpoint</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
-<span class="nb">require</span> <span class="s2">"json"</span>
-<span class="nb">require</span> <span class="s2">"net/http"</span>
 
-<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
+<p><strong>Permissions</strong></p>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
-<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-  <span class="s2">"webhookEndpoint"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"targetUrl"</span><span class="p">:</span> <span class="s2">"https://test.api.com"</span><span class="p">,</span>
-    <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span>
-    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span>
-    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"report_signed"</span>
-  <span class="p">}</span>
-<span class="p">})</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
-<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>read</td>
+<td>For Webhook User permission only webhook endpoints the user has access to within the organization will be returned</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>read</td>
+<td>For Webhook Admin permission all webhook endpoints within the organization will be returned</td>
+</tr>
+</tbody></table>
 
 <p><strong>Parameters</strong></p>
 
@@ -2907,10 +2923,64 @@
 <td>Webhook Endpoint</td>
 </tr>
 </tbody></table>
+<h2 id='post-webhook-endpoint'>Post Webhook Endpoint</h2>
+<p><strong>Summary:</strong> Create a Webhook Endpoint</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
-<h3 id='http-request-3'>HTTP Request</h3>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"webhookEndpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"targetUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://test.api.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>write</td>
+<td></td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>write</td>
+<td></td>
+</tr>
+</tbody></table>
 
 <p><strong>Parameters</strong></p>
 
@@ -2952,11 +3022,8 @@
 <td>Created Webhook Endpoint</td>
 </tr>
 </tbody></table>
-
 <h2 id='put-webhook-endpoint'>Put Webhook Endpoint</h2>
-
 <p><strong>Summary:</strong> Update a Webhook Endpoint</p>
-
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -2978,7 +3045,7 @@
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -2993,6 +3060,27 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>admin</td>
+<td>User must be a user of the Webhook Endpoint with admin access on permission</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>admin</td>
+<td>User must have admin access on permission</td>
+</tr>
+</tbody></table>
 
 <p><strong>Parameters</strong></p>
 
@@ -3065,8 +3153,6 @@
 
 <h1 id='webhook-endpoint-events'>Webhook Endpoint Events</h1><h2 id='get-webhook-endpoint-events'>Get Webhook Endpoint Events</h2>
 <p><strong>Summary:</strong> Get All Webhook Endpoint Events</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/organizations/{organization_id}/webhook_endpoint_events</code> </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"webhook_endpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -3109,7 +3195,29 @@
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div>
+</code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/organizations/{organization_id}/webhook_endpoint_events</code></p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>read</td>
+<td>For Webhook User permission only events for webhook endpoints the user has access to within the organization will be returned</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>read</td>
+<td>For Webhook Admin permission all events for all webhook endpoints within the organization will be returned</td>
+</tr>
+</tbody></table>
 
 <p><strong>Parameters</strong></p>
 
@@ -3204,32 +3312,49 @@
 <td>&quot;param&quot; not found</td>
 </tr>
 </tbody></table>
-
 <h2 id='retry-webhook-endpoint-events'>Retry Webhook Endpoint Events</h2>
-
 <p><strong>Summary:</strong> Retry webhook endpoint events</p>
-
-<h3 id='http-request-2'>HTTP Request</h3>
-
-<p><code>POST /v3/organizations/{organization_id}/webhook_endpoint_events/retry_events</code></p>
-
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"json"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/organizations/659/webhook_endpoint_events/retry_events"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
 <span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
-  <span class="s2">"webhookEndpointEventIds"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-<span class="p">})</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"webhookEndpointEventIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v3/organizations/{organization_id}/webhook_endpoint_events/retry_events</code></p>
+
+<p><strong>Permissions</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Access Level</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Webhook User</td>
+<td>admin</td>
+<td>For Webhook User permission only events for webhook endpoints the user has access to can be resent</td>
+</tr>
+<tr>
+<td>Webhook Admin</td>
+<td>admin</td>
+<td>For Webhook Admin permission all events for all webhook endpoints within the organization can be resent</td>
+</tr>
+</tbody></table>
 
 <p><strong>Parameters</strong></p>
 
@@ -3269,35 +3394,36 @@
 </tr>
 </tbody></table>
 
-<p><h1 id='workflow-definitions'>Workflow Definitions</h1><h2 id='get-workflow-definitions'>Get Workflow Definitions</h2>
+<h1 id='workflow-definitions'>Workflow Definitions</h1><h2 id='get-workflow-definitions'>Get Workflow Definitions</h2>
 <p><strong>Summary:</strong> Get all Workflow Definitions for an Organization</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/workflow_definitions</code> </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;workflow_definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"workflow_definitions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Covid&quot;</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covid"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PGx&quot;</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGx"</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
-<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/workflow_definitions?organizationId=1&quot;</span><span class="p">)</span></p>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/workflow_definitions?organizationId=1"</span><span class="p">)</span>
 
-<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span></p>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
 
-<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div>
-<p><strong>Parameters</strong></p></p>
+
+<p><strong>Parameters</strong></p>
 
 <table><thead>
 <tr>
@@ -3376,6 +3502,17 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
 <td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
+<h1 id='permissions'>Permissions</h1>
+<aside class="notice">
+This section describes any special permissions that may need to be added to use an API
+</aside>
+
+<p><strong>Webhook User</strong>
+- Used for external users or users meant to have access to specific webhook endpoints.
+- For these users to have access they must first be given permissions as a Webhook User, then a request must be made to Ovation for that user to be added to specific webhook endpoints.</p>
+
+<p><strong>Webhook Admin</strong>
+- Used for users that should have access to all webhook endpoints within the organization.</p>
 
       </div>
       <div class="dark-box">
