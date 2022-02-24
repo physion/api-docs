@@ -680,7 +680,32 @@
 
 <p><h1 id='documents'>Documents</h1><h2 id='get-documents'>Get Documents</h2>
 <p><strong>Summary:</strong> Get all Documents for Project Template</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;{api_endpoint}/api/v3/documents&quot;</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span></p>
+
+<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span></p>
+
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">&quot;projectTemplateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">37081</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;requisitionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">73854</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;folderName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;raw data&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;startDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-01&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;endDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-01-01&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;perPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -708,7 +733,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/documents</code> </p></p>
+<p><code>GET /v3/documents</code></p></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -795,11 +820,47 @@
 
 <h2 id='post-document'>Post Document</h2>
 
-<p><strong>Summary:</strong> Create a new Document</p>
+<p><strong>Summary:</strong> Creates a Document for Project Template</p>
 
-<h3 id='http-request-2'>HTTP Request</h3>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
-<p><code>POST /v3/documents</code> </p>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/documents"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">73854</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"projectTemplateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">37081</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"folderName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"raw data"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fileName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test.txt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"fileContent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file-content"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"returnUploadLink"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"document"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187167</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-749 - test.txt"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">73854</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-749"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"downloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3002/resources/466834/download_as_attachment"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-24T18:51:28.000Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"uploadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:4572/users.dev.ovation.io/529e74dc-1c64-4fd5-88e9-ae4f9286e3b3/27897668-f3ff-4169-9e82-27550421b3f4/6c5a6cb1-5109-4169-95c1-deb5a71253ee/test.txt?x-amz-server-side-encryption=AES256&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=ASIAYU246YJYQXAGKE6K%2F20220224%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20220224T185128Z&amp;X-Amz-Expires=900&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaCXVzLWVhc3QtMSJGMEQCIFeRxNkhP0dCcCbiHXIpflROjwBRJcMhGw48A4W%2FCuhGAiA3oNNMnFU72SS8oB2rCtCRanHivs1%2Fp1uBUBVzz67MBSqRAwiS%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDU5NDUxMTA1MzQyNSIMv2i%2FHYlljTRAPv95KuUCSTnAY84IRSCjl%2Fi%2FSXcOFKO8PsqVm0vRl%2BIKm3mLuFhsqAta1sjk%2FIshFZe6Ynhm03yt5Wq06Z%2FSUzj5rbLqBUYhuH37eSg%2Bxkz%2FlZzWovF48uaiAatVxiY%2FhAAbhs8xXqkqk56hhWuz1Fj3GSSel2NqhoJXl%2Fpq1veSim1xi%2Fh2nWE56kPKHUW2Txxon9P6TEVx5ZWQgEPDB%2FSJeqDPdkHOWJbdF3WNN7KcYUG%2FE1iMSM7T18V3O3K%2ByFdinvU7sb7ns4jcQJJKWitYGXwIwFXwKPjYrtnAtVuifdAJJnoKUjQvMwLGNf154t8CIZBEEN2C13uwxbdxZ4%2BELQaO1ANdwcCvBoCFqji5W4s1G9Vi6wwiBQarqldXA9P65aytkR2o8ZRIbskKzDeset8hIvOkbad0tDiKfz7mh%2B4W5PBpXoaaBZUqwvQgu0MFactFuL7oVQs1y98hCZeaD0h3MMjpT0ImMPD53pAGOqcBRjCykKvQ3Tv0%2BXZEOUI7Vpv5heOqoJHBFGGTAdFYG2RYH0rjZg0TtfJUqh8VNuDKmB39hB8zeO%2Fzo%2FYHvqdt%2FNn%2Bjcj%2BZK%2FFRXM6kbVP41j3oZnHi9s8NmYYvN4aXDEIK7bKOAys7AuM%2F%2BsKHNuhRgkiN7n42jm0fOkIZyYFhgerEtHAx4exXOUhoDqZJKsVwplnE8mqEaJUSXIsZpbTgR6lLJ8ZQu4%3D&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=a3e3ec31d7819954cfae26d85b1c6a7bea05e40067e3e5cb22e551348395d92e"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v3/documents</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -813,11 +874,53 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>body</td>
-<td>body</td>
-<td>Document record</td>
+<td>requisitionId</td>
+<td>document</td>
+<td>Used instead of requisitionIdentifier and projectTemplateId.</td>
 <td>Yes</td>
-<td></td>
+<td>integer</td>
+</tr>
+<tr>
+<td>requisitionIdentifier</td>
+<td>document</td>
+<td>Must supply projectTemplateId when using this field)</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>projectTemplateId</td>
+<td>document</td>
+<td>Project template associated with requisition identifier</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>folderName</td>
+<td>document</td>
+<td>Folder document will be added to.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>fileName</td>
+<td>document</td>
+<td>Name of document to be added.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>fileContent</td>
+<td>document</td>
+<td>Base64-encoded data of initial revision.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>returnUploadLink</td>
+<td>document</td>
+<td>Whether to return a presigned URL to upload file to S3 (only used if not sending fileContent).</td>
+<td>Yes</td>
+<td>boolean</td>
 </tr>
 </tbody></table>
 
@@ -835,26 +938,44 @@
 </tr>
 </tbody></table>
 
-<p><h1 id='project-templates'>Project Templates</h1><h2 id='get-all-project-templates'>Get All Project Templates</h2>
+<h1 id='project-templates'>Project Templates</h1><h2 id='get-all-project-templates'>Get All Project Templates</h2>
 <p><strong>Summary:</strong> Get available project templates for a given organization</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/project_templates</code> </p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;project_templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/project_templates"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">230</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"project_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nl">&quot;projectName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Covid&quot;</span><span class="p">,</span><span class="w">
-          </span><span class="nl">&quot;templateName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Covid form 1&quot;</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"projectName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covid"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"templateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covid form 1"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="nl">&quot;projectName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PGx&quot;</span><span class="p">,</span><span class="w">
-          </span><span class="nl">&quot;templateName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PGx form 1&quot;</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"projectName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGx"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"templateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGx form 1"</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Parameters</strong></p></p>
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates</code></p>
+
+<p><strong>Parameters</strong></p>
 
 <table><thead>
 <tr>
@@ -888,10 +1009,10 @@
 </tr>
 </tbody></table>
 
-<p><h1 id='provider-accounts'>Provider Accounts</h1><h2 id='get-provider-accounts'>Get Provider Accounts</h2>
+<h1 id='provider-accounts'>Provider Accounts</h1><h2 id='get-provider-accounts'>Get Provider Accounts</h2>
 <p><strong>Summary:</strong> Get All Provider Accounts</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts</code> </p></p>
+<p><code>GET /v3/provider_accounts</code> </p>
 
 <p><strong>Parameters</strong></p>
 
@@ -961,13 +1082,9 @@
 <td>Provider Accounts</td>
 </tr>
 </tbody></table>
-
 <h2 id='post-provider-account'>Post Provider Account</h2>
-
 <p><strong>Summary:</strong> Create a Provider Account</p>
-
 <h3 id='http-request-2'>HTTP Request</h3>
-
 <p><code>POST /v3/provider_accounts</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1003,13 +1120,9 @@
 <td>Created Provider</td>
 </tr>
 </tbody></table>
-
 <h2 id='get-provider-account'>Get Provider Account</h2>
-
 <p><strong>Summary:</strong> Get a Provider Account</p>
-
 <h3 id='http-request-3'>HTTP Request</h3>
-
 <p><code>GET /v3/provider_accounts/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1052,13 +1165,9 @@
 <td>Provider record</td>
 </tr>
 </tbody></table>
-
 <h2 id='put-provider-account'>Put Provider Account</h2>
-
 <p><strong>Summary:</strong> Update a Provider Account</p>
-
 <h3 id='http-request-4'>HTTP Request</h3>
-
 <p><code>PUT /v3/provider_accounts/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1101,13 +1210,9 @@
 <td>Provider record</td>
 </tr>
 </tbody></table>
-
 <h2 id='delete-provider-account'>Delete Provider Account</h2>
-
 <p><strong>Summary:</strong> Delete a Provider Account</p>
-
 <h3 id='http-request-5'>HTTP Request</h3>
-
 <p><code>DELETE /v3/provider_accounts/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1151,10 +1256,10 @@
 </tr>
 </tbody></table>
 
-<p><h1 id='provider-account-contacts'>Provider Account Contacts</h1><h2 id='post-provider-account-contact'>Post Provider Account Contact</h2>
+<h1 id='provider-account-contacts'>Provider Account Contacts</h1><h2 id='post-provider-account-contact'>Post Provider Account Contact</h2>
 <p><strong>Summary:</strong> Create a Provider Account Contact</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p></p>
+<p><code>POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1196,13 +1301,9 @@
 <td>Created Provider Account Contact</td>
 </tr>
 </tbody></table>
-
 <h2 id='get-provider-account-contacts'>Get Provider Account Contacts</h2>
-
 <p><strong>Summary:</strong> Get a Provider Account Contacts</p>
-
 <h3 id='http-request-2'>HTTP Request</h3>
-
 <p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1266,13 +1367,9 @@
 <td>Get Provider Account Contacts</td>
 </tr>
 </tbody></table>
-
 <h2 id='get-provider-account-contact'>Get Provider Account Contact</h2>
-
 <p><strong>Summary:</strong> Get a Provider Account Contact</p>
-
 <h3 id='http-request-3'>HTTP Request</h3>
-
 <p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1315,13 +1412,9 @@
 <td>Got Provider Account Contact</td>
 </tr>
 </tbody></table>
-
 <h2 id='put-provider-account-contact'>Put Provider Account Contact</h2>
-
 <p><strong>Summary:</strong> Update a Provider Account Contact</p>
-
 <h3 id='http-request-4'>HTTP Request</h3>
-
 <p><code>PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1371,13 +1464,9 @@
 <td>Created Provider Account Contact</td>
 </tr>
 </tbody></table>
-
 <h2 id='delete-provider-account-contact'>Delete Provider Account Contact</h2>
-
 <p><strong>Summary:</strong> Delete a Provider Account Contact</p>
-
 <h3 id='http-request-5'>HTTP Request</h3>
-
 <p><code>DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1421,10 +1510,10 @@
 </tr>
 </tbody></table>
 
-<p><h1 id='providers'>Providers</h1><h2 id='get-providers'>Get Providers</h2>
+<h1 id='providers'>Providers</h1><h2 id='get-providers'>Get Providers</h2>
 <p><strong>Summary:</strong> Get All Providers</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/providers</code> </p></p>
+<p><code>GET /v3/provider_accounts/{providerAccountId}/providers</code> </p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1494,13 +1583,9 @@
 <td>Get Providers</td>
 </tr>
 </tbody></table>
-
 <h2 id='post-provider'>Post Provider</h2>
-
 <p><strong>Summary:</strong> Create a Provider</p>
-
 <h3 id='http-request-2'>HTTP Request</h3>
-
 <p><code>POST /v3/provider_accounts/{providerAccountId}/providers</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1543,13 +1628,9 @@
 <td>Provider record</td>
 </tr>
 </tbody></table>
-
 <h2 id='get-provider'>Get Provider</h2>
-
 <p><strong>Summary:</strong> Get a Provider</p>
-
 <h3 id='http-request-3'>HTTP Request</h3>
-
 <p><code>GET /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1592,13 +1673,9 @@
 <td>Get Provider</td>
 </tr>
 </tbody></table>
-
 <h2 id='delete-provider'>Delete Provider</h2>
-
 <p><strong>Summary:</strong> Delete a Provider</p>
-
 <h3 id='http-request-4'>HTTP Request</h3>
-
 <p><code>DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1642,37 +1719,38 @@
 </tr>
 </tbody></table>
 
-<p><h1 id='reports'>Reports</h1><h2 id='update-report'>Update Report</h2>
+<h1 id='reports'>Reports</h1><h2 id='update-report'>Update Report</h2>
 <p><strong>Summary:</strong> Update empty Report with content</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>PUT /v3/reports/{id}</code> </p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="nl">&quot;report&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="nl">&quot;reportContent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="nl">"report"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportContent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
-<span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
-<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
-<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/reports/38640&quot;</span><span class="p">)</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span></p>
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/reports/38640"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
-<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span>
-<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span></p>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
-<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 </code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">&quot;report&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test0001&quot;</span><span class="p">,</span><span class="w">
-    </span><span class="nl">&quot;reportContent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;base64 report content&quot;</span><span class="w">
+  </span><span class="nl">"report"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test0001"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reportContent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"base64 report content"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p><strong>Parameters</strong></p></p>
+
+<p><strong>Parameters</strong></p>
 
 <table><thead>
 <tr>
@@ -2670,8 +2748,27 @@
 
 <h1 id='sample-labels'>Sample Labels</h1><h2 id='get-all-sample-labels'>Get All Sample Labels</h2>
 <p><strong>Summary:</strong> Get available sample labels</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{project_template_id}/sample_labels</code> </p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/project_templates/{project_template_id}/sample_labels"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="c1">// not needed</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"sampleLabels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"DNA"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{project_template_id}/sample_labels</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -2709,8 +2806,41 @@
 
 <h1 id='test-panels'>Test Panels</h1><h2 id='get-all-test-panels'>Get All Test Panels</h2>
 <p><strong>Summary:</strong> Get available Test Panels</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{project_template_id}/test_panels</code> </p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/project_templates/{project_template_id}/test_panels"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="c1">// not needed</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"testPanels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"panelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genome Exploration  PGx Comp"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"panelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COR_COMP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"panelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENERIC_COMP"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"panelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GENERIC_COMP"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"panelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intermountain Healthcare Comp"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"panelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intermountain_Healthcare_Comp"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"panelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clay's Test Panel"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"panelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CTP"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{project_template_id}/test_panels</code></p>
 
 <p><strong>Parameters</strong></p>
 
