@@ -288,7 +288,7 @@
 
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;]">
+  <body class="index" data-languages="[&quot;ruby&quot;,&quot;json-doc&quot;,&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -298,8 +298,9 @@
     <div class="toc-wrapper">
       <img src="images/logo-b1814057.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
               <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="json-doc">payload</a>
+              <a href="#" data-language-name="json">response</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -313,87 +314,10 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
-            <a href="#requisitions" class="toc-h1 toc-link" data-title="Requisitions">Requisitions</a>
+            <a href="#admin-reports" class="toc-h1 toc-link" data-title="Admin Reports">Admin Reports</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-requisitions" class="toc-h2 toc-link" data-title="Get Requisitions">Get Requisitions</a>
-                  </li>
-                  <li>
-                    <a href="#get-requisition" class="toc-h2 toc-link" data-title="Get Requisition">Get Requisition</a>
-                  </li>
-                  <li>
-                    <a href="#post-requisition" class="toc-h2 toc-link" data-title="Post Requisition">Post Requisition</a>
-                  </li>
-                  <li>
-                    <a href="#put-requisition" class="toc-h2 toc-link" data-title="Put Requisition">Put Requisition</a>
-                  </li>
-                  <li>
-                    <a href="#archive-requisition" class="toc-h2 toc-link" data-title="Archive Requisition">Archive Requisition</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#sales-reps" class="toc-h1 toc-link" data-title="Sales Reps">Sales Reps</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#post-sales-rep" class="toc-h2 toc-link" data-title="Post Sales Rep">Post Sales Rep</a>
-                  </li>
-                  <li>
-                    <a href="#get-sales-reps" class="toc-h2 toc-link" data-title="Get Sales Reps">Get Sales Reps</a>
-                  </li>
-                  <li>
-                    <a href="#get-sales-rep" class="toc-h2 toc-link" data-title="Get Sales Rep">Get Sales Rep</a>
-                  </li>
-                  <li>
-                    <a href="#put-sales-rep" class="toc-h2 toc-link" data-title="Put Sales Rep">Put Sales Rep</a>
-                  </li>
-                  <li>
-                    <a href="#delete-sales-rep" class="toc-h2 toc-link" data-title="Delete Sales Rep">Delete Sales Rep</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#sales-group" class="toc-h1 toc-link" data-title="Sales Group">Sales Group</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#post-sales-group" class="toc-h2 toc-link" data-title="Post Sales Group">Post Sales Group</a>
-                  </li>
-                  <li>
-                    <a href="#get-sales-groups" class="toc-h2 toc-link" data-title="Get Sales Groups">Get Sales Groups</a>
-                  </li>
-                  <li>
-                    <a href="#put-sales-group" class="toc-h2 toc-link" data-title="Put Sales Group">Put Sales Group</a>
-                  </li>
-                  <li>
-                    <a href="#get-sales-group" class="toc-h2 toc-link" data-title="Get Sales Group">Get Sales Group</a>
-                  </li>
-                  <li>
-                    <a href="#delete-sales-group" class="toc-h2 toc-link" data-title="Delete Sales Group">Delete Sales Group</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#webhook-endpoints" class="toc-h1 toc-link" data-title="Webhook Endpoints">Webhook Endpoints</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-webhook-endpoints" class="toc-h2 toc-link" data-title="Get Webhook Endpoints">Get Webhook Endpoints</a>
-                  </li>
-                  <li>
-                    <a href="#post-webhook-endpoint" class="toc-h2 toc-link" data-title="Post Webhook Endpoint">Post Webhook Endpoint</a>
-                  </li>
-                  <li>
-                    <a href="#get-webhook-endpoint" class="toc-h2 toc-link" data-title="Get Webhook Endpoint">Get Webhook Endpoint</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#webhook-endpoint-events" class="toc-h1 toc-link" data-title="Webhook Endpoint Events">Webhook Endpoint Events</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Get Webhook Endpoint Events">Get Webhook Endpoint Events</a>
-                  </li>
-                  <li>
-                    <a href="#retry-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Retry Webhook Endpoint Events">Retry Webhook Endpoint Events</a>
+                    <a href="#get-workflow-qc-report" class="toc-h2 toc-link" data-title="Get Workflow QC Report">Get Workflow QC Report</a>
                   </li>
               </ul>
           </li>
@@ -409,18 +333,10 @@
               </ul>
           </li>
           <li>
-            <a href="#workflow-definitions" class="toc-h1 toc-link" data-title="Workflow Definitions">Workflow Definitions</a>
+            <a href="#project-templates" class="toc-h1 toc-link" data-title="Project Templates">Project Templates</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-workflow-definitions" class="toc-h2 toc-link" data-title="Get Workflow Definitions">Get Workflow Definitions</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#resources" class="toc-h1 toc-link" data-title="Resources">Resources</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#post-resource" class="toc-h2 toc-link" data-title="Post Resource">Post Resource</a>
+                    <a href="#get-all-project-templates" class="toc-h2 toc-link" data-title="Get All Project Templates">Get All Project Templates</a>
                   </li>
               </ul>
           </li>
@@ -482,10 +398,78 @@
               </ul>
           </li>
           <li>
-            <a href="#test-panels" class="toc-h1 toc-link" data-title="Test Panels">Test Panels</a>
+            <a href="#reports" class="toc-h1 toc-link" data-title="Reports">Reports</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-test-panels" class="toc-h2 toc-link" data-title="Get All Test Panels">Get All Test Panels</a>
+                    <a href="#update-report" class="toc-h2 toc-link" data-title="Update Report">Update Report</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#requisitions" class="toc-h1 toc-link" data-title="Requisitions">Requisitions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-requisitions" class="toc-h2 toc-link" data-title="Get Requisitions">Get Requisitions</a>
+                  </li>
+                  <li>
+                    <a href="#get-requisition" class="toc-h2 toc-link" data-title="Get Requisition">Get Requisition</a>
+                  </li>
+                  <li>
+                    <a href="#post-requisition" class="toc-h2 toc-link" data-title="Post Requisition">Post Requisition</a>
+                  </li>
+                  <li>
+                    <a href="#put-requisition" class="toc-h2 toc-link" data-title="Put Requisition">Put Requisition</a>
+                  </li>
+                  <li>
+                    <a href="#archive-requisition" class="toc-h2 toc-link" data-title="Archive Requisition">Archive Requisition</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#resources" class="toc-h1 toc-link" data-title="Resources">Resources</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-resource" class="toc-h2 toc-link" data-title="Post Resource">Post Resource</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sales-group" class="toc-h1 toc-link" data-title="Sales Group">Sales Group</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-sales-group" class="toc-h2 toc-link" data-title="Post Sales Group">Post Sales Group</a>
+                  </li>
+                  <li>
+                    <a href="#get-sales-groups" class="toc-h2 toc-link" data-title="Get Sales Groups">Get Sales Groups</a>
+                  </li>
+                  <li>
+                    <a href="#put-sales-group" class="toc-h2 toc-link" data-title="Put Sales Group">Put Sales Group</a>
+                  </li>
+                  <li>
+                    <a href="#get-sales-group" class="toc-h2 toc-link" data-title="Get Sales Group">Get Sales Group</a>
+                  </li>
+                  <li>
+                    <a href="#delete-sales-group" class="toc-h2 toc-link" data-title="Delete Sales Group">Delete Sales Group</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#sales-reps" class="toc-h1 toc-link" data-title="Sales Reps">Sales Reps</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#post-sales-rep" class="toc-h2 toc-link" data-title="Post Sales Rep">Post Sales Rep</a>
+                  </li>
+                  <li>
+                    <a href="#get-sales-reps" class="toc-h2 toc-link" data-title="Get Sales Reps">Get Sales Reps</a>
+                  </li>
+                  <li>
+                    <a href="#get-sales-rep" class="toc-h2 toc-link" data-title="Get Sales Rep">Get Sales Rep</a>
+                  </li>
+                  <li>
+                    <a href="#put-sales-rep" class="toc-h2 toc-link" data-title="Put Sales Rep">Put Sales Rep</a>
+                  </li>
+                  <li>
+                    <a href="#delete-sales-rep" class="toc-h2 toc-link" data-title="Delete Sales Rep">Delete Sales Rep</a>
                   </li>
               </ul>
           </li>
@@ -498,12 +482,51 @@
               </ul>
           </li>
           <li>
-            <a href="#project-templates" class="toc-h1 toc-link" data-title="Project Templates">Project Templates</a>
+            <a href="#test-panels" class="toc-h1 toc-link" data-title="Test Panels">Test Panels</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-project-templates" class="toc-h2 toc-link" data-title="Get All Project Templates">Get All Project Templates</a>
+                    <a href="#get-all-test-panels" class="toc-h2 toc-link" data-title="Get All Test Panels">Get All Test Panels</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#webhook-endpoints" class="toc-h1 toc-link" data-title="Webhook Endpoints">Webhook Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-webhook-endpoints" class="toc-h2 toc-link" data-title="Get Webhook Endpoints">Get Webhook Endpoints</a>
+                  </li>
+                  <li>
+                    <a href="#get-webhook-endpoint" class="toc-h2 toc-link" data-title="Get Webhook Endpoint">Get Webhook Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#post-webhook-endpoint" class="toc-h2 toc-link" data-title="Post Webhook Endpoint">Post Webhook Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#put-webhook-endpoint" class="toc-h2 toc-link" data-title="Put Webhook Endpoint">Put Webhook Endpoint</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#webhook-endpoint-events" class="toc-h1 toc-link" data-title="Webhook Endpoint Events">Webhook Endpoint Events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Get Webhook Endpoint Events">Get Webhook Endpoint Events</a>
+                  </li>
+                  <li>
+                    <a href="#retry-webhook-endpoint-events" class="toc-h2 toc-link" data-title="Retry Webhook Endpoint Events">Retry Webhook Endpoint Events</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#workflow-definitions" class="toc-h1 toc-link" data-title="Workflow Definitions">Workflow Definitions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-workflow-definitions" class="toc-h2 toc-link" data-title="Get Workflow Definitions">Get Workflow Definitions</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
     </div>
@@ -522,41 +545,1209 @@
 </tr>
 </thead><tbody>
 </tbody></table>
-<h1 id='requisitions'>Requisitions</h1><h2 id='get-requisitions'>Get Requisitions</h2>
-<p><strong>Summary:</strong> Get Requisitions</p>
+
+<p><h1 id='admin-reports'>Admin Reports</h1><h2 id='get-workflow-qc-report'>Get Workflow QC Report</h2>
+<p><strong>Summary:</strong> Get all Workflows and related data</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/admin_reports</code> </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"requisitions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accession_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"incomplete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unprocessed"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"reporting_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-started"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"billing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-submitted"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"templateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"processing"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"accession_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"incomplete"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"processing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unprocessed"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"reporting_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-started"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"billing_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not-submitted"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date string"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="nl">&quot;workflows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">&quot;Workflow Batch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Workflow Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Workflow Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Requisition ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-req-1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Sample ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-sample-1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Collection Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Received Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Overall Test Result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Previous Workflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch Creation&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 1 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 1 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:20 AM&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch plating&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 2 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 2 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:25 AM&quot;</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">&quot;Workflow Batch&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-1&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Workflow Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Workflow Status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;completed&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Requisition ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-req-2&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Sample ID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test-sample-2&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Collection Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Received Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Control&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;No&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Overall Test Result&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Previous Workflow&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch Creation&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 1 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 1 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:20 AM&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Batch plating&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 2 Submitted By&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Test User&quot;</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;Activity 2 Submitted Date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01/01/2020 11:25 AM&quot;</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;{api_endpoint}/api/v3/admin_reports?type=workflow_report&amp;startDate=2022-01-01&amp;endDate=2022-01-12&amp;workflowDefinitionId=1&amp;perPage=10&amp;page=1&amp;workflowDefinitionId=1&quot;</span><span class="p">)</span></p>
+
+<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span></p>
+
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div>
+<p><strong>Parameters</strong></p></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>query</td>
+<td>Type of report data you’re requesting.<br>Options:<br><ul><li>workflow_report</li></ul></td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>query</td>
+<td>Start date for query</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>query</td>
+<td>End date for query</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>workflowDefinitionId</td>
+<td>query</td>
+<td>ID of workflow definition you want data for.<br>(Only required with type &#39; workflow_report&#39;)</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>Page of results. Defaults to 1.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>query</td>
+<td>Number of results per page. Defaults to 100.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Get all Workflow Definitions for an Organization</td>
+</tr>
+</tbody></table>
+
+<p><h1 id='documents'>Documents</h1><h2 id='get-documents'>Get Documents</h2>
+<p><strong>Summary:</strong> Get all Documents for Project Template</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test1.pdf&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;requisitionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQ-1&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;downloadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://...&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-25T22:06:21.000Z&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;uploadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test2.pdf&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;requisitionId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;REQ-2&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;downloadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://...&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-01-25T22:06:21.000Z&quot;</span><span class="p">,</span><span class="w">
+            </span><span class="nl">&quot;uploadLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">&quot;currentPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;perPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;totalEntries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{projectTemplateId}/requisitions</code> </p>
+<p><code>GET /v3/documents</code> </p></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>projectTemplateId</td>
+<td>query</td>
+<td>Filters documents by project template.</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>requisitionIdentifier</td>
+<td>query</td>
+<td>Filters documents for specific Requisition Identifier</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>requisitionId</td>
+<td>query</td>
+<td>Filters documents for specific Requisition ID</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>folderName</td>
+<td>query</td>
+<td>Filters documents by folder name.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>query</td>
+<td>Filters documents created_at starting from this date.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>query</td>
+<td>Filters documents created_at ending from this date.</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>Page number being requested.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>query</td>
+<td>Number of documents to return per page. Maximum of 5000.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>All documents for a Project Template</td>
+</tr>
+</tbody></table>
+
+<h2 id='post-document'>Post Document</h2>
+
+<p><strong>Summary:</strong> Create a new Document</p>
+
+<h3 id='http-request-2'>HTTP Request</h3>
+
+<p><code>POST /v3/documents</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Document record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Created Document</td>
+</tr>
+</tbody></table>
+
+<p><h1 id='project-templates'>Project Templates</h1><h2 id='get-all-project-templates'>Get All Project Templates</h2>
+<p><strong>Summary:</strong> Get available project templates for a given organization</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates</code> </p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">&quot;project_templates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">&quot;projectName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Covid&quot;</span><span class="p">,</span><span class="w">
+          </span><span class="nl">&quot;templateName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Covid form 1&quot;</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nl">&quot;projectName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PGx&quot;</span><span class="p">,</span><span class="w">
+          </span><span class="nl">&quot;templateName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PGx form 1&quot;</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Associated organization</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Project Templates</td>
+</tr>
+</tbody></table>
+
+<p><h1 id='provider-accounts'>Provider Accounts</h1><h2 id='get-provider-accounts'>Get Provider Accounts</h2>
+<p><strong>Summary:</strong> Get All Provider Accounts</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/provider_accounts</code> </p></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Organization ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td>Provider Account Name</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>externalIdentifier</td>
+<td>query</td>
+<td>Provider Account External Identifier.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>accountNumber</td>
+<td>query</td>
+<td>Provider Account Number</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>Page of results.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>query</td>
+<td>Results per page. Maximum of 5000.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider Accounts</td>
+</tr>
+</tbody></table>
+
+<h2 id='post-provider-account'>Post Provider Account</h2>
+
+<p><strong>Summary:</strong> Create a Provider Account</p>
+
+<h3 id='http-request-2'>HTTP Request</h3>
+
+<p><code>POST /v3/provider_accounts</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Provider Account record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Created Provider</td>
+</tr>
+</tbody></table>
+
+<h2 id='get-provider-account'>Get Provider Account</h2>
+
+<p><strong>Summary:</strong> Get a Provider Account</p>
+
+<h3 id='http-request-3'>HTTP Request</h3>
+
+<p><code>GET /v3/provider_accounts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Sales Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>OrganizationId</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider record</td>
+</tr>
+</tbody></table>
+
+<h2 id='put-provider-account'>Put Provider Account</h2>
+
+<p><strong>Summary:</strong> Update a Provider Account</p>
+
+<h3 id='http-request-4'>HTTP Request</h3>
+
+<p><code>PUT /v3/provider_accounts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Sales Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Provider Account record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider record</td>
+</tr>
+</tbody></table>
+
+<h2 id='delete-provider-account'>Delete Provider Account</h2>
+
+<p><strong>Summary:</strong> Delete a Provider Account</p>
+
+<h3 id='http-request-5'>HTTP Request</h3>
+
+<p><code>DELETE /v3/provider_accounts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Provider Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Organization ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider Account archived</td>
+</tr>
+</tbody></table>
+
+<p><h1 id='provider-account-contacts'>Provider Account Contacts</h1><h2 id='post-provider-account-contact'>Post Provider Account Contact</h2>
+<p><strong>Summary:</strong> Create a Provider Account Contact</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Provider Account Contact record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Created Provider Account Contact</td>
+</tr>
+</tbody></table>
+
+<h2 id='get-provider-account-contacts'>Get Provider Account Contacts</h2>
+
+<p><strong>Summary:</strong> Get a Provider Account Contacts</p>
+
+<h3 id='http-request-2'>HTTP Request</h3>
+
+<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>externalIdentifier</td>
+<td>query</td>
+<td>Provider Account Contact External ID.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td>Provider Account Contact Email.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>Page of results.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>query</td>
+<td>Results per page. Maximum of 5000.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Get Provider Account Contacts</td>
+</tr>
+</tbody></table>
+
+<h2 id='get-provider-account-contact'>Get Provider Account Contact</h2>
+
+<p><strong>Summary:</strong> Get a Provider Account Contact</p>
+
+<h3 id='http-request-3'>HTTP Request</h3>
+
+<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Provider Account Contact ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Got Provider Account Contact</td>
+</tr>
+</tbody></table>
+
+<h2 id='put-provider-account-contact'>Put Provider Account Contact</h2>
+
+<p><strong>Summary:</strong> Update a Provider Account Contact</p>
+
+<h3 id='http-request-4'>HTTP Request</h3>
+
+<p><code>PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Provider Account Contact ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Provider Account Contact record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Created Provider Account Contact</td>
+</tr>
+</tbody></table>
+
+<h2 id='delete-provider-account-contact'>Delete Provider Account Contact</h2>
+
+<p><strong>Summary:</strong> Delete a Provider Account Contact</p>
+
+<h3 id='http-request-5'>HTTP Request</h3>
+
+<p><code>DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Provider Account Contact ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider Account Contact archived</td>
+</tr>
+</tbody></table>
+
+<p><h1 id='providers'>Providers</h1><h2 id='get-providers'>Get Providers</h2>
+<p><strong>Summary:</strong> Get All Providers</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/provider_accounts/{providerAccountId}/providers</code> </p></p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account id</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>registryIdentifier</td>
+<td>query</td>
+<td>Provider Registry Identifier.</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>licensingRegistry</td>
+<td>query</td>
+<td>Provider Licensing Identifier</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>query</td>
+<td>Provider Name</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>Page of results.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>query</td>
+<td>Results per page. Maximum of 5000.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Get Providers</td>
+</tr>
+</tbody></table>
+
+<h2 id='post-provider'>Post Provider</h2>
+
+<p><strong>Summary:</strong> Create a Provider</p>
+
+<h3 id='http-request-2'>HTTP Request</h3>
+
+<p><code>POST /v3/provider_accounts/{providerAccountId}/providers</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account id</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Provider record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider record</td>
+</tr>
+</tbody></table>
+
+<h2 id='get-provider'>Get Provider</h2>
+
+<p><strong>Summary:</strong> Get a Provider</p>
+
+<h3 id='http-request-3'>HTTP Request</h3>
+
+<p><code>GET /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account id</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Provider ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Get Provider</td>
+</tr>
+</tbody></table>
+
+<h2 id='delete-provider'>Delete Provider</h2>
+
+<p><strong>Summary:</strong> Delete a Provider</p>
+
+<h3 id='http-request-4'>HTTP Request</h3>
+
+<p><code>DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>providerAccountId</td>
+<td>path</td>
+<td>Provider Account id</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Provider ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Provider archived</td>
+</tr>
+</tbody></table>
+
+<p><h1 id='reports'>Reports</h1><h2 id='update-report'>Update Report</h2>
+<p><strong>Summary:</strong> Update empty Report with content</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT /v3/reports/{id}</code> </p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="nl">&quot;report&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">&quot;requisitionIdentifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="nl">&quot;reportContent&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;json&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/reports/38640&quot;</span><span class="p">)</span></p>
+
+<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
+  <span class="s2">&quot;report&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;requisitionIdentifier&quot;</span><span class="p">:</span> <span class="s2">&quot;test0001&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reportContent&quot;</span><span class="p">:</span> <span class="s2">&quot;base64 report content&quot;</span>
+  <span class="p">}</span>
+<span class="p">})</span></p>
+
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div>
+<p><strong>Parameters</strong></p></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requisitionIdentifier</td>
+<td>body</td>
+<td>Requisition report is associated to</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>reportContent</td>
+<td>body</td>
+<td>Base64 content of report</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Report successfully uploaded.</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Indicating an authentication error</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Will return the validation errors found. <br>e.g. <strong>&quot;Report ID required&quot;</strong>, <strong>&quot;Requisition not found&quot;</strong>, <strong>&quot;Report not found&quot;</strong>, or <strong>&quot;Invalid Requisition for Report&quot;</strong></td>
+</tr>
+</tbody></table>
+
+<p><h1 id='requisitions'>Requisitions</h1><h2 id='get-requisitions'>Get Requisitions</h2>
+<p><strong>Summary:</strong> Get Requisitions</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">&quot;requisitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;templateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;accession_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;incomplete&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;processing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unprocessed&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;reporting_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-started&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;billing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-submitted&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">&quot;identifier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;templateId&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;processing&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;accession_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;incomplete&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;processing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;unprocessed&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;reporting_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-started&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;billing_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;not-submitted&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;createdAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="p">,</span><span class="w">
+      </span><span class="nl">&quot;updatedAt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date string&quot;</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+    </span><span class="nl">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">&quot;currentPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;perPage&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">&quot;totalEntries&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{projectTemplateId}/requisitions</code> </p></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -619,8 +1810,11 @@
 <td>Requisition record</td>
 </tr>
 </tbody></table>
+
 <h2 id='get-requisition'>Get Requisition</h2>
+
 <p><strong>Summary:</strong> Get a Requisition</p>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"requisition"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
@@ -946,10 +2140,11 @@
 <td>Requisition deleted</td>
 </tr>
 </tbody></table>
-<h1 id='sales-reps'>Sales Reps</h1><h2 id='post-sales-rep'>Post Sales Rep</h2>
-<p><strong>Summary:</strong> Create a Sales Rep</p>
-<h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST /v3/sales_reps</code> </p>
+
+<h1 id='resources'>Resources</h1><h2 id='post-resource'>Post Resource</h2>
+<p><strong>Summary:</strong> Create a Resource</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v3/resources</code> </p>
 
 <p><strong>Parameters</strong></p>
 
@@ -965,7 +2160,7 @@
 <tr>
 <td>body</td>
 <td>body</td>
-<td>Sales Rep Record</td>
+<td>Resource record</td>
 <td>Yes</td>
 <td></td>
 </tr>
@@ -980,214 +2175,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>200</td>
-<td>Created Sales Rep Record</td>
-</tr>
-</tbody></table>
-<h2 id='get-sales-reps'>Get Sales Reps</h2>
-<p><strong>Summary:</strong> Get All Sales Reps</p>
-<h3 id='http-request-7'>HTTP Request</h3>
-<p><code>GET /v3/sales_reps</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Organization ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>sales_group_id</td>
-<td>query</td>
-<td>Sales Group ID</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>email</td>
-<td>query</td>
-<td>Sales Group Email</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>page</td>
-<td>query</td>
-<td>Page of results.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>perPage</td>
-<td>query</td>
-<td>Results per page. Maximum of 5000.</td>
-<td>No</td>
-<td>integer</td>
+<td>201</td>
+<td>Resource record</td>
 </tr>
 </tbody></table>
 
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Get all Sales Reps</td>
-</tr>
-</tbody></table>
-<h2 id='get-sales-rep'>Get Sales Rep</h2>
-<p><strong>Summary:</strong> Get a Sales Rep</p>
-<h3 id='http-request-8'>HTTP Request</h3>
-<p><code>GET /v3/sales_reps/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Sales Rep ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Organization ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Get Sales Rep Record</td>
-</tr>
-</tbody></table>
-<h2 id='put-sales-rep'>Put Sales Rep</h2>
-<p><strong>Summary:</strong> Update a Sales Rep</p>
-<h3 id='http-request-9'>HTTP Request</h3>
-<p><code>PUT /v3/sales_reps/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Sales Rep ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Sales Rep Record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Updated Sales Rep Record</td>
-</tr>
-</tbody></table>
-<h2 id='delete-sales-rep'>Delete Sales Rep</h2>
-<p><strong>Summary:</strong> Delete a Sales Rep</p>
-<h3 id='http-request-10'>HTTP Request</h3>
-<p><code>DELETE /v3/sales_reps/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Sales Rep ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Organization ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Sales Rep archived</td>
-</tr>
-</tbody></table>
 <h1 id='sales-group'>Sales Group</h1><h2 id='post-sales-group'>Post Sales Group</h2>
 <p><strong>Summary:</strong> Create a Sales Group</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>POST /v3/sales_groups</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1225,7 +2220,7 @@
 </tbody></table>
 <h2 id='get-sales-groups'>Get Sales Groups</h2>
 <p><strong>Summary:</strong> Get All Sales Groups</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET /v3/sales_groups</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1291,7 +2286,7 @@
 </tbody></table>
 <h2 id='put-sales-group'>Put Sales Group</h2>
 <p><strong>Summary:</strong> Update a Sales Group</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>PUT /v3/sales_groups/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1336,7 +2331,7 @@
 </tbody></table>
 <h2 id='get-sales-group'>Get Sales Group</h2>
 <p><strong>Summary:</strong> Get a Sales Group</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET /v3/sales_groups/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1381,7 +2376,7 @@
 </tbody></table>
 <h2 id='delete-sales-group'>Delete Sales Group</h2>
 <p><strong>Summary:</strong> Delete a Sales Group</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE /v3/sales_groups/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1424,9 +2419,357 @@
 <td>Sales Group archived</td>
 </tr>
 </tbody></table>
+
+<h1 id='sales-reps'>Sales Reps</h1><h2 id='post-sales-rep'>Post Sales Rep</h2>
+<p><strong>Summary:</strong> Create a Sales Rep</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v3/sales_reps</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Sales Rep Record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Created Sales Rep Record</td>
+</tr>
+</tbody></table>
+<h2 id='get-sales-reps'>Get Sales Reps</h2>
+<p><strong>Summary:</strong> Get All Sales Reps</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v3/sales_reps</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Organization ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>sales_group_id</td>
+<td>query</td>
+<td>Sales Group ID</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>email</td>
+<td>query</td>
+<td>Sales Group Email</td>
+<td>No</td>
+<td>string</td>
+</tr>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>Page of results.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>query</td>
+<td>Results per page. Maximum of 5000.</td>
+<td>No</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Get all Sales Reps</td>
+</tr>
+</tbody></table>
+<h2 id='get-sales-rep'>Get Sales Rep</h2>
+<p><strong>Summary:</strong> Get a Sales Rep</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v3/sales_reps/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Sales Rep ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Organization ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Get Sales Rep Record</td>
+</tr>
+</tbody></table>
+<h2 id='put-sales-rep'>Put Sales Rep</h2>
+<p><strong>Summary:</strong> Update a Sales Rep</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /v3/sales_reps/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Sales Rep ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>body</td>
+<td>body</td>
+<td>Sales Rep Record</td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Updated Sales Rep Record</td>
+</tr>
+</tbody></table>
+<h2 id='delete-sales-rep'>Delete Sales Rep</h2>
+<p><strong>Summary:</strong> Delete a Sales Rep</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE /v3/sales_reps/{id}</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>path</td>
+<td>Sales Rep ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+<tr>
+<td>organizationId</td>
+<td>query</td>
+<td>Organization ID</td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Sales Rep archived</td>
+</tr>
+</tbody></table>
+
+<h1 id='sample-labels'>Sample Labels</h1><h2 id='get-all-sample-labels'>Get All Sample Labels</h2>
+<p><strong>Summary:</strong> Get available sample labels</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{project_template_id}/sample_labels</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_template_id</td>
+<td>path</td>
+<td>Associated project_template group</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Sample Labels</td>
+</tr>
+</tbody></table>
+
+<h1 id='test-panels'>Test Panels</h1><h2 id='get-all-test-panels'>Get All Test Panels</h2>
+<p><strong>Summary:</strong> Get available Test Panels</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{project_template_id}/test_panels</code> </p>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_template_id</td>
+<td>path</td>
+<td>Associated project_template group</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Test Panels</td>
+</tr>
+</tbody></table>
+
 <h1 id='webhook-endpoints'>Webhook Endpoints</h1><h2 id='get-webhook-endpoints'>Get Webhook Endpoints</h2>
 <p><strong>Summary:</strong> Get Webhook Endpoints</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">},{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_corrected"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1462,9 +2805,111 @@
 <td>Webhook Endpoints</td>
 </tr>
 </tbody></table>
+<h2 id='get-webhook-endpoint'>Get Webhook Endpoint</h2>
+<p><strong>Summary:</strong> Get a Webhook Endpoint</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
 <h2 id='post-webhook-endpoint'>Post Webhook Endpoint</h2>
 <p><strong>Summary:</strong> Create a Webhook Endpoint</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
+  <span class="s2">"webhookEndpoint"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"targetUrl"</span><span class="p">:</span> <span class="s2">"https://test.api.com"</span><span class="p">,</span>
+    <span class="s2">"username"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span>
+    <span class="s2">"password"</span><span class="p">:</span> <span class="s2">"test"</span><span class="p">,</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"report_signed"</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div>
+
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>project_template_id</td>
+<td>path</td>
+<td>Associated project_template group</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>id</td>
+<td>path</td>
+<td></td>
+<td>Yes</td>
+<td>integer</td>
+</tr>
+</tbody></table>
+
+<p><strong>Responses</strong></p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Webhook Endpoint</td>
+</tr>
+</tbody></table>
+
+<h3 id='http-request-3'>HTTP Request</h3>
+
 <p><code>POST /v3/project_templates/{project_template_id}/webhook_endpoints</code> </p>
 
 <p><strong>Parameters</strong></p>
@@ -1507,8 +2952,11 @@
 <td>Created Webhook Endpoint</td>
 </tr>
 </tbody></table>
-<h2 id='get-webhook-endpoint'>Get Webhook Endpoint</h2>
-<p><strong>Summary:</strong> Get a Webhook Endpoint</p>
+
+<h2 id='put-webhook-endpoint'>Put Webhook Endpoint</h2>
+
+<p><strong>Summary:</strong> Update a Webhook Endpoint</p>
+
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1518,8 +2966,33 @@
         </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-18'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"webhook_endpoint"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://api.test.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"project_requisition_template_association_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /v3/project_templates/{project_template_id}/webhook_endpoints/{id}</code> </p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1546,6 +3019,34 @@
 <td>Yes</td>
 <td>integer</td>
 </tr>
+<tr>
+<td>targetUrl</td>
+<td>body</td>
+<td>Host URL to send webhook payload to</td>
+<td>no</td>
+<td>string</td>
+</tr>
+<tr>
+<td>username</td>
+<td>body</td>
+<td>Username to connect to host</td>
+<td>no</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>body</td>
+<td>Password to connect to host</td>
+<td>no</td>
+<td>string</td>
+</tr>
+<tr>
+<td>event</td>
+<td>body</td>
+<td>Type of event</td>
+<td>no</td>
+<td>string</td>
+</tr>
 </tbody></table>
 
 <p><strong>Responses</strong></p>
@@ -1561,10 +3062,11 @@
 <td>Webhook Endpoint</td>
 </tr>
 </tbody></table>
+
 <h1 id='webhook-endpoint-events'>Webhook Endpoint Events</h1><h2 id='get-webhook-endpoint-events'>Get Webhook Endpoint Events</h2>
 <p><strong>Summary:</strong> Get All Webhook Endpoint Events</p>
-<h3 id='http-request-19'>HTTP Request</h3>
-<p><code>GET /v3/webhook_endpoint_events</code> </p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v3/organizations/{organization_id}/webhook_endpoint_events</code> </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"webhook_endpoints"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1596,7 +3098,19 @@
     </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/organizations/{organization_id}/webhook_endpoint_events?eventStatus=sent&amp;projectTemplateIds=1,2"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div>
+
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1609,56 +3123,56 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>organizationId</td>
-<td>query</td>
+<td>organization_id</td>
+<td>path</td>
 <td>Organization ID</td>
 <td>Yes</td>
 <td>integer</td>
 </tr>
 <tr>
-<td>project_template_ids</td>
+<td>projectTemplateIds</td>
 <td>query</td>
 <td>Project Template Ids</td>
 <td>No</td>
-<td>array</td>
+<td>comma separated integers</td>
 </tr>
 <tr>
-<td>webhook_endpoint_ids</td>
+<td>webhookEndpointIds</td>
 <td>query</td>
 <td>Webhook Endpoint Ids</td>
 <td>No</td>
-<td>array</td>
+<td>comma separated integers</td>
 </tr>
 <tr>
-<td>event_type</td>
+<td>eventType</td>
 <td>query</td>
 <td>Type of event.</td>
 <td>No</td>
 <td>string</td>
 </tr>
 <tr>
-<td>event_status</td>
+<td>eventStatus</td>
 <td>query</td>
-<td>Status of event.</td>
+<td>Status of event. <br><ul><li>sent</li><li>send-failed</li><li>pending</li></ul></td>
 <td>No</td>
 <td>string</td>
 </tr>
 <tr>
-<td>start_date</td>
+<td>startDate</td>
 <td>query</td>
 <td>Beginning date to query data.</td>
 <td>No</td>
 <td>string</td>
 </tr>
 <tr>
-<td>end_date</td>
+<td>endDate</td>
 <td>query</td>
 <td>End date to query data.</td>
 <td>No</td>
 <td>string</td>
 </tr>
 <tr>
-<td>per_page</td>
+<td>perPage</td>
 <td>query</td>
 <td>Results per page. Max 1000</td>
 <td>No</td>
@@ -1690,10 +3204,32 @@
 <td>&quot;param&quot; not found</td>
 </tr>
 </tbody></table>
+
 <h2 id='retry-webhook-endpoint-events'>Retry Webhook Endpoint Events</h2>
+
 <p><strong>Summary:</strong> Retry webhook endpoint events</p>
-<h3 id='http-request-20'>HTTP Request</h3>
-<p><code>POST /v3/webhook_endpoint_events/retry_events</code> </p>
+
+<h3 id='http-request-2'>HTTP Request</h3>
+
+<p><code>POST /v3/organizations/{organization_id}/webhook_endpoint_events/retry_events</code></p>
+
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"json"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"https://lab-services.ovatio.io/api/v3/organizations/659/webhook_endpoint_events/retry_events"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span>
+  <span class="s2">"webhookEndpointEventIds"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div>
 
 <p><strong>Parameters</strong></p>
 
@@ -1707,11 +3243,11 @@
 </tr>
 </thead><tbody>
 <tr>
+<td>webhookEndpointEventIds</td>
 <td>body</td>
-<td>body</td>
-<td>Sales Group Record</td>
+<td>IDs of events to resend</td>
 <td>Yes</td>
-<td></td>
+<td>array</td>
 </tr>
 </tbody></table>
 
@@ -1732,176 +3268,36 @@
 <td>Error while trying to requeue Webhook Endpoint Events</td>
 </tr>
 </tbody></table>
-<h1 id='documents'>Documents</h1><h2 id='get-documents'>Get Documents</h2>
-<p><strong>Summary:</strong> Get all Documents for Project Template</p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"documents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1.pdf"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-1"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"downloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-25T22:06:21.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"uploadLink"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test2.pdf"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-2"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"downloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-25T22:06:21.000Z"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"uploadLink"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='http-request-21'>HTTP Request</h3>
-<p><code>GET /v3/documents</code> </p>
 
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>projectTemplateId</td>
-<td>query</td>
-<td>Filters documents by project template.</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>requisitionIdentifier</td>
-<td>query</td>
-<td>Filters documents for specific Requisition Identifier</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>requisitionId</td>
-<td>query</td>
-<td>Filters documents for specific Requisition ID</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>folderName</td>
-<td>query</td>
-<td>Filters documents by folder name.</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>startDate</td>
-<td>query</td>
-<td>Filters documents created_at starting from this date.</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>endDate</td>
-<td>query</td>
-<td>Filters documents created_at ending from this date.</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-<tr>
-<td>page</td>
-<td>query</td>
-<td>Page number being requested.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>perPage</td>
-<td>query</td>
-<td>Number of documents to return per page. Maximum of 5000.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>All documents for a Project Template</td>
-</tr>
-</tbody></table>
-<h2 id='post-document'>Post Document</h2>
-<p><strong>Summary:</strong> Create a new Document</p>
-<h3 id='http-request-22'>HTTP Request</h3>
-<p><code>POST /v3/documents</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Document record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Created Document</td>
-</tr>
-</tbody></table>
-<h1 id='workflow-definitions'>Workflow Definitions</h1><h2 id='get-workflow-definitions'>Get Workflow Definitions</h2>
+<p><h1 id='workflow-definitions'>Workflow Definitions</h1><h2 id='get-workflow-definitions'>Get Workflow Definitions</h2>
 <p><strong>Summary:</strong> Get all Workflow Definitions for an Organization</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/workflow_definitions</code> </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"workflow_definitions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">&quot;workflow_definitions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covid"</span><span class="w">
+          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Covid&quot;</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGx"</span><span class="w">
+          </span><span class="nl">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nl">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PGx&quot;</span><span class="w">
       </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Parameters</strong></p>
+</span></code></pre></div><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">&quot;uri&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;net/http&quot;</span></p>
+
+<p><span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">&quot;https://lab-services.ovatio.io/api/v3/workflow_definitions?organizationId=1&quot;</span><span class="p">)</span></p>
+
+<p><span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">&quot;Authorization&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Bearer {token}&quot;</span></p>
+
+<p><span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div>
+<p><strong>Parameters</strong></p></p>
 
 <table><thead>
 <tr>
@@ -1934,885 +3330,59 @@
 <td>Get all Workflow Definitions for an Organization</td>
 </tr>
 </tbody></table>
-<h1 id='resources'>Resources</h1><h2 id='post-resource'>Post Resource</h2>
-<p><strong>Summary:</strong> Create a Resource</p>
-<h3 id='http-request-24'>HTTP Request</h3>
-<p><code>POST /v3/resources</code> </p>
+<h1 id='errors'>Errors</h1>
+<aside class="notice">
+This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
+</aside>
 
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Resource record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
+<p>The API uses the following error codes:</p>
 
 <table><thead>
 <tr>
-<th>Code</th>
-<th>Description</th>
+<th>Error Code</th>
+<th>Meaning</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>201</td>
-<td>Resource record</td>
+<td>400</td>
+<td>Bad Request -- Your request is invalid.</td>
 </tr>
-</tbody></table>
-<h1 id='provider-accounts'>Provider Accounts</h1><h2 id='get-provider-accounts'>Get Provider Accounts</h2>
-<p><strong>Summary:</strong> Get All Provider Accounts</p>
-<h3 id='http-request-25'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
 <tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
+<td>401</td>
+<td>Unauthorized -- Your API key is wrong.</td>
 </tr>
-</thead><tbody>
 <tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Organization ID</td>
-<td>Yes</td>
-<td>integer</td>
+<td>403</td>
+<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
 </tr>
 <tr>
-<td>name</td>
-<td>query</td>
-<td>Provider Account Name</td>
-<td>No</td>
-<td>string</td>
+<td>404</td>
+<td>Not Found -- The specified resource could not be found.</td>
 </tr>
 <tr>
-<td>externalIdentifier</td>
-<td>query</td>
-<td>Provider Account External Identifier.</td>
-<td>No</td>
-<td>string</td>
+<td>406</td>
+<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
 </tr>
 <tr>
-<td>accountNumber</td>
-<td>query</td>
-<td>Provider Account Number</td>
-<td>No</td>
-<td>string</td>
+<td>429</td>
+<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
 </tr>
 <tr>
-<td>page</td>
-<td>query</td>
-<td>Page of results.</td>
-<td>No</td>
-<td>integer</td>
+<td>500</td>
+<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
 </tr>
 <tr>
-<td>perPage</td>
-<td>query</td>
-<td>Results per page. Maximum of 5000.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider Accounts</td>
-</tr>
-</tbody></table>
-<h2 id='post-provider-account'>Post Provider Account</h2>
-<p><strong>Summary:</strong> Create a Provider Account</p>
-<h3 id='http-request-26'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Created Provider</td>
-</tr>
-</tbody></table>
-<h2 id='get-provider-account'>Get Provider Account</h2>
-<p><strong>Summary:</strong> Get a Provider Account</p>
-<h3 id='http-request-27'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Sales Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>OrganizationId</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider record</td>
-</tr>
-</tbody></table>
-<h2 id='put-provider-account'>Put Provider Account</h2>
-<p><strong>Summary:</strong> Update a Provider Account</p>
-<h3 id='http-request-28'>HTTP Request</h3>
-<p><code>PUT /v3/provider_accounts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Sales Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider record</td>
-</tr>
-</tbody></table>
-<h2 id='delete-provider-account'>Delete Provider Account</h2>
-<p><strong>Summary:</strong> Delete a Provider Account</p>
-<h3 id='http-request-29'>HTTP Request</h3>
-<p><code>DELETE /v3/provider_accounts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Provider Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Organization ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider Account archived</td>
-</tr>
-</tbody></table>
-<h1 id='provider-account-contacts'>Provider Account Contacts</h1><h2 id='post-provider-account-contact'>Post Provider Account Contact</h2>
-<p><strong>Summary:</strong> Create a Provider Account Contact</p>
-<h3 id='http-request-30'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account Contact record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Created Provider Account Contact</td>
-</tr>
-</tbody></table>
-<h2 id='get-provider-account-contacts'>Get Provider Account Contacts</h2>
-<p><strong>Summary:</strong> Get a Provider Account Contacts</p>
-<h3 id='http-request-31'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>externalIdentifier</td>
-<td>query</td>
-<td>Provider Account Contact External ID.</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>name</td>
-<td>query</td>
-<td>Provider Account Contact Email.</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>page</td>
-<td>query</td>
-<td>Page of results.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>perPage</td>
-<td>query</td>
-<td>Results per page. Maximum of 5000.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Get Provider Account Contacts</td>
-</tr>
-</tbody></table>
-<h2 id='get-provider-account-contact'>Get Provider Account Contact</h2>
-<p><strong>Summary:</strong> Get a Provider Account Contact</p>
-<h3 id='http-request-32'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Provider Account Contact ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Got Provider Account Contact</td>
-</tr>
-</tbody></table>
-<h2 id='put-provider-account-contact'>Put Provider Account Contact</h2>
-<p><strong>Summary:</strong> Update a Provider Account Contact</p>
-<h3 id='http-request-33'>HTTP Request</h3>
-<p><code>PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Provider Account Contact ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account Contact record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Created Provider Account Contact</td>
-</tr>
-</tbody></table>
-<h2 id='delete-provider-account-contact'>Delete Provider Account Contact</h2>
-<p><strong>Summary:</strong> Delete a Provider Account Contact</p>
-<h3 id='http-request-34'>HTTP Request</h3>
-<p><code>DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Provider Account Contact ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider Account Contact archived</td>
-</tr>
-</tbody></table>
-<h1 id='providers'>Providers</h1><h2 id='get-providers'>Get Providers</h2>
-<p><strong>Summary:</strong> Get All Providers</p>
-<h3 id='http-request-35'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/providers</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account id</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>registryIdentifier</td>
-<td>query</td>
-<td>Provider Registry Identifier.</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>licensingRegistry</td>
-<td>query</td>
-<td>Provider Licensing Identifier</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>name</td>
-<td>query</td>
-<td>Provider Name</td>
-<td>No</td>
-<td>string</td>
-</tr>
-<tr>
-<td>page</td>
-<td>query</td>
-<td>Page of results.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>perPage</td>
-<td>query</td>
-<td>Results per page. Maximum of 5000.</td>
-<td>No</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Get Providers</td>
-</tr>
-</tbody></table>
-<h2 id='post-provider'>Post Provider</h2>
-<p><strong>Summary:</strong> Create a Provider</p>
-<h3 id='http-request-36'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts/{providerAccountId}/providers</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account id</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>body</td>
-<td>body</td>
-<td>Provider record</td>
-<td>Yes</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider record</td>
-</tr>
-</tbody></table>
-<h2 id='get-provider'>Get Provider</h2>
-<p><strong>Summary:</strong> Get a Provider</p>
-<h3 id='http-request-37'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account id</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Provider ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Get Provider</td>
-</tr>
-</tbody></table>
-<h2 id='delete-provider'>Delete Provider</h2>
-<p><strong>Summary:</strong> Delete a Provider</p>
-<h3 id='http-request-38'>HTTP Request</h3>
-<p><code>DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>providerAccountId</td>
-<td>path</td>
-<td>Provider Account id</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-<tr>
-<td>id</td>
-<td>path</td>
-<td>Provider ID</td>
-<td>Yes</td>
-<td>integer</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Provider archived</td>
-</tr>
-</tbody></table>
-<h1 id='test-panels'>Test Panels</h1><h2 id='get-all-test-panels'>Get All Test Panels</h2>
-<p><strong>Summary:</strong> Get available Test Panels</p>
-<h3 id='http-request-39'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{project_template_id}/test_panels</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_template_id</td>
-<td>path</td>
-<td>Associated project_template group</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Test Panels</td>
-</tr>
-</tbody></table>
-<h1 id='sample-labels'>Sample Labels</h1><h2 id='get-all-sample-labels'>Get All Sample Labels</h2>
-<p><strong>Summary:</strong> Get available sample labels</p>
-<h3 id='http-request-40'>HTTP Request</h3>
-<p><code>GET /v3/project_templates/{project_template_id}/sample_labels</code> </p>
-
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>project_template_id</td>
-<td>path</td>
-<td>Associated project_template group</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Sample Labels</td>
-</tr>
-</tbody></table>
-<h1 id='project-templates'>Project Templates</h1><h2 id='get-all-project-templates'>Get All Project Templates</h2>
-<p><strong>Summary:</strong> Get available project templates for a given organization</p>
-<h3 id='http-request-41'>HTTP Request</h3>
-<p><code>GET /v3/project_templates</code> </p>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"project_templates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"projectName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covid"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"templateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Covid form 1"</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"projectName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGx"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"templateName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PGx form 1"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p><strong>Parameters</strong></p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Located in</th>
-<th>Description</th>
-<th>Required</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>organizationId</td>
-<td>query</td>
-<td>Associated organization</td>
-<td>Yes</td>
-<td>string</td>
-</tr>
-</tbody></table>
-
-<p><strong>Responses</strong></p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>200</td>
-<td>Project Templates</td>
+<td>503</td>
+<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
                 <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="json-doc">payload</a>
+                <a href="#" data-language-name="json">response</a>
           </div>
       </div>
     </div>
