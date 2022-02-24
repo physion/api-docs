@@ -20,6 +20,19 @@
   ]
 }
 ```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/workflow_definitions?organizationId=1")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
 
 **Parameters**
 

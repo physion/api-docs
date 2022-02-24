@@ -1,0 +1,81 @@
+# Admin Reports
+## Get Workflow QC Report
+
+**Summary:** Get all Workflows and related data
+
+### HTTP Request 
+`GET /v3/admin_reports` 
+
+```json
+{
+  "workflows": [
+    [{
+        "Workflow Batch": "test-1",
+        "Workflow Type": "test",
+        "Workflow Status": "completed",
+        "Requisition ID": "test-req-1",
+        "Sample ID": "test-sample-1",
+        "Collection Date": "",
+        "Received Date": "",
+        "Control": "No",
+        "Overall Test Result": "",
+        "Previous Workflow": "",
+        "Activity 1": "Batch Creation",
+        "Activity 1 Submitted By": "Test User",
+        "Activity 1 Submitted Date": "01/01/2020 11:20 AM",
+        "Activity 2": "Batch plating",
+        "Activity 2 Submitted By": "Test User",
+        "Activity 2 Submitted Date": "01/01/2020 11:25 AM"
+      },
+      {
+        "Workflow Batch": "test-1",
+        "Workflow Type": "test",
+        "Workflow Status": "completed",
+        "Requisition ID": "test-req-2",
+        "Sample ID": "test-sample-2",
+        "Collection Date": "",
+        "Received Date": "",
+        "Control": "No",
+        "Overall Test Result": "",
+        "Previous Workflow": "",
+        "Activity 1": "Batch Creation",
+        "Activity 1 Submitted By": "Test User",
+        "Activity 1 Submitted Date": "01/01/2020 11:20 AM",
+        "Activity 2": "Batch plating",
+        "Activity 2 Submitted By": "Test User",
+        "Activity 2 Submitted Date": "01/01/2020 11:25 AM"
+      }
+    ]
+  ]
+}
+```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/admin_reports?type=workflow_report&startDate=2022-01-01&endDate=2022-01-12&workflowDefinitionId=1&perPage=10&page=1&workflowDefinitionId=1")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| type | query | Type of report data you’re requesting.<br>Options:<br><ul><li>workflow_report</li></ul> | Yes | string |
+| startDate | query | Start date for query | Yes | string |
+| endDate | query | End date for query | Yes | string |
+| workflowDefinitionId | query | ID of workflow definition you want data for.<br>(Only required with type ' workflow_report') | Yes | integer |
+| page | query | Page of results. Defaults to 1. | No | string |
+| perPage | query | Number of results per page. Defaults to 100. | No | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Get all Workflow Definitions for an Organization |

@@ -1,0 +1,50 @@
+# Reports
+## Update Report
+
+**Summary:** Update empty Report with content
+
+### HTTP Request 
+`PUT /v3/reports/{id}` 
+
+```json
+"report": {
+  "requisitionIdentifier": "string",
+  "reportContent": "string"
+}
+```
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/reports/38640")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Put.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+request.body = JSON.dump({
+  "report": {
+    "requisitionIdentifier": "test0001",
+    "reportContent": "base64 report content"
+  }
+})
+
+response = http.request(request)
+puts response.read_body
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| requisitionIdentifier | body | Requisition report is associated to | Yes | string |
+| reportContent | body | Base64 content of report | Yes | string |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Report successfully uploaded. |
+| 401 | Indicating an authentication error |
+| 422 | Will return the validation errors found. <br>e.g. <strong>"Report ID required"</strong>, <strong>"Requisition not found"</strong>, <strong>"Report not found"</strong>, or <strong>"Invalid Requisition for Report"</strong> |

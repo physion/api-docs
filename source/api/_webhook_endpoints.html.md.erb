@@ -3,6 +3,40 @@
 
 **Summary:** Get Webhook Endpoints
 
+```json
+{
+    "webhook_endpoint": [{
+        "id": 1,
+        "target_url": "http://api.test.com/",
+        "event": "report_signed",
+        "username": "test",
+        "project_requisition_template_association_id": 1
+    },{
+        "id": 2,
+        "target_url": "http://api.test.com/",
+        "event": "report_corrected",
+        "username": "test",
+        "project_requisition_template_association_id": 1
+    }]
+}
+```
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
+
 ### HTTP Request 
 `GET /v3/project_templates/{project_template_id}/webhook_endpoints` 
 
@@ -18,9 +52,94 @@
 | ---- | ----------- |
 | 200 | Webhook Endpoints |
 
+## Get Webhook Endpoint
+
+**Summary:** Get a Webhook Endpoint
+
+```json
+{
+    "webhook_endpoint": {
+        "id": 1,
+        "target_url": "http://api.test.com/",
+        "event": "report_signed",
+        "username": "test",
+        "project_requisition_template_association_id": 1
+    }
+}
+```
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
+
+
+### HTTP Request 
+`GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+
 ## Post Webhook Endpoint 
 
 **Summary:** Create a Webhook Endpoint
+
+```json
+{
+    "webhook_endpoint": {
+        "id": 1,
+        "target_url": "http://api.test.com/",
+        "event": "report_signed",
+        "username": "test",
+        "project_requisition_template_association_id": 1
+    }
+}
+```
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+request.body = JSON.dump({
+  "webhookEndpoint": {
+    "targetUrl": "https://test.api.com",
+    "username": "test",
+    "password": "test",
+    "event": "report_signed"
+  }
+})
+
+response = http.request(request)
+puts response.read_body
+```
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+| id | path |  | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoint |
 
 ### HTTP Request 
 `POST /v3/project_templates/{project_template_id}/webhook_endpoints` 
@@ -38,9 +157,9 @@
 | ---- | ----------- |
 | 201 | Created Webhook Endpoint |
 
-## Get Webhook Endpoint
+## Put Webhook Endpoint 
 
-**Summary:** Get a Webhook Endpoint
+**Summary:** Update a Webhook Endpoint
 
 ```json
 {
@@ -54,8 +173,39 @@
 }
 ```
 
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}")
+payload = {} # See payload tab
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Put.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+request.body = JSON.dump({ payload })
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+    "webhook_endpoint": {
+        "id": 2,
+        "target_url": "http://api.test.com/",
+        "event": "report_signed",
+        "username": "test",
+        "project_requisition_template_association_id": 1
+    }
+}
+```
+
 ### HTTP Request 
-`GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+`PUT /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
 
 **Parameters**
 
@@ -63,6 +213,10 @@
 | ---- | ---------- | ----------- | -------- | ---- |
 | project_template_id | path | Associated project_template group | Yes | string |
 | id | path |  | Yes | integer |
+| targetUrl | body | Host URL to send webhook payload to | no | string |
+| username | body | Username to connect to host | no | string |
+| password | body | Password to connect to host | no | string |
+| event | body | Type of event | no | string |
 
 **Responses**
 

@@ -4,7 +4,7 @@
 **Summary:** Get All Webhook Endpoint Events
 
 ### HTTP Request 
-`GET /v3/webhook_endpoint_events` 
+`GET /v3/organizations/{organization_id}/webhook_endpoint_events` 
 
 ```json
 {
@@ -39,19 +39,32 @@
   }
 }
 ```
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/organizations/{organization_id}/webhook_endpoint_events?eventStatus=sent&projectTemplateIds=1,2")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | query | Organization ID | Yes | integer |
-| project_template_ids | query | Project Template Ids | No | array |
-| webhook_endpoint_ids | query | Webhook Endpoint Ids | No | array |
-| event_type | query | Type of event. | No | string |
-| event_status | query | Status of event. | No | string |
-| start_date | query | Beginning date to query data. | No | string |
-| end_date | query | End date to query data. | No | string |
-| per_page | query | Results per page. Max 1000 | No | integer |
+| organization_id | path | Organization ID | Yes | integer |
+| projectTemplateIds | query | Project Template Ids | No | comma separated integers |
+| webhookEndpointIds | query | Webhook Endpoint Ids | No | comma separated integers |
+| eventType | query | Type of event. | No | string |
+| eventStatus | query | Status of event. <br><ul><li>sent</li><li>send-failed</li><li>pending</li></ul> | No | string |
+| startDate | query | Beginning date to query data. | No | string |
+| endDate | query | End date to query data. | No | string |
+| perPage | query | Results per page. Max 1000 | No | integer |
 | page | query | Page of results. | No | integer |
 
 **Responses**
@@ -66,13 +79,32 @@
 **Summary:** Retry webhook endpoint events
 
 ### HTTP Request 
-`POST /v3/webhook_endpoint_events/retry_events` 
+`POST /v3/organizations/{organization_id}/webhook_endpoint_events/retry_events`
+
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("https://lab-services.ovatio.io/api/v3/organizations/659/webhook_endpoint_events/retry_events")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+request.body = JSON.dump({
+  "webhookEndpointEventIds": [1,2]
+})
+
+response = http.request(request)
+puts response.read_body
+```
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body | Sales Group Record | Yes |  |
+| webhookEndpointEventIds | body | IDs of events to resend | Yes | array |
 
 **Responses**
 
