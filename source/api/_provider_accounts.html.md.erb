@@ -1,10 +1,54 @@
 # Provider Accounts
+Ovation allows users to manage Provider Accounts, Providers (i.e. Physicians) and Provider Account Contacts through the following APIs.
+You must first create a Provider Account and can then add associated Providers and Provider Account Contacts.
 ## Get Provider Accounts
 
 **Summary:** Get All Provider Accounts
 
-### HTTP Request 
-`GET /v3/provider_accounts` 
+### HTTP Request
+`GET /v3/provider_accounts`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "providerAccounts": [
+        {
+            "id": 736,
+            "externalIdentifier": null,
+            "name": "PQ Test Sales Account",
+            "accountNumber": null,
+            "salesReps": [
+                {
+                    "id": 699,
+                    "firstName": "Sales Rep PQ Test",
+                    "lastName": "Test",
+                    "email": "test@ovation.io"
+                }
+            ],
+            "organizationId": 659
+        }
+      ],
+    "meta": {
+        "currentPage": 1,
+        "perPage": 5000,
+        "totalEntries": 12
+    }
+}
+```
 
 **Parameters**
 
@@ -27,8 +71,98 @@
 
 **Summary:** Create a Provider Account
 
-### HTTP Request 
-`POST /v3/provider_accounts` 
+### HTTP Request
+`POST /v3/provider_accounts`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts")
+payload = {} # See payload tab
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+request.body = JSON.dump({ payload })
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "providerAccount": {
+    "name": "Fake Name",
+    "externalIdentifier": "",
+    "accountNumber": "546454",
+    "streetAddress": "streetAddress",
+    "streetAddressCity": "streetAddressCity",
+    "streetAddressState": "streetAddressState",
+    "streetAddressZipCode": "streetAddressZipCode",
+    "mailingAddress": "fakename@email.com",
+    "mailingAddressCity": "mailingAddressCity",
+    "mailingAddressState": "mailingAddressState",
+    "mailingAddressZipCode": "mailingAddressZipCode"
+    "faxNumber": 151688952522,
+    "emailReportReadyNotifications": true,
+    "faxSignedReports": true,
+    "salesRepId": 699
+  }
+}
+```
+
+```json
+{
+  "providerAccount": {
+    "id": 736,
+    "externalIdentifier": null,
+    "name": "Fake Name",
+    "accountNumber": 546454,
+    "salesRep": {
+      "id": 699,
+      "firstName": "Sales Rep Test",
+      "lastName": "Test",
+      "email": "test@ovation.io"
+    },
+    "organizationId": 659,
+    "streetAddress": "streetAddress",
+    "streetAddressCity": "streetAddressCity",
+    "streetAddressState": "streetAddressState",
+    "streetAddressZipCode": "streetAddressZipCode",
+    "mailingAddress": "fakename@email.com",
+    "mailingAddressCity": "mailingAddressCity",
+    "mailingAddressState": "mailingAddressState",
+    "mailingAddressZipCode": "mailingAddressZipCode",
+    "faxNumber": 151688952522,
+    "emailReportReadyNotifications": true,
+    "faxSignedReports": true,
+    "providers": [
+      {
+        "id": 847,
+        "name": "Test Provider",
+        "registryIdentifier": "0000000000",
+        "providerAccountId": 736,
+        "licensingRegistry": "NPI"
+      }
+    ],
+    "providerAccountContacts": [
+      {
+        "id": 1084,
+        "externalIdentifier": null,
+        "firstName": "Bob",
+        "lastName": "Jones",
+        "email": "bobjones@ovation.io",
+        "officePhoneNumber": "",
+        "cellPhoneNumber": null,
+        "providerAccountId": 736
+      }
+    ]
+  }
+}
+```
 
 **Parameters**
 
@@ -46,8 +180,74 @@
 
 **Summary:** Get a Provider Account
 
-### HTTP Request 
-`GET /v3/provider_accounts/{id}` 
+### HTTP Request
+`GET /v3/provider_accounts/{id}`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/736?organization_id=659")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+  "providerAccount": {
+    "id": 736,
+    "externalIdentifier": null,
+    "name": "Fake Name",
+    "accountNumber": 546454,
+    "salesRep": {
+      "id": 699,
+      "firstName": "Sales Rep Test",
+      "lastName": "Test",
+      "email": "test@ovation.io"
+    },
+    "organizationId": 659,
+    "streetAddress": "streetAddress",
+    "streetAddressCity": "streetAddressCity",
+    "streetAddressState": "streetAddressState",
+    "streetAddressZipCode": "streetAddressZipCode",
+    "mailingAddress": "fakename@email.com",
+    "mailingAddressCity": "mailingAddressCity",
+    "mailingAddressState": "mailingAddressState",
+    "mailingAddressZipCode": "mailingAddressZipCode",
+    "faxNumber": 151688952522,
+    "emailReportReadyNotifications": true,
+    "faxSignedReports": true,
+    "providers": [
+      {
+        "id": 847,
+        "name": "Test Provider",
+        "registryIdentifier": "0000000000",
+        "providerAccountId": 736,
+        "licensingRegistry": "NPI"
+      }
+    ],
+    "providerAccountContacts": [
+      {
+        "id": 1084,
+        "externalIdentifier": null,
+        "firstName": "Bob",
+        "lastName": "Jones",
+        "email": "bobjones@ovation.io",
+        "officePhoneNumber": "",
+        "cellPhoneNumber": null,
+        "providerAccountId": 736
+      }
+    ]
+  }
+}
+```
 
 **Parameters**
 
@@ -66,8 +266,98 @@
 
 **Summary:** Update a Provider Account
 
-### HTTP Request 
-`PUT /v3/provider_accounts/{id}` 
+### HTTP Request
+`PUT /v3/provider_accounts/{id}`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/736?organization_id=659")
+payload = {} # See payload tab
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Put.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+request.body = JSON.dump({ payload })
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "providerAccount": {
+    "name": "Fake Name",
+    "externalIdentifier": "",
+    "accountNumber": "546454",
+    "streetAddress": "streetAddress",
+    "streetAddressCity": "streetAddressCity",
+    "streetAddressState": "streetAddressState",
+    "streetAddressZipCode": "streetAddressZipCode",
+    "mailingAddress": "fakename@email.com",
+    "mailingAddressCity": "mailingAddressCity",
+    "mailingAddressState": "mailingAddressState",
+    "mailingAddressZipCode": "mailingAddressZipCode"
+    "faxNumber": 151688952522,
+    "emailReportReadyNotifications": true,
+    "faxSignedReports": true,
+    "salesRepId": 699
+  }
+}
+```
+
+```json
+{
+  "providerAccount": {
+    "id": 736,
+    "externalIdentifier": null,
+    "name": "Fake Name",
+    "accountNumber": 546454,
+    "salesRep": {
+      "id": 699,
+      "firstName": "Sales Rep Test",
+      "lastName": "Test",
+      "email": "test@ovation.io"
+    },
+    "organizationId": 659,
+    "streetAddress": "streetAddress",
+    "streetAddressCity": "streetAddressCity",
+    "streetAddressState": "streetAddressState",
+    "streetAddressZipCode": "streetAddressZipCode",
+    "mailingAddress": "fakename@email.com",
+    "mailingAddressCity": "mailingAddressCity",
+    "mailingAddressState": "mailingAddressState",
+    "mailingAddressZipCode": "mailingAddressZipCode",
+    "faxNumber": 151688952522,
+    "emailReportReadyNotifications": true,
+    "faxSignedReports": true,
+    "providers": [
+      {
+        "id": 847,
+        "name": "Test Provider",
+        "registryIdentifier": "0000000000",
+        "providerAccountId": 736,
+        "licensingRegistry": "NPI"
+      }
+    ],
+    "providerAccountContacts": [
+      {
+        "id": 1084,
+        "externalIdentifier": null,
+        "firstName": "Bob",
+        "lastName": "Jones",
+        "email": "bobjones@ovation.io",
+        "officePhoneNumber": "",
+        "cellPhoneNumber": null,
+        "providerAccountId": 736
+      }
+    ]
+  }
+}
+```
 
 **Parameters**
 
@@ -86,8 +376,29 @@
 
 **Summary:** Delete a Provider Account
 
-### HTTP Request 
-`DELETE /v3/provider_accounts/{id}` 
+### HTTP Request
+`DELETE /v3/provider_accounts/{id}`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/736?organization_id=659")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Delete.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "message": "Provider Account successfully archived"
+}
+```
 
 **Parameters**
 
