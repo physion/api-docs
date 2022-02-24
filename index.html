@@ -3001,11 +3001,32 @@
 <td>string</td>
 </tr>
 <tr>
+<td>targetUrl</td>
 <td>body</td>
+<td>Host URL to send webhook payload to</td>
+<td>yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>username</td>
 <td>body</td>
-<td>Webhook Endpoint Record</td>
-<td>Yes</td>
-<td></td>
+<td>Username to connect to host</td>
+<td>yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>password</td>
+<td>body</td>
+<td>Password to connect to host</td>
+<td>yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>event</td>
+<td>body</td>
+<td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
+<td>yes</td>
+<td>string</td>
 </tr>
 </tbody></table>
 
@@ -3111,28 +3132,28 @@
 <td>targetUrl</td>
 <td>body</td>
 <td>Host URL to send webhook payload to</td>
-<td>no</td>
+<td>No</td>
 <td>string</td>
 </tr>
 <tr>
 <td>username</td>
 <td>body</td>
 <td>Username to connect to host</td>
-<td>no</td>
+<td>No</td>
 <td>string</td>
 </tr>
 <tr>
 <td>password</td>
 <td>body</td>
 <td>Password to connect to host</td>
-<td>no</td>
+<td>No</td>
 <td>string</td>
 </tr>
 <tr>
 <td>event</td>
 <td>body</td>
-<td>Type of event</td>
-<td>no</td>
+<td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
+<td>No</td>
 <td>string</td>
 </tr>
 </tbody></table>
@@ -3252,9 +3273,9 @@
 <td>comma separated integers</td>
 </tr>
 <tr>
-<td>eventType</td>
-<td>query</td>
-<td>Type of event.</td>
+<td>event</td>
+<td>body</td>
+<td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
 <td>No</td>
 <td>string</td>
 </tr>
@@ -3268,28 +3289,28 @@
 <tr>
 <td>startDate</td>
 <td>query</td>
-<td>Beginning date to query data.</td>
+<td>Starting date will be in UTC. Time will assume 00:00:00</td>
 <td>No</td>
 <td>string</td>
 </tr>
 <tr>
 <td>endDate</td>
 <td>query</td>
-<td>End date to query data.</td>
+<td>Ending date will be in UTC. Time will assume 23:59:5</td>
 <td>No</td>
 <td>string</td>
 </tr>
 <tr>
 <td>perPage</td>
 <td>query</td>
-<td>Results per page. Max 1000</td>
+<td>Results per page. Max 1000. Default 1000</td>
 <td>No</td>
 <td>integer</td>
 </tr>
 <tr>
 <td>page</td>
 <td>query</td>
-<td>Page of results.</td>
+<td>Page of results. Default 1</td>
 <td>No</td>
 <td>integer</td>
 </tr>
