@@ -20,6 +20,7 @@
     }]
 }
 ```
+
 ```ruby
 require "uri"
 require "json"
@@ -39,6 +40,13 @@ puts response.read_body
 
 ### HTTP Request 
 `GET /v3/project_templates/{project_template_id}/webhook_endpoints` 
+
+**Permissions**
+
+| Name | Access Level | Description |
+| ---- | ---------- | ----------- |
+| Webhook User | read | For Webhook User permission only webhook endpoints the user has access to within the organization will be returned |
+| Webhook Admin | read | For Webhook Admin permission all webhook endpoints within the organization will be returned |
 
 **Parameters**
 
@@ -67,6 +75,7 @@ puts response.read_body
     }
 }
 ```
+
 ```ruby
 require "uri"
 require "json"
@@ -88,6 +97,26 @@ puts response.read_body
 ### HTTP Request 
 `GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
 
+**Permissions**
+
+| Name | Access Level | Description |
+| ---- | ---------- | ----------- |
+| Webhook User | read | For Webhook User permission only webhook endpoints the user has access to within the organization will be returned |
+| Webhook Admin | read | For Webhook Admin permission all webhook endpoints within the organization will be returned |
+
+**Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| project_template_id | path | Associated project_template group | Yes | string |
+| id | path |  | Yes | integer |
+
+**Responses**
+
+| Code | Description |
+| ---- | ----------- |
+| 200 | Webhook Endpoint |
+
 ## Post Webhook Endpoint 
 
 **Summary:** Create a Webhook Endpoint
@@ -103,46 +132,46 @@ puts response.read_body
     }
 }
 ```
+
 ```ruby
 require "uri"
 require "json"
 require "net/http"
 
 url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints")
+payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
 request["Accept"] = "application/json"
 request["Authorization"] = "Bearer {token}"
-request.body = JSON.dump({
+request.body = JSON.dump(payload)
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
   "webhookEndpoint": {
     "targetUrl": "https://test.api.com",
     "username": "test",
     "password": "test",
     "event": "report_signed"
   }
-})
-
-response = http.request(request)
-puts response.read_body
+}
 ```
-
-**Parameters**
-
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| project_template_id | path | Associated project_template group | Yes | string |
-| id | path |  | Yes | integer |
-
-**Responses**
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | Webhook Endpoint |
 
 ### HTTP Request 
 `POST /v3/project_templates/{project_template_id}/webhook_endpoints` 
+
+**Permissions**
+
+| Name | Access Level | Description |
+| ---- | ---------- | ----------- |
+| Webhook User | write |  |
+| Webhook Admin | write |  |
 
 **Parameters**
 
@@ -186,7 +215,7 @@ request = Net::HTTP::Put.new(url)
 request["Content-Type"] = "application/json"
 request["Accept"] = "application/json"
 request["Authorization"] = "Bearer {token}"
-request.body = JSON.dump({ payload })
+request.body = JSON.dump(payload)
 
 response = http.request(request)
 puts response.read_body
@@ -206,6 +235,13 @@ puts response.read_body
 
 ### HTTP Request 
 `PUT /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+
+**Permissions**
+
+| Name | Access Level | Description |
+| ---- | ---------- | ----------- |
+| Webhook User | admin | User must be a user of the Webhook Endpoint with admin access on permission |
+| Webhook Admin | admin | User must have admin access on permission |
 
 **Parameters**
 

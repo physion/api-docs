@@ -18,20 +18,25 @@ require "json"
 require "net/http"
 
 url = URI("https://lab-services.ovatio.io/api/v3/reports/38640")
+payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Put.new(url)
 request["Authorization"] = "Bearer {token}"
 request["Content-Type"] = "application/json"
-request.body = JSON.dump({
+request.body = JSON.dump(payload)
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
   "report": {
     "requisitionIdentifier": "test0001",
     "reportContent": "base64 report content"
   }
-})
-
-response = http.request(request)
-puts response.read_body
+}
 ```
 
 **Parameters**

@@ -3,9 +3,6 @@
 
 **Summary:** Get All Webhook Endpoint Events
 
-### HTTP Request 
-`GET /v3/organizations/{organization_id}/webhook_endpoint_events` 
-
 ```json
 {
   "webhook_endpoints": [{
@@ -39,6 +36,7 @@
   }
 }
 ```
+
 ```ruby
 require "uri"
 require "net/http"
@@ -52,6 +50,16 @@ request["Authorization"] = "Bearer {token}"
 response = http.request(request)
 puts response.read_body
 ```
+
+### HTTP Request 
+`GET /v3/organizations/{organization_id}/webhook_endpoint_events`
+
+**Permissions**
+
+| Name | Access Level | Description |
+| ---- | ---------- | ----------- |
+| Webhook User | read | For Webhook User permission only events for webhook endpoints the user has access to within the organization will be returned |
+| Webhook Admin | read | For Webhook Admin permission all events for all webhook endpoints within the organization will be returned |
 
 **Parameters**
 
@@ -78,27 +86,39 @@ puts response.read_body
 
 **Summary:** Retry webhook endpoint events
 
-### HTTP Request 
-`POST /v3/organizations/{organization_id}/webhook_endpoint_events/retry_events`
-
 ```ruby
 require "uri"
 require "json"
 require "net/http"
 
 url = URI("https://lab-services.ovatio.io/api/v3/organizations/659/webhook_endpoint_events/retry_events")
+payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Post.new(url)
 request["Authorization"] = "Bearer {token}"
 request["Content-Type"] = "application/json"
-request.body = JSON.dump({
-  "webhookEndpointEventIds": [1,2]
-})
+request.body = JSON.dump(payload)
 
 response = http.request(request)
 puts response.read_body
 ```
+
+```json-doc
+{
+  "webhookEndpointEventIds": [1,2]
+}
+```
+
+### HTTP Request 
+`POST /v3/organizations/{organization_id}/webhook_endpoint_events/retry_events`
+
+**Permissions**
+
+| Name | Access Level | Description |
+| ---- | ---------- | ----------- |
+| Webhook User | admin | For Webhook User permission only events for webhook endpoints the user has access to can be resent |
+| Webhook Admin | admin | For Webhook Admin permission all events for all webhook endpoints within the organization can be resent |
 
 **Parameters**
 
