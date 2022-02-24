@@ -17,6 +17,9 @@ under the License.
 <% page_content = yield %>
 <%
   if current_page.data.includes
+    current_page.data.apis.each do |api|
+      page_content += partial("api/#{api}")
+    end
     current_page.data.includes.each do |include|
       page_content += partial("includes/#{include}")
     end
@@ -72,7 +75,7 @@ under the License.
       </span>
     </a>
     <div class="toc-wrapper">
-      <%= image_tag "logo.png", class: 'logo' %>
+      <%= image_tag "ov-logo.png", class: 'logo center-img' %>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -117,21 +120,10 @@ under the License.
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
+         <%# <%= puts page_content %> %>
         <%= page_content %>
       </div>
-      <div class="dark-box">
-        <% if language_tabs.any? %>
-          <div class="lang-selector">
-            <% language_tabs.each do |lang| %>
-              <% if lang.is_a? Hash %>
-                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
-              <% else %>
-                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
-              <% end %>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <div class="dark-box"></div>
     </div>
   </body>
 </html>

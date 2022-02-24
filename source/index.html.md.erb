@@ -11,6 +11,25 @@ includes:
    - errors 
    - permissions
 
+apis:
+  - admin_reports
+  - documents
+  - project_templates
+  - provider_account_contacts
+  - provider_accounts
+  - providers
+  - reports
+  - requisitions
+  - resources
+  - sales_groups
+  - sales_reps
+  - sample_labels
+  - test_panels
+  - webhook_endpoint_events
+  - webhook_endpoints
+  - workflow_definitions
+
+
 search: true
 
 code_clipboard: true
@@ -27,20 +46,3 @@ LIMS+: logical sample tracking, document and training record management
 
 |apiKey|*API Key*|
 |---|---| 
-
-<%= partial "./api/admin_reports.html.md.erb" %>
-<%= partial "./api/documents.html.md.erb" %>
-<%= partial "./api/project_templates.html.md.erb" %>
-<%= partial "./api/provider_accounts.html.md.erb" %>
-<%= partial "./api/provider_account_contacts.html.md.erb" %>
-<%= partial "./api/providers.html.md.erb" %>
-<%= partial "./api/reports.html.md.erb" %>
-<%= partial "./api/requisitions.html.md.erb" %>
-<%= partial "./api/resources.html.md.erb" %>
-<%= partial "./api/sales_groups.html.md.erb" %>
-<%= partial "./api/sales_reps.html.md.erb" %>
-<%= partial "./api/sample_labels.html.md.erb" %>
-<%= partial "./api/test_panels.html.md.erb" %>
-<%= partial "./api/webhook_endpoints.html.md.erb" %>
-<%= partial "./api/webhook_endpoint_events.html.md.erb" %>
-<%= partial "./api/workflow_definitions.html.md.erb" %>

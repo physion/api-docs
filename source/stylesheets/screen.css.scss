@@ -78,6 +78,13 @@ html, body {
     margin-bottom: $logo-margin;
   }
 
+  .center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+  }
+
   &>.search {
     position: relative;
 
@@ -271,21 +278,19 @@ html, body {
   }
 
   .lang-selector {
-    position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
   }
 }
 
 .lang-selector {
   display: flex;
-  background-color: $lang-select-bg;
+  background-color: $lang-select-active-bg;
   width: 100%;
   font-weight: bold;
   overflow-x: auto;
   a {
     display: inline;
-    color: $lang-select-text;
+    color: $lang-select-active-text;
     text-decoration: none;
     padding: 0 10px;
     line-height: 30px;
@@ -297,8 +302,8 @@ html, body {
     }
 
     &.active {
-      background-color: $lang-select-active-bg;
-      color: $lang-select-active-text;
+      background-color: $lang-select-bg;
+      color: $lang-select-text;
     }
   }
 
@@ -535,7 +540,6 @@ html, body {
     a {
       color: #fff;
       text-decoration: none;
-      border-bottom: dashed 1px #ccc;
     }
   }
 
