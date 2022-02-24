@@ -73,38 +73,3 @@
 | Code | Description |
 | ---- | ----------- |
 | 200 | Created Document |
-
-# Workflow Definitions
-## Get Workflow Definitions
-
-**Summary:** Get all Workflow Definitions for an Organization
-
-### HTTP Request 
-`GET /v3/workflow_definitions` 
-
-```json
-{
-  "workflow_definitions": [
-      {
-          "id": 1,
-          "name": "Covid"
-      },
-      {
-          "id": 2,
-          "name": "PGx"
-      }
-  ]
-}
-```
-
-**Parameters**
-
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | query | Filters workflow definitions by organization. | Yes | integer |
-
-**Responses**
-
-| Code | Description |
-| ---- | ----------- |
-| 200 | Get all Workflow Definitions for an Organization |
