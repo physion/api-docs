@@ -3,8 +3,50 @@
 
 **Summary:** Get available Test Panels
 
-### HTTP Request 
-`GET /v3/project_templates/{project_template_id}/test_panels` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/project_templates/{project_template_id}/test_panels")
+
+http = Net::HTTP.new(url.host, url.port)
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+
+```
+
+```json-doc
+// not needed
+```
+
+```json
+{
+    "testPanels": [
+        {
+            "panelName": "Genome Exploration  PGx Comp",
+            "panelCode": "COR_COMP"
+        },
+        {
+            "panelName": "GENERIC_COMP",
+            "panelCode": "GENERIC_COMP"
+        },
+        {
+            "panelName": "Intermountain Healthcare Comp",
+            "panelCode": "Intermountain_Healthcare_Comp"
+        },
+        {
+            "panelName": "Clay's Test Panel",
+            "panelCode": "CTP"
+        }
+    ]
+}
+```
+
+### HTTP Request
+`GET /v3/project_templates/{project_template_id}/test_panels`
 
 **Parameters**
 

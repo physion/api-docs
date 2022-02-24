@@ -3,8 +3,29 @@
 
 **Summary:** Get available project templates for a given organization
 
-### HTTP Request 
-`GET /v3/project_templates` 
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/project_templates")
+payload = {} # See payload tab
+
+http = Net::HTTP.new(url.host, url.port)
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+request.body = JSON.dump(payload)
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+    "organizationId": 230
+}
+```
 
 ```json
 {
@@ -22,6 +43,9 @@
   ]
 }
 ```
+
+### HTTP Request
+`GET /v3/project_templates`
 
 **Parameters**
 

@@ -3,8 +3,36 @@
 
 **Summary:** Get available sample labels
 
-### HTTP Request 
-`GET /v3/project_templates/{project_template_id}/sample_labels` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/project_templates/{project_template_id}/sample_labels")
+
+http = Net::HTTP.new(url.host, url.port)
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+// not needed
+```
+
+```json
+{
+    "sampleLabels": {
+        "labels": [
+            "DNA"
+        ]
+    }
+}
+```
+
+### HTTP Request
+`GET /v3/project_templates/{project_template_id}/sample_labels`
 
 **Parameters**
 
