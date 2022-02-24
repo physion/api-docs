@@ -1,12 +1,32 @@
 # Requisitions
-## Get Requisitions 
+## Get Requisitions
 
 **Summary:** Get Requisitions
+
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("{env_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Content-Type"] = "application/json"
+request["Authorization"] = "Bearer <token>"
+
+response = https.request(request)
+puts response.read_body
+```
 
 ```json
 {
   "requisitions": [
     {
+      "id": 187,
       "identifier": "string",
       "templateId": 0,
       "status": "processing",
@@ -18,6 +38,7 @@
       "updatedAt": "date string"
     },
     {
+      "id": 188,
       "identifier": "string",
       "templateId": 0,
       "status": "processing",
@@ -37,8 +58,8 @@
 }
 ```
 
-### HTTP Request 
-`GET /v3/project_templates/{projectTemplateId}/requisitions` 
+### HTTP Request
+`GET /v3/project_templates/{projectTemplateId}/requisitions`
 
 **Parameters**
 
@@ -58,6 +79,22 @@
 ## Get Requisition
 
 **Summary:** Get a Requisition
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{env_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
 
 ```json
 {
@@ -190,8 +227,8 @@
 }
 ```
 
-### HTTP Request 
-`GET /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+### HTTP Request
+`GET /v3/project_templates/{projectTemplateId}/requisitions/{identifier}`
 
 **Parameters**
 
@@ -209,8 +246,267 @@
 
 **Summary:** Create a new Requisition
 
-### HTTP Request 
-`POST /v3/project_templates/{projectTemplateId}/requisitions` 
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("{env_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+
+payload = {} # See payload tab
+request.body = JSON.dump(payload)
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "requisition": {
+    "identifier": "string",
+    "requestedTests": [
+      {
+        "panelCode": "string",
+        "tests": [
+          {
+            "testCode": "string"
+          }
+        ]
+      }
+    ],
+    "diagnosis": [
+      "string"
+    ],
+    "medications": [
+      {
+        "rxcui": "string",
+        "name": "string"
+      }
+    ],
+    "custom_attributes": {
+      "key": "string",
+      "value": {}
+    },
+    "patient": {
+      "identifier": "string",
+      "mrn": "string",
+      "lastName": "string",
+      "middleName": "string",
+      "firstName": "string",
+      "streetAddress": "string",
+      "streetAddressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "dateOfBirth": "string",
+      "phoneNumber": "string",
+      "email": "string",
+      "gender": "M",
+      "height": "string",
+      "weight": 0,
+      "race": "white",
+      "ethnicity": "hispanic",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    },
+    "providerAccount": {
+      "name": "string",
+      "accountNumber": "string"
+    },
+    "provider": {
+      "npi": "string"
+    },
+    "billingInformation": {
+      "billTo": "Bill Insurance",
+      "memberId": "string",
+      "name": "string",
+      "email": "string",
+      "phoneNumber": "string",
+      "state": "string",
+      "city": "string",
+      "street": "string",
+      "zip": "string",
+      "insuranceInformations": [
+        {
+          "insuranceProviderName": "string",
+          "subscriberNumber": "string",
+          "idNumber": "string",
+          "groupNumber": "string",
+          "nameOfPersonInsured": "string",
+          "relationshipToInsured": "Self",
+          "otherRelationshipToInsured": "string",
+          "dobOfInsured": "string",
+          "insuranceType": "Primary",
+          "reimbursementEligibilityVerified": true,
+          "insuredEmail": "string",
+          "insuredStreetAddress": "string",
+          "insuredCity": "string",
+          "insuredState": "string",
+          "insuredZipCode": "string",
+          "insuredSex": "M",
+          "preAuthorization": {
+            "authorizationNumber": "string",
+            "numTests": 0,
+            "effectiveStartDate": "string",
+            "effectiveEndDate": "string",
+            "contactName": "string",
+            "contactPhoneNumber": "string"
+          }
+        }
+      ]
+    },
+    "samples": [
+      {
+        "identifier": "string",
+        "label": "string",
+        "group": "string",
+        "containerType": "Tube",
+        "containerBarcodeLabel": "string",
+        "receivedDateTime": "string",
+        "collectionDateTime": "string",
+        "custom_attributes": {
+          "key": "string",
+          "value": {}
+        }
+      }
+    ],
+    "test": true,
+    "signedConsent": true,
+    "markAsSigned": true
+  }
+}
+```
+
+```json
+{
+  "requisition": {
+    "identifier": "string",
+    "requestedTests": [
+      {
+        "panelCode": "string",
+        "tests": [
+          {
+            "testCode": "string"
+          }
+        ]
+      }
+    ],
+    "diagnosis": [
+      "string"
+    ],
+    "medications": [
+      {
+        "rxcui": "string",
+        "name": "string"
+      }
+    ],
+    "custom_attributes": {
+      "key": "string",
+      "value": {}
+    },
+    "patient": {
+      "identifier": "string",
+      "mrn": "string",
+      "lastName": "string",
+      "middleName": "string",
+      "firstName": "string",
+      "streetAddress": "string",
+      "streetAddressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "dateOfBirth": "string",
+      "phoneNumber": "string",
+      "email": "string",
+      "gender": "M",
+      "height": "string",
+      "weight": 0,
+      "race": "white",
+      "ethnicity": "hispanic",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    },
+    "providerAccount": {
+      "name": "string",
+      "accountNumber": "string"
+    },
+    "provider": {
+      "npi": "string"
+    },
+    "billingInformation": {
+      "billTo": "Bill Insurance",
+      "memberId": "string",
+      "name": "string",
+      "email": "string",
+      "phoneNumber": "string",
+      "state": "string",
+      "city": "string",
+      "street": "string",
+      "zip": "string",
+      "insuranceInformations": [
+        {
+          "insuranceProviderName": "string",
+          "subscriberNumber": "string",
+          "idNumber": "string",
+          "groupNumber": "string",
+          "nameOfPersonInsured": "string",
+          "relationshipToInsured": "Self",
+          "otherRelationshipToInsured": "string",
+          "dobOfInsured": "string",
+          "insuranceType": "Primary",
+          "reimbursementEligibilityVerified": true,
+          "insuredEmail": "string",
+          "insuredStreetAddress": "string",
+          "insuredCity": "string",
+          "insuredState": "string",
+          "insuredZipCode": "string",
+          "insuredSex": "M",
+          "preAuthorization": {
+            "authorizationNumber": "string",
+            "numTests": 0,
+            "effectiveStartDate": "string",
+            "effectiveEndDate": "string",
+            "contactName": "string",
+            "contactPhoneNumber": "string"
+          }
+        }
+      ]
+    },
+    "samples": [
+      {
+        "identifier": "string",
+        "label": "string",
+        "group": "string",
+        "containerType": "Tube",
+        "containerBarcodeLabel": "string",
+        "receivedDateTime": "string",
+        "collectionDateTime": "string",
+        "custom_attributes": {
+          "key": "string",
+          "value": {}
+        }
+      }
+    ],
+    "test": true,
+    "signedConsent": true,
+    "markAsSigned": true
+  }
+}
+```
+
+### HTTP Request
+`POST /v3/project_templates/{projectTemplateId}/requisitions`
 
 **Parameters**
 
@@ -232,8 +528,8 @@
 
 **Summary:** Update a Requisition
 
-### HTTP Request 
-`PUT /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+### HTTP Request
+`PUT /v3/project_templates/{projectTemplateId}/requisitions/{identifier}`
 
 **Parameters**
 
@@ -253,8 +549,8 @@
 
 **Summary:** Archive a Requisition
 
-### HTTP Request 
-`DELETE /v3/project_templates/{projectTemplateId}/requisitions/{identifier}` 
+### HTTP Request
+`DELETE /v3/project_templates/{projectTemplateId}/requisitions/{identifier}`
 
 **Parameters**
 
