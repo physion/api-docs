@@ -26,6 +26,11 @@ under the License.
       page_content += partial("webhooks/#{webhook}")
     end
   end
+  if current_page.data.hl7_docs
+    current_page.data.hl7_docs.each do |webhook|
+      page_content += partial("hl7_docs/#{webhook}")
+    end
+  end
   if current_page.data.includes
     current_page.data.includes.each do |include|
       page_content += partial("includes/#{include}")
