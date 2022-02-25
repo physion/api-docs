@@ -525,6 +525,8 @@ puts response.read_body
 | medications | requisition | List of medications | No | array ||
 | custom_attributes | requisition | Object of custom attributes | No | json ||
 | test | requisition | Marks requisition as test data | No | boolean | `true`, `false` |
+| signedConsent | requisition | If specified as true, informed consent was signed by the patient | No | boolean | `true`, `false` |
+| markAsSigned | requisition | If specified as true, the accession status is set to signed if request contains all required fields | No | boolean | `true`, `false` |
 | patient | requisition | Patient record | No | json ||
 | samples | requisition | List of sample records | Yes | json ||
 | providerAccount | requisition | Provider account record | No | json ||
