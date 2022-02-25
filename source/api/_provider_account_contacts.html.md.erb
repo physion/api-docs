@@ -100,7 +100,7 @@ puts response.read_body
 | `lastName` | providerAccountContact | Contact last name | Yes | `string` |  |
 | `email` | providerAccountContact | Contact email | Yes | `string` |  |
 | `officePhoneNumber` | providerAccountContact | Contact office phone number. Required if `communicationPreference` is `"Office"` | No | `string` |  |
-| `cellPhoneNumber` | providerAccountContact | Contact phone number. Required if `communicationPreference` is `"Text""` or `"Cell""` | No | `string` |  |
+| `cellPhoneNumber` | providerAccountContact | Contact phone number. Required if `communicationPreference` is `"Text"` or `"Cell"` | No | `string` |  |
 | `providerAccountIds` | providerAccountContact | Provider account IDS associated to contact. Must be an array| Yes | `integer` |  |
 | `faxNumber` | providerAccountContact | Contact fax number | Yes | `integer` |  |
 | `communicationPreference` | providerAccountContact | Contact communication preference | Yes | `string` | `"Cell"`, `"Email"`, `"Office"`, `"Text"` |
