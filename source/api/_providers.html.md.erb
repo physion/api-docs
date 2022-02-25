@@ -2,6 +2,7 @@
 ## Get Providers
 
 **Summary:** Get All Providers
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `GET /v3/provider_accounts/{providerAccountId}/providers`
@@ -52,12 +53,12 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account id | Yes | integer |
-| registryIdentifier | query | Provider Registry Identifier. | No | string |
-| licensingRegistry | query | Provider Licensing Identifier | No | string |
-| name | query | Provider Name | No | string |
-| page | query | Page of results. | No | integer |
-| perPage | query | Results per page. Maximum of 5000. | No | integer |
+| `providerAccountId` | path | Provider Account id | Yes | `integer` |
+| `registryIdentifier` | query | Provider Registry Identifier. | No | `string` |
+| `licensingRegistry` | query | Provider Licensing Identifier | No | `string` |
+| `name` | query | Provider Name | No | `string` |
+| `page` | query | Page of results. | No | `integer` |
+| `perPage` | query | Results per page. Maximum of 5000. | No | `integer` |
 
 **Responses**
 
@@ -68,8 +69,9 @@ puts response.read_body
 ## Post Provider
 
 **Summary:** Create a Provider
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-Ovation differentiates provider accounts according to the type of licensing registry, these are the valid license registries: [‘NPI’, 'Australian Health Practitioner Registry', 'European Physician', 'ex-US / clinical trial', 'Philippines PRC', 'South American Physician']
+Ovation differentiates provider accounts according to the type of licensing registry, these are the valid license registries: `[‘NPI’, 'Australian Health Practitioner Registry', 'European Physician', 'ex-US / clinical trial', 'Philippines PRC', 'South American Physician']`
 
 Note: Ovation will pull the NPI Registry API data for you given the registryIdentifier and then it’ll associate it with the Provider Account specified in the URL. If the licensingRegistry is not NPI, then the others fields will be required.
 
@@ -83,12 +85,12 @@ require "net/http"
 url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers")
 payload = {} # See payload tab
 
-http = Net::HTTP.new(url.host, url.port);
+http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
 request["Accept"] = "application/json"
 request["Authorization"] = "Bearer {token}"
-request.body = JSON.dump({ payload })
+request.body = JSON.dump(payload)
 
 response = http.request(request)
 puts response.read_body
@@ -121,10 +123,10 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account id | Yes | integer |
-| name | body | Provider record | Yes | string |
-| registryIdentifier | body | Registry identifier | Yes | string |
-| licensingRegistry | body | Licensing registry by default is NPI | Optional | string |
+| `providerAccountId` | path | Provider Account id | Yes | `integer` |
+| `name` | body | Provider record | Yes | `string` |
+| `registryIdentifier` | body | Registry identifier | Yes | `string` |
+| `licensingRegistry` | body | Licensing registry by default is NPI | No | `string` |
 
 **Responses**
 
@@ -135,6 +137,7 @@ puts response.read_body
 ## Get Provider
 
 **Summary:** Get a Provider
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `GET /v3/provider_accounts/{providerAccountId}/providers/{id}`
@@ -170,8 +173,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account id | Yes | integer |
-| id | path | Provider ID | Yes | integer |
+| `providerAccountId` | path | Provider Account id | Yes | `integer` |
+| `id` | path | Provider ID | Yes | `integer` |
 
 **Responses**
 
@@ -182,6 +185,7 @@ puts response.read_body
 ## Delete Provider
 
 **Summary:** Delete a Provider
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}`
@@ -212,8 +216,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account id | Yes | integer |
-| id | path | Provider ID | Yes | integer |
+| `providerAccountId` | path | Provider Account id | Yes | `integer` |
+| `id` | path | Provider ID | Yes | `integer` |
 
 **Responses**
 
