@@ -72,14 +72,14 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| projectTemplateId | query | Filters documents by project template. | Yes | integer |
-| requisitionIdentifier | query | Filters documents for specific Requisition Identifier | No | string |
-| requisitionId | query | Filters documents for specific Requisition ID | No | integer |
-| folderName | query | Filters documents by folder name. | No | string |
-| startDate | query | Filters documents created_at starting from this date. | Yes | string |
-| endDate | query | Filters documents created_at ending from this date. | Yes | string |
-| page | query | Page number being requested. | No | integer |
-| perPage | query | Number of documents to return per page. Maximum of 5000. | No | integer |
+| `projectTemplateId` | query | Filters documents by project template. | Yes | `integer` |
+| `requisitionIdentifier` | query | Filters documents for specific Requisition Identifier | No | `string` |
+| `requisitionId` | query | Filters documents for specific Requisition ID | No | `integer` |
+| `folderName` | query | Filters documents by folder name. | No | `string` |
+| `startDate` | query | Filters documents created_at starting from this date. | Yes | `string` |
+| `endDate` | query | Filters documents created_at ending from this date. | Yes | `string` |
+| `page` | query | Page number being requested. | No | `integer` |
+| `perPage` | query | Number of documents to return per page. Maximum of 5000. | No | `integer` |
 
 **Responses**
 
@@ -145,13 +145,13 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| requisitionId | document | Used instead of requisitionIdentifier and projectTemplateId. | Yes | integer |
-| requisitionIdentifier | document | Must supply projectTemplateId when using this field)  | Yes | string |
-| projectTemplateId | document | Project template associated with requisition identifier | Yes | integer |
-| folderName | document | Folder document will be added to. | Yes | string |
-| fileName | document | Name of document to be added.  | Yes | string |
-| fileContent | document | Base64-encoded data of initial revision.  | Yes | string |
-| returnUploadLink | document | Whether to return a presigned URL to upload file to S3 (only used if not sending fileContent). | Yes | boolean |
+| `requisitionId` | document | Used instead of requisitionIdentifier and projectTemplateId. | Yes | `integer` |
+| `requisitionIdentifier` | document | Must supply projectTemplateId when using this field)  | Yes | `string` |
+| `projectTemplateId` | document | Project template associated with requisition identifier | Yes | `integer` |
+| `folderName` | document | Folder document will be added to. | Yes | `string` |
+| `fileName` | document | Name of document to be added.  | Yes | `string` |
+| `fileContent` | document | Base64-encoded data of initial revision.  | Yes | `string` |
+| `returnUploadLink` | document | Whether to return a presigned URL to upload file to S3 (only used if not sending fileContent). | Yes | `boolean` |
 
 **Responses**
 
