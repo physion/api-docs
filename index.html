@@ -1547,6 +1547,14 @@
 You must first create a Provider Account and can then add associated Providers and Provider Account Contacts.</p>
 <h2 id='get-provider-accounts'>Get Provider Accounts</h2>
 <p><strong>Summary:</strong> Get All Provider Accounts</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/provider_accounts</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -1598,46 +1606,46 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>organizationId</td>
+<td><code>organizationId</code></td>
 <td>query</td>
 <td>Organization ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>name</td>
+<td><code>name</code></td>
 <td>query</td>
 <td>Provider Account Name</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>externalIdentifier</td>
+<td><code>externalIdentifier</code></td>
 <td>query</td>
 <td>Provider Account External Identifier.</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>accountNumber</td>
+<td><code>accountNumber</code></td>
 <td>query</td>
 <td>Provider Account Number</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>query</td>
 <td>Page of results.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>perPage</td>
+<td><code>perPage</code></td>
 <td>query</td>
 <td>Results per page. Maximum of 5000.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -1656,6 +1664,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h2 id='post-provider-account'>Post Provider Account</h2>
 <p><strong>Summary:</strong> Create a Provider Account</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST /v3/provider_accounts</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -1664,12 +1680,12 @@ You must first create a Provider Account and can then add associated Providers a
 <span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts"</span><span class="p">)</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -1752,11 +1768,109 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account record</td>
+<td><code>name</code></td>
+<td>providerAccount</td>
+<td>Provider account name</td>
 <td>Yes</td>
-<td></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>externalIdentifier</code></td>
+<td>providerAccount</td>
+<td>Ovation external provider identifier</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>accountNumber</code></td>
+<td>providerAccount</td>
+<td>Provider account number</td>
+<td>Yes</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddress</code></td>
+<td>providerAccount</td>
+<td>Provider account street address</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddressCity</code></td>
+<td>providerAccount</td>
+<td>Provider account address city</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddressState</code></td>
+<td>providerAccount</td>
+<td>Provider account address state</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddressZipCode</code></td>
+<td>providerAccount</td>
+<td>Provider account address zip code</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddress</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddressCity</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address city</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddressState</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address state</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddressZipCode</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address zip code</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>faxNumber</code></td>
+<td>providerAccount</td>
+<td>Provider account fax number</td>
+<td>Yes</td>
+<td><code>integer</code></td>
+</tr>
+<tr>
+<td><code>emailReportReadyNotifications</code></td>
+<td>providerAccount</td>
+<td>Notify provider&#39;s reports in ready status</td>
+<td>No</td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><code>faxSignedReports</code></td>
+<td>providerAccount</td>
+<td>Fax signer reports from provider account</td>
+<td>No</td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><code>salesRepId</code></td>
+<td>providerAccount</td>
+<td>Sales rep. associated to provider account</td>
+<td>No</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -1775,6 +1889,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h2 id='get-provider-account'>Get Provider Account</h2>
 <p><strong>Summary:</strong> Get a Provider Account</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /v3/provider_accounts/{id}</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -1850,18 +1972,18 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Sales Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>organizationId</td>
+<td><code>organizationId</code></td>
 <td>query</td>
 <td>OrganizationId</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -1880,6 +2002,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h2 id='put-provider-account'>Put Provider Account</h2>
 <p><strong>Summary:</strong> Update a Provider Account</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PUT /v3/provider_accounts/{id}</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -1888,12 +2018,12 @@ You must first create a Provider Account and can then add associated Providers a
 <span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}"</span><span class="p">)</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -1976,18 +2106,116 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Sales Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account record</td>
+<td><code>name</code></td>
+<td>providerAccount</td>
+<td>Provider account name</td>
 <td>Yes</td>
-<td></td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>externalIdentifier</code></td>
+<td>providerAccount</td>
+<td>Ovation external provider identifier</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>accountNumber</code></td>
+<td>providerAccount</td>
+<td>Provider account number</td>
+<td>Yes</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddress</code></td>
+<td>providerAccount</td>
+<td>Provider account street address</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddressCity</code></td>
+<td>providerAccount</td>
+<td>Provider account address city</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddressState</code></td>
+<td>providerAccount</td>
+<td>Provider account address state</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>streetAddressZipCode</code></td>
+<td>providerAccount</td>
+<td>Provider account address zip code</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddress</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddressCity</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address city</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddressState</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address state</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>mailingAddressZipCode</code></td>
+<td>providerAccount</td>
+<td>Provider account mailing address zip code</td>
+<td>No</td>
+<td><code>string</code></td>
+</tr>
+<tr>
+<td><code>faxNumber</code></td>
+<td>providerAccount</td>
+<td>Provider account fax number</td>
+<td>Yes</td>
+<td><code>integer</code></td>
+</tr>
+<tr>
+<td><code>emailReportReadyNotifications</code></td>
+<td>providerAccount</td>
+<td>Notify provider&#39;s reports in ready status</td>
+<td>No</td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><code>faxSignedReports</code></td>
+<td>providerAccount</td>
+<td>Fax signer reports from provider account</td>
+<td>No</td>
+<td><code>boolean</code></td>
+</tr>
+<tr>
+<td><code>salesRepId</code></td>
+<td>providerAccount</td>
+<td>Sales rep. associated to provider account</td>
+<td>No</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -2006,6 +2234,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h2 id='delete-provider-account'>Delete Provider Account</h2>
 <p><strong>Summary:</strong> Delete a Provider Account</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE /v3/provider_accounts/{id}</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -2036,18 +2272,18 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Provider Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>organizationId</td>
+<td><code>organizationId</code></td>
 <td>query</td>
 <td>Organization ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
