@@ -774,60 +774,60 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>projectTemplateId</td>
+<td><code>projectTemplateId</code></td>
 <td>query</td>
 <td>Filters documents by project template.</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>requisitionIdentifier</td>
+<td><code>requisitionIdentifier</code></td>
 <td>query</td>
 <td>Filters documents for specific Requisition Identifier</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>requisitionId</td>
+<td><code>requisitionId</code></td>
 <td>query</td>
 <td>Filters documents for specific Requisition ID</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>folderName</td>
+<td><code>folderName</code></td>
 <td>query</td>
 <td>Filters documents by folder name.</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>startDate</td>
+<td><code>startDate</code></td>
 <td>query</td>
 <td>Filters documents created_at starting from this date.</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>endDate</td>
+<td><code>endDate</code></td>
 <td>query</td>
 <td>Filters documents created_at ending from this date.</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>query</td>
 <td>Page number being requested.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>perPage</td>
+<td><code>perPage</code></td>
 <td>query</td>
 <td>Number of documents to return per page. Maximum of 5000.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -906,53 +906,53 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>requisitionId</td>
+<td><code>requisitionId</code></td>
 <td>document</td>
 <td>Used instead of requisitionIdentifier and projectTemplateId.</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>requisitionIdentifier</td>
+<td><code>requisitionIdentifier</code></td>
 <td>document</td>
 <td>Must supply projectTemplateId when using this field)</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>projectTemplateId</td>
+<td><code>projectTemplateId</code></td>
 <td>document</td>
 <td>Project template associated with requisition identifier</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>folderName</td>
+<td><code>folderName</code></td>
 <td>document</td>
 <td>Folder document will be added to.</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>fileName</td>
+<td><code>fileName</code></td>
 <td>document</td>
 <td>Name of document to be added.</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>fileContent</td>
+<td><code>fileContent</code></td>
 <td>document</td>
 <td>Base64-encoded data of initial revision.</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>returnUploadLink</td>
+<td><code>returnUploadLink</code></td>
 <td>document</td>
 <td>Whether to return a presigned URL to upload file to S3 (only used if not sending fileContent).</td>
 <td>Yes</td>
-<td>boolean</td>
+<td><code>boolean</code></td>
 </tr>
 </tbody></table>
 
@@ -1026,11 +1026,11 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>organizationId</td>
+<td><code>organizationId</code></td>
 <td>query</td>
 <td>Associated organization</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -3465,11 +3465,11 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>project_template_id</td>
+<td><code>project_template_id</code></td>
 <td>path</td>
 <td>Associated project_template group</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -3543,11 +3543,11 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>project_template_id</td>
+<td><code>project_template_id</code></td>
 <td>path</td>
 <td>Associated project_template group</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
