@@ -687,6 +687,14 @@
 </tbody></table>
 <h1 id='documents'>Documents</h1><h2 id='get-documents'>Get Documents</h2>
 <p><strong>Summary:</strong> Get all Documents for Project Template</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"json"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
@@ -826,6 +834,14 @@
 </tbody></table>
 <h2 id='post-document'>Post Document</h2>
 <p><strong>Summary:</strong> Creates a Document for Project Template</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"json"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
@@ -858,9 +874,9 @@
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-749 - test.txt"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"requisitionId"</span><span class="p">:</span><span class="w"> </span><span class="mi">73854</span><span class="p">,</span><span class="w">
         </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REQ-749"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"downloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://localhost:3002/resources/466834/download_as_attachment"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"downloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="p">,</span><span class="w">
         </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2022-02-24T18:51:28.000Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"uploadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://localhost:4572/users.dev.ovation.io/529e74dc-1c64-4fd5-88e9-ae4f9286e3b3/27897668-f3ff-4169-9e82-27550421b3f4/6c5a6cb1-5109-4169-95c1-deb5a71253ee/test.txt?x-amz-server-side-encryption=AES256&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=ASIAYU246YJYQXAGKE6K%2F20220224%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20220224T185128Z&amp;X-Amz-Expires=900&amp;X-Amz-Security-Token=IQoJb3JpZ2luX2VjEDoaCXVzLWVhc3QtMSJGMEQCIFeRxNkhP0dCcCbiHXIpflROjwBRJcMhGw48A4W%2FCuhGAiA3oNNMnFU72SS8oB2rCtCRanHivs1%2Fp1uBUBVzz67MBSqRAwiS%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDU5NDUxMTA1MzQyNSIMv2i%2FHYlljTRAPv95KuUCSTnAY84IRSCjl%2Fi%2FSXcOFKO8PsqVm0vRl%2BIKm3mLuFhsqAta1sjk%2FIshFZe6Ynhm03yt5Wq06Z%2FSUzj5rbLqBUYhuH37eSg%2Bxkz%2FlZzWovF48uaiAatVxiY%2FhAAbhs8xXqkqk56hhWuz1Fj3GSSel2NqhoJXl%2Fpq1veSim1xi%2Fh2nWE56kPKHUW2Txxon9P6TEVx5ZWQgEPDB%2FSJeqDPdkHOWJbdF3WNN7KcYUG%2FE1iMSM7T18V3O3K%2ByFdinvU7sb7ns4jcQJJKWitYGXwIwFXwKPjYrtnAtVuifdAJJnoKUjQvMwLGNf154t8CIZBEEN2C13uwxbdxZ4%2BELQaO1ANdwcCvBoCFqji5W4s1G9Vi6wwiBQarqldXA9P65aytkR2o8ZRIbskKzDeset8hIvOkbad0tDiKfz7mh%2B4W5PBpXoaaBZUqwvQgu0MFactFuL7oVQs1y98hCZeaD0h3MMjpT0ImMPD53pAGOqcBRjCykKvQ3Tv0%2BXZEOUI7Vpv5heOqoJHBFGGTAdFYG2RYH0rjZg0TtfJUqh8VNuDKmB39hB8zeO%2Fzo%2FYHvqdt%2FNn%2Bjcj%2BZK%2FFRXM6kbVP41j3oZnHi9s8NmYYvN4aXDEIK7bKOAys7AuM%2F%2BsKHNuhRgkiN7n42jm0fOkIZyYFhgerEtHAx4exXOUhoDqZJKsVwplnE8mqEaJUSXIsZpbTgR6lLJ8ZQu4%3D&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=a3e3ec31d7819954cfae26d85b1c6a7bea05e40067e3e5cb22e551348395d92e"</span><span class="w">
+        </span><span class="nl">"uploadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://..."</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
@@ -943,6 +959,14 @@
 </tbody></table>
 <h1 id='project-templates'>Project Templates</h1><h2 id='get-all-project-templates'>Get All Project Templates</h2>
 <p><strong>Summary:</strong> Get available project templates for a given organization</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"json"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
@@ -3388,6 +3412,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h1 id='sample-labels'>Sample Labels</h1><h2 id='get-all-sample-labels'>Get All Sample Labels</h2>
 <p><strong>Summary:</strong> Get available sample labels</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
 
@@ -3399,8 +3431,7 @@ You must first create a Provider Account and can then add associated Providers a
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
-</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="c1">// not needed</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"sampleLabels"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"labels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="s2">"DNA"</span><span class="w">
@@ -3445,6 +3476,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h1 id='test-panels'>Test Panels</h1><h2 id='get-all-test-panels'>Get All Test Panels</h2>
 <p><strong>Summary:</strong> Get available Test Panels</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
 
@@ -3457,8 +3496,7 @@ You must first create a Provider Account and can then add associated Providers a
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
 
-</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="c1">// not needed</span><span class="w">
-</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"testPanels"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nl">"panelName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Genome Exploration  PGx Comp"</span><span class="p">,</span><span class="w">
