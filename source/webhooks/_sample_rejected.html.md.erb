@@ -1,0 +1,34 @@
+# Sample Rejected
+
+```json
+{
+  "eventType": "sample_rejected",
+  "eventDetails": "The sample reject reason",
+  "requisitionIdentifier": "req-001",
+  "sampleIdentifier": "sample-001",
+  "patientMRN": "0010015000",
+  "sampleGroup": "default",
+  "sampleLabel": "sample-label",
+  "providerAccountName": "Provider Account Name",
+  "providerAccountNumber": "99952255",
+  "physicianNPI": "0000000000",
+  "reportDownloadLink": "https://link_to_download_pdf"
+}
+```
+
+
+**Parameters**
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| eventType | integer | Filters workflow definitions by organization. |
+| eventDetails | string | Details | related to the action performed |
+| requisitionIdentifier | string | Requisition identifier |
+| sampleIdentifier | string | Sample identifier |
+| patientMRN | string | Patient medical record number |
+| sampleGroup | string | Sample group name |
+| sampleLabel | string | Sample Label description |
+| providerAccountName | string | Provider account name |
+| providerAccountNumber | string | Provider account number |
+| physicianNPI | string | The Physician NPI identifier |
+| reportDownloadLink | string | The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded) |

@@ -16,10 +16,17 @@ under the License.
 <% language_tabs = current_page.data.language_tabs || [] %>
 <% page_content = yield %>
 <%
-  if current_page.data.includes
+  if current_page.data.apis
     current_page.data.apis.each do |api|
       page_content += partial("api/#{api}")
     end
+  end
+  if current_page.data.webhooks
+    current_page.data.webhooks.each do |webhook|
+      page_content += partial("webhooks/#{webhook}")
+    end
+  end
+  if current_page.data.includes
     current_page.data.includes.each do |include|
       page_content += partial("includes/#{include}")
     end

@@ -54,7 +54,7 @@ configure :build do
   # activate :gzip
 end
 
-# page "partial_layouts/_*", :layout => :layout
+activate :directory_indexes
 
 # Deploy Configuration
 # If you want Middleman to listen on a different port, you can set that below

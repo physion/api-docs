@@ -1,0 +1,61 @@
+--- 
+
+title: Ovation API Reference 
+
+language_tabs:
+   - json: response
+
+webhooks:
+  - report_corrected
+  - report_signed
+  - requisition_canceled
+  - requisition_signed_accession
+  - sample_rejected
+
+toc_footers:
+  - <a href="/">APIs</a>
+  - <a href="/webhooks">Webhooks</a>
+
+search: true
+
+code_clipboard: true
+
+--- 
+
+# Introduction 
+
+LIMS+: logical sample tracking, document and training record management 
+
+**Version:** 1.0.0
+
+# Overview
+
+You can also create, edit or remove webhook subscriptions via our API.  Please refer to our webhook API documentation for more information.  
+
+To create a webhook subscription you will need to provide a URL where the specified webhook payload will be POSTed.  
+
+If you would like to secure the request handling on your side, the webhook configuration can be set so that requests will be sent with a Basic Auth header.
+To enable this header, please specify a username/password that should be sent in the request when creating the subscription.
+The username and password will be converted to Base64 string and will be sent in an "authorization" header alongside each request.
+
+## Events
+
+Ovation supports sending web-hooks for the following events:
+
+| Name | Description |
+| ---- | ----------- |
+| requisition_signed_accession | Triggered when the requisition accession_status is set to signed  |
+| report_signed | Triggered when a report status change to signed |
+| report_corrected | Triggered when a report status change to signed, but with one associated report through the same associated_report_configuration |
+| sample_rejected | Triggered when a sample is confirmed as rejected |
+| requisition_canceled | Triggered when a requisition is canceled |
+
+## Webhook Error Handling
+
+For each webhook request, Ovation expects to receive 2** status within 10 seconds for it to be considered  successful. 
+
+If any of the other response codes are returned or if the request times out, then Ovation will retry the request up to 2 more times:
+
+The schedule for the 2 additional attempts would be as follows:  64s, 729s
+
+<strong>If the two additional attempts fail, the system will not try to resend the request again.</strong>
