@@ -369,23 +369,23 @@ The username and password will be converted to Base64 string and will be sent in
 </tr>
 </thead><tbody>
 <tr>
-<td>requisition_signed_accession</td>
+<td><code>requisition_signed_accession</code></td>
 <td>Triggered when the requisition accession_status is set to signed</td>
 </tr>
 <tr>
-<td>report_signed</td>
+<td><code>report_signed</code></td>
 <td>Triggered when a report status change to signed</td>
 </tr>
 <tr>
-<td>report_corrected</td>
+<td><code>report_corrected</code></td>
 <td>Triggered when a report status change to signed, but with one associated report through the same associated_report_configuration</td>
 </tr>
 <tr>
-<td>sample_rejected</td>
+<td><code>sample_rejected</code></td>
 <td>Triggered when a sample is confirmed as rejected</td>
 </tr>
 <tr>
-<td>requisition_canceled</td>
+<td><code>requisition_canceled</code></td>
 <td>Triggered when a requisition is canceled</td>
 </tr>
 </tbody></table>
@@ -431,83 +431,83 @@ The username and password will be converted to Base64 string and will be sent in
 </tr>
 </thead><tbody>
 <tr>
-<td>eventType</td>
-<td>integer</td>
+<td><code>eventType</code></td>
+<td><code>integer</code></td>
 <td>Filters workflow definitions by organization.</td>
 </tr>
 <tr>
-<td>eventDetails</td>
-<td>string</td>
+<td><code>eventDetails</code></td>
+<td><code>string</code></td>
 <td>Details</td>
 </tr>
 <tr>
-<td>requisitionIdentifier</td>
-<td>string</td>
+<td><code>requisitionIdentifier</code></td>
+<td><code>string</code></td>
 <td>Requisition identifier</td>
 </tr>
 <tr>
-<td>sampleIdentifier</td>
-<td>string</td>
+<td><code>sampleIdentifier</code></td>
+<td><code>string</code></td>
 <td>Sample identifier</td>
 </tr>
 <tr>
-<td>patientMRN</td>
-<td>string</td>
+<td><code>patientMRN</code></td>
+<td><code>string</code></td>
 <td>Patient medical record number</td>
 </tr>
 <tr>
-<td>sampleGroup</td>
-<td>string</td>
+<td><code>sampleGroup</code></td>
+<td><code>string</code></td>
 <td>Sample group name</td>
 </tr>
 <tr>
-<td>sampleLabel</td>
-<td>string</td>
+<td><code>sampleLabel</code></td>
+<td><code>string</code></td>
 <td>Sample Label description</td>
 </tr>
 <tr>
-<td>providerAccountName</td>
-<td>string</td>
+<td><code>providerAccountName</code></td>
+<td><code>string</code></td>
 <td>Provider account name</td>
 </tr>
 <tr>
-<td>providerAccountNumber</td>
-<td>string</td>
+<td><code>providerAccountNumber</code></td>
+<td><code>string</code></td>
 <td>Provider account number</td>
 </tr>
 <tr>
-<td>physicianNPI</td>
-<td>string</td>
+<td><code>physicianNPI</code></td>
+<td><code>string</code></td>
 <td>The Physician NPI identifier</td>
 </tr>
 <tr>
-<td>reportResult</td>
-<td>string</td>
+<td><code>reportResult</code></td>
+<td><code>string</code></td>
 <td>The report result</td>
 </tr>
 <tr>
-<td>reportResultDetails</td>
-<td>object</td>
+<td><code>reportResultDetails</code></td>
+<td><code>object</code></td>
 <td>Contains detailed information about the report result<br><ul><li>Detected or Positive</li><li>Not Detected or Negative</li><li>Inconclusive</li><li>Invalid</li></ul></td>
 </tr>
 <tr>
-<td>reportType</td>
-<td>string</td>
+<td><code>reportType</code></td>
+<td><code>string</code></td>
 <td>Report type</td>
 </tr>
 <tr>
-<td>reportDate</td>
-<td>string</td>
+<td><code>reportDate</code></td>
+<td><code>string</code></td>
 <td>Report date</td>
 </tr>
 <tr>
-<td>reportDownloadLink</td>
-<td>string</td>
+<td><code>reportDownloadLink</code></td>
+<td><code>string</code></td>
 <td>The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded)</td>
 </tr>
 <tr>
-<td>signedBy</td>
-<td>array</td>
+<td><code>signedBy</code></td>
+<td><code>array</code></td>
 <td>Contains an array of records for each person who signed the report.<br>Each record will include:<br><ul><li>name</li><li>email</li><li>signedDateTime</li></ul></td>
 </tr>
 </tbody></table>
@@ -546,83 +546,83 @@ The username and password will be converted to Base64 string and will be sent in
 </tr>
 </thead><tbody>
 <tr>
-<td>eventType</td>
-<td>integer</td>
+<td><code>eventType</code></td>
+<td><code>integer</code></td>
 <td>Filters workflow definitions by organization.</td>
 </tr>
 <tr>
-<td>eventDetails</td>
-<td>string</td>
+<td><code>eventDetails</code></td>
+<td><code>string</code></td>
 <td>Details</td>
 </tr>
 <tr>
-<td>requisitionIdentifier</td>
-<td>string</td>
+<td><code>requisitionIdentifier</code></td>
+<td><code>string</code></td>
 <td>Requisition identifier</td>
 </tr>
 <tr>
-<td>sampleIdentifier</td>
-<td>string</td>
+<td><code>sampleIdentifier</code></td>
+<td><code>string</code></td>
 <td>Sample identifier</td>
 </tr>
 <tr>
-<td>patientMRN</td>
-<td>string</td>
+<td><code>patientMRN</code></td>
+<td><code>string</code></td>
 <td>Patient medical record number</td>
 </tr>
 <tr>
-<td>sampleGroup</td>
-<td>string</td>
+<td><code>sampleGroup</code></td>
+<td><code>string</code></td>
 <td>Sample group name</td>
 </tr>
 <tr>
-<td>sampleLabel</td>
-<td>string</td>
+<td><code>sampleLabel</code></td>
+<td><code>string</code></td>
 <td>Sample Label description</td>
 </tr>
 <tr>
-<td>providerAccountName</td>
-<td>string</td>
+<td><code>providerAccountName</code></td>
+<td><code>string</code></td>
 <td>Provider account name</td>
 </tr>
 <tr>
-<td>providerAccountNumber</td>
-<td>string</td>
+<td><code>providerAccountNumber</code></td>
+<td><code>string</code></td>
 <td>Provider account number</td>
 </tr>
 <tr>
-<td>physicianNPI</td>
-<td>string</td>
+<td><code>physicianNPI</code></td>
+<td><code>string</code></td>
 <td>The Physician NPI identifier</td>
 </tr>
 <tr>
-<td>reportResult</td>
-<td>string</td>
+<td><code>reportResult</code></td>
+<td><code>string</code></td>
 <td>The report result</td>
 </tr>
 <tr>
-<td>reportResultDetails</td>
-<td>object</td>
+<td><code>reportResultDetails</code></td>
+<td><code>object</code></td>
 <td>Contains detailed information about the report result<br><ul><li>Detected or Positive</li><li>Not Detected or Negative</li><li>Inconclusive</li><li>Invalid</li></ul></td>
 </tr>
 <tr>
-<td>reportType</td>
-<td>string</td>
+<td><code>reportType</code></td>
+<td><code>string</code></td>
 <td>Report type</td>
 </tr>
 <tr>
-<td>reportDate</td>
-<td>string</td>
+<td><code>reportDate</code></td>
+<td><code>string</code></td>
 <td>Report date</td>
 </tr>
 <tr>
-<td>reportDownloadLink</td>
-<td>string</td>
+<td><code>reportDownloadLink</code></td>
+<td><code>string</code></td>
 <td>The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded)</td>
 </tr>
 <tr>
-<td>signedBy</td>
-<td>array</td>
+<td><code>signedBy</code></td>
+<td><code>array</code></td>
 <td>Contains an array of records for each person who signed the report.<br>Each record will include:<br><ul><li>name</li><li>email</li><li>signedDateTime</li></ul></td>
 </tr>
 </tbody></table>
@@ -645,33 +645,33 @@ The username and password will be converted to Base64 string and will be sent in
 </tr>
 </thead><tbody>
 <tr>
-<td>eventType</td>
-<td>integer</td>
+<td><code>eventType</code></td>
+<td><code>integer</code></td>
 <td>Filters workflow definitions by organization.</td>
 </tr>
 <tr>
-<td>eventDetails</td>
-<td>string</td>
+<td><code>eventDetails</code></td>
+<td><code>string</code></td>
 <td>Details</td>
 </tr>
 <tr>
-<td>requisitionIdentifier</td>
-<td>string</td>
+<td><code>requisitionIdentifier</code></td>
+<td><code>string</code></td>
 <td>Requisition identifier</td>
 </tr>
 <tr>
-<td>providerAccountName</td>
-<td>string</td>
+<td><code>providerAccountName</code></td>
+<td><code>string</code></td>
 <td>Provider account name</td>
 </tr>
 <tr>
-<td>providerAccountNumber</td>
-<td>string</td>
+<td><code>providerAccountNumber</code></td>
+<td><code>string</code></td>
 <td>Provider account number</td>
 </tr>
 <tr>
-<td>physicianNPI</td>
-<td>string</td>
+<td><code>physicianNPI</code></td>
+<td><code>string</code></td>
 <td>The Physician NPI identifier</td>
 </tr>
 </tbody></table>
@@ -691,18 +691,18 @@ The username and password will be converted to Base64 string and will be sent in
 </tr>
 </thead><tbody>
 <tr>
-<td>eventType</td>
-<td>integer</td>
+<td><code>eventType</code></td>
+<td><code>integer</code></td>
 <td>Filters workflow definitions by organization.</td>
 </tr>
 <tr>
-<td>requisitionIdentifier</td>
-<td>string</td>
+<td><code>requisitionIdentifier</code></td>
+<td><code>string</code></td>
 <td>Requisition identifier</td>
 </tr>
 <tr>
-<td>projectTemplateId</td>
-<td>integer</td>
+<td><code>projectTemplateId</code></td>
+<td><code>integer</code></td>
 <td>Associated Project Template</td>
 </tr>
 </tbody></table>
@@ -730,58 +730,58 @@ The username and password will be converted to Base64 string and will be sent in
 </tr>
 </thead><tbody>
 <tr>
-<td>eventType</td>
-<td>integer</td>
+<td><code>eventType</code></td>
+<td><code>integer</code></td>
 <td>Filters workflow definitions by organization.</td>
 </tr>
 <tr>
-<td>eventDetails</td>
-<td>string</td>
+<td><code>eventDetails</code></td>
+<td><code>string</code></td>
 <td>Details</td>
 </tr>
 <tr>
-<td>requisitionIdentifier</td>
-<td>string</td>
+<td><code>requisitionIdentifier</code></td>
+<td><code>string</code></td>
 <td>Requisition identifier</td>
 </tr>
 <tr>
-<td>sampleIdentifier</td>
-<td>string</td>
+<td><code>sampleIdentifier</code></td>
+<td><code>string</code></td>
 <td>Sample identifier</td>
 </tr>
 <tr>
-<td>patientMRN</td>
-<td>string</td>
+<td><code>patientMRN</code></td>
+<td><code>string</code></td>
 <td>Patient medical record number</td>
 </tr>
 <tr>
-<td>sampleGroup</td>
-<td>string</td>
+<td><code>sampleGroup</code></td>
+<td><code>string</code></td>
 <td>Sample group name</td>
 </tr>
 <tr>
-<td>sampleLabel</td>
-<td>string</td>
+<td><code>sampleLabel</code></td>
+<td><code>string</code></td>
 <td>Sample Label description</td>
 </tr>
 <tr>
-<td>providerAccountName</td>
-<td>string</td>
+<td><code>providerAccountName</code></td>
+<td><code>string</code></td>
 <td>Provider account name</td>
 </tr>
 <tr>
-<td>providerAccountNumber</td>
-<td>string</td>
+<td><code>providerAccountNumber</code></td>
+<td><code>string</code></td>
 <td>Provider account number</td>
 </tr>
 <tr>
-<td>physicianNPI</td>
-<td>string</td>
+<td><code>physicianNPI</code></td>
+<td><code>string</code></td>
 <td>The Physician NPI identifier</td>
 </tr>
 <tr>
-<td>reportDownloadLink</td>
-<td>string</td>
+<td><code>reportDownloadLink</code></td>
+<td><code>string</code></td>
 <td>The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded)</td>
 </tr>
 </tbody></table>

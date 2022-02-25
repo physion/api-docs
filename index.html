@@ -641,46 +641,46 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>type</td>
+<td><code>type</code></td>
 <td>query</td>
 <td>Type of report data you’re requesting.<br>Options:<br><ul><li>workflow_report</li></ul></td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>startDate</td>
+<td><code>startDate</code></td>
 <td>query</td>
 <td>Start date for query</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>endDate</td>
+<td><code>endDate</code></td>
 <td>query</td>
 <td>End date for query</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>workflowDefinitionId</td>
+<td><code>workflowDefinitionId</code></td>
 <td>query</td>
 <td>ID of workflow definition you want data for.<br>(Only required with type &#39; workflow_report&#39;)</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>query</td>
 <td>Page of results. Defaults to 1.</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>perPage</td>
+<td><code>perPage</code></td>
 <td>query</td>
 <td>Number of results per page. Defaults to 100.</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -2997,18 +2997,18 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>requisitionIdentifier</td>
+<td><code>requisitionIdentifier</code></td>
 <td>body</td>
 <td>Requisition report is associated to</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>reportContent</td>
+<td><code>reportContent</code></td>
 <td>body</td>
 <td>Base64 content of report</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -6520,67 +6520,67 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>organization_id</td>
+<td><code>organization_id</code></td>
 <td>path</td>
 <td>Organization ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>projectTemplateIds</td>
+<td><code>projectTemplateIds</code></td>
 <td>query</td>
 <td>Project Template Ids</td>
 <td>No</td>
-<td>comma separated integers</td>
+<td>comma separated <code>integers</code></td>
 </tr>
 <tr>
-<td>webhookEndpointIds</td>
+<td><code>webhookEndpointIds</code></td>
 <td>query</td>
 <td>Webhook Endpoint Ids</td>
 <td>No</td>
-<td>comma separated integers</td>
+<td>comma separated <code>integers</code></td>
 </tr>
 <tr>
-<td>event</td>
+<td><code>event</code></td>
 <td>body</td>
 <td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>eventStatus</td>
+<td><code>eventStatus</code></td>
 <td>query</td>
 <td>Status of event. <br><ul><li>sent</li><li>send-failed</li><li>pending</li></ul></td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>startDate</td>
+<td><code>startDate</code></td>
 <td>query</td>
 <td>Starting date will be in UTC. Time will assume 00:00:00</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>endDate</td>
+<td><code>endDate</code></td>
 <td>query</td>
 <td>Ending date will be in UTC. Time will assume 23:59:5</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>perPage</td>
+<td><code>perPage</code></td>
 <td>query</td>
 <td>Results per page. Max 1000. Default 1000</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>query</td>
 <td>Page of results. Default 1</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -6665,11 +6665,11 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>webhookEndpointEventIds</td>
+<td><code>webhookEndpointEventIds</code></td>
 <td>body</td>
 <td>IDs of events to resend</td>
 <td>Yes</td>
-<td>array</td>
+<td><code>array</code></td>
 </tr>
 </tbody></table>
 
@@ -6765,11 +6765,11 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>project_template_id</td>
+<td><code>project_template_id</code></td>
 <td>path</td>
 <td>Associated project_template group</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -6855,18 +6855,18 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>project_template_id</td>
+<td><code>project_template_id</code></td>
 <td>path</td>
 <td>Associated project_template group</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td></td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -6962,39 +6962,39 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>project_template_id</td>
+<td><code>project_template_id</code></td>
 <td>path</td>
 <td>Associated project_template group</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>targetUrl</td>
+<td><code>targetUrl</code></td>
 <td>body</td>
 <td>Host URL to send webhook payload to</td>
 <td>yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>username</td>
+<td><code>username</code></td>
 <td>body</td>
 <td>Username to connect to host</td>
 <td>yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>password</td>
+<td><code>password</code></td>
 <td>body</td>
 <td>Password to connect to host</td>
 <td>yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>event</td>
+<td><code>event</code></td>
 <td>body</td>
 <td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
 <td>yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -7091,46 +7091,46 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>project_template_id</td>
+<td><code>project_template_id</code></td>
 <td>path</td>
 <td>Associated project_template group</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td></td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>targetUrl</td>
+<td><code>targetUrl</code></td>
 <td>body</td>
 <td>Host URL to send webhook payload to</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>username</td>
+<td><code>username</code></td>
 <td>body</td>
 <td>Username to connect to host</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>password</td>
+<td><code>password</code></td>
 <td>body</td>
 <td>Password to connect to host</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>event</td>
+<td><code>event</code></td>
 <td>body</td>
 <td>Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul></td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -7195,11 +7195,11 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>organizationId</td>
+<td><code>organizationId</code></td>
 <td>query</td>
 <td>Filters workflow definitions by organization.</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
