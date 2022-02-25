@@ -1,0 +1,792 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Ovation API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../stylesheets/screen-0e56eadd.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="webhooks webhooks_index" data-languages="[&quot;json&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="../images/ov-logo-63df0128.png" class="logo center-img" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">response</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#events" class="toc-h2 toc-link" data-title="Events">Events</a>
+                  </li>
+                  <li>
+                    <a href="#webhook-error-handling" class="toc-h2 toc-link" data-title="Webhook Error Handling">Webhook Error Handling</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#report-corrected" class="toc-h1 toc-link" data-title="Report Corrected">Report Corrected</a>
+          </li>
+          <li>
+            <a href="#report-signed" class="toc-h1 toc-link" data-title="Report Signed">Report Signed</a>
+          </li>
+          <li>
+            <a href="#requisition-canceled" class="toc-h1 toc-link" data-title="Requisition Canceled">Requisition Canceled</a>
+          </li>
+          <li>
+            <a href="#requisition-signed-accession" class="toc-h1 toc-link" data-title="Requisition Signed Accession">Requisition Signed Accession</a>
+          </li>
+          <li>
+            <a href="#sample-rejected" class="toc-h1 toc-link" data-title="Sample Rejected">Sample Rejected</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="/">APIs</a></li>
+            <li><a href="/webhooks">Webhooks</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>LIMS+: logical sample tracking, document and training record management </p>
+
+<p><strong>Version:</strong> 1.0.0</p>
+<h1 id='overview'>Overview</h1>
+<p>You can also create, edit or remove webhook subscriptions via our API.  Please refer to our webhook API documentation for more information.  </p>
+
+<p>To create a webhook subscription you will need to provide a URL where the specified webhook payload will be POSTed.  </p>
+
+<p>If you would like to secure the request handling on your side, the webhook configuration can be set so that requests will be sent with a Basic Auth header.
+To enable this header, please specify a username/password that should be sent in the request when creating the subscription.
+The username and password will be converted to Base64 string and will be sent in an &quot;authorization&quot; header alongside each request.</p>
+<h2 id='events'>Events</h2>
+<p>Ovation supports sending web-hooks for the following events:</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requisition_signed_accession</td>
+<td>Triggered when the requisition accession_status is set to signed</td>
+</tr>
+<tr>
+<td>report_signed</td>
+<td>Triggered when a report status change to signed</td>
+</tr>
+<tr>
+<td>report_corrected</td>
+<td>Triggered when a report status change to signed, but with one associated report through the same associated_report_configuration</td>
+</tr>
+<tr>
+<td>sample_rejected</td>
+<td>Triggered when a sample is confirmed as rejected</td>
+</tr>
+<tr>
+<td>requisition_canceled</td>
+<td>Triggered when a requisition is canceled</td>
+</tr>
+</tbody></table>
+<h2 id='webhook-error-handling'>Webhook Error Handling</h2>
+<p>For each webhook request, Ovation expects to receive 2** status within 10 seconds for it to be considered  successful. </p>
+
+<p>If any of the other response codes are returned or if the request times out, then Ovation will retry the request up to 2 more times:</p>
+
+<p>The schedule for the 2 additional attempts would be as follows:  64s, 729s</p>
+
+<p><strong>If the two additional attempts fail, the system will not try to resend the request again.</strong></p>
+<h1 id='report-corrected'>Report Corrected</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_corrected"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"patientMRN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010015000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleLabel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-label"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provider Account Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99952255"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"physicianNPI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">" 'Detected' | 'Not detected' | 'Inconclusive' "</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportResultDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company XXYY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"physician"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Physician Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"panel_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"panel_name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"panel_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"panel-001"</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"reportType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportDownloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://link_to_download_pdf"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventType</td>
+<td>integer</td>
+<td>Filters workflow definitions by organization.</td>
+</tr>
+<tr>
+<td>eventDetails</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+<tr>
+<td>requisitionIdentifier</td>
+<td>string</td>
+<td>Requisition identifier</td>
+</tr>
+<tr>
+<td>sampleIdentifier</td>
+<td>string</td>
+<td>Sample identifier</td>
+</tr>
+<tr>
+<td>patientMRN</td>
+<td>string</td>
+<td>Patient medical record number</td>
+</tr>
+<tr>
+<td>sampleGroup</td>
+<td>string</td>
+<td>Sample group name</td>
+</tr>
+<tr>
+<td>sampleLabel</td>
+<td>string</td>
+<td>Sample Label description</td>
+</tr>
+<tr>
+<td>providerAccountName</td>
+<td>string</td>
+<td>Provider account name</td>
+</tr>
+<tr>
+<td>providerAccountNumber</td>
+<td>string</td>
+<td>Provider account number</td>
+</tr>
+<tr>
+<td>physicianNPI</td>
+<td>string</td>
+<td>The Physician NPI identifier</td>
+</tr>
+<tr>
+<td>reportResult</td>
+<td>string</td>
+<td>The report result</td>
+</tr>
+<tr>
+<td>reportResultDetails</td>
+<td>object</td>
+<td>Contains detailed information about the report result<br><ul><li>Detected or Positive</li><li>Not Detected or Negative</li><li>Inconclusive</li><li>Invalid</li></ul></td>
+</tr>
+<tr>
+<td>reportType</td>
+<td>string</td>
+<td>Report type</td>
+</tr>
+<tr>
+<td>reportDate</td>
+<td>string</td>
+<td>Report date</td>
+</tr>
+<tr>
+<td>reportDownloadLink</td>
+<td>string</td>
+<td>The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded)</td>
+</tr>
+<tr>
+<td>signedBy</td>
+<td>array</td>
+<td>Contains an array of records for each person who signed the report.<br>Each record will include:<br><ul><li>name</li><li>email</li><li>signedDateTime</li></ul></td>
+</tr>
+</tbody></table>
+<h1 id='report-signed'>Report Signed</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_signed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"patientMRN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010015000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleLabel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-label"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provider Account Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99952255"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"physicianNPI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportResult"</span><span class="p">:</span><span class="w"> </span><span class="s2">" 'Detected' | 'Not detected' | 'Inconclusive' "</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportResultDetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company XXYY"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"physician"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Physician Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"panel_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"panel_name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"panel_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"panel-001"</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"reportType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-01"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportDownloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://link_to_download_pdf"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"signedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w"> </span><span class="nl">"signedDateTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w"> </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventType</td>
+<td>integer</td>
+<td>Filters workflow definitions by organization.</td>
+</tr>
+<tr>
+<td>eventDetails</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+<tr>
+<td>requisitionIdentifier</td>
+<td>string</td>
+<td>Requisition identifier</td>
+</tr>
+<tr>
+<td>sampleIdentifier</td>
+<td>string</td>
+<td>Sample identifier</td>
+</tr>
+<tr>
+<td>patientMRN</td>
+<td>string</td>
+<td>Patient medical record number</td>
+</tr>
+<tr>
+<td>sampleGroup</td>
+<td>string</td>
+<td>Sample group name</td>
+</tr>
+<tr>
+<td>sampleLabel</td>
+<td>string</td>
+<td>Sample Label description</td>
+</tr>
+<tr>
+<td>providerAccountName</td>
+<td>string</td>
+<td>Provider account name</td>
+</tr>
+<tr>
+<td>providerAccountNumber</td>
+<td>string</td>
+<td>Provider account number</td>
+</tr>
+<tr>
+<td>physicianNPI</td>
+<td>string</td>
+<td>The Physician NPI identifier</td>
+</tr>
+<tr>
+<td>reportResult</td>
+<td>string</td>
+<td>The report result</td>
+</tr>
+<tr>
+<td>reportResultDetails</td>
+<td>object</td>
+<td>Contains detailed information about the report result<br><ul><li>Detected or Positive</li><li>Not Detected or Negative</li><li>Inconclusive</li><li>Invalid</li></ul></td>
+</tr>
+<tr>
+<td>reportType</td>
+<td>string</td>
+<td>Report type</td>
+</tr>
+<tr>
+<td>reportDate</td>
+<td>string</td>
+<td>Report date</td>
+</tr>
+<tr>
+<td>reportDownloadLink</td>
+<td>string</td>
+<td>The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded)</td>
+</tr>
+<tr>
+<td>signedBy</td>
+<td>array</td>
+<td>Contains an array of records for each person who signed the report.<br>Each record will include:<br><ul><li>name</li><li>email</li><li>signedDateTime</li></ul></td>
+</tr>
+</tbody></table>
+<h1 id='requisition-canceled'>Requisition Canceled</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample_rejected"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cancelation reason"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provider Account Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99952255"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"physicianNPI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventType</td>
+<td>integer</td>
+<td>Filters workflow definitions by organization.</td>
+</tr>
+<tr>
+<td>eventDetails</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+<tr>
+<td>requisitionIdentifier</td>
+<td>string</td>
+<td>Requisition identifier</td>
+</tr>
+<tr>
+<td>providerAccountName</td>
+<td>string</td>
+<td>Provider account name</td>
+</tr>
+<tr>
+<td>providerAccountNumber</td>
+<td>string</td>
+<td>Provider account number</td>
+</tr>
+<tr>
+<td>physicianNPI</td>
+<td>string</td>
+<td>The Physician NPI identifier</td>
+</tr>
+</tbody></table>
+<h1 id='requisition-signed-accession'>Requisition Signed Accession</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample_rejected"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"projectTemplateId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventType</td>
+<td>integer</td>
+<td>Filters workflow definitions by organization.</td>
+</tr>
+<tr>
+<td>requisitionIdentifier</td>
+<td>string</td>
+<td>Requisition identifier</td>
+</tr>
+<tr>
+<td>projectTemplateId</td>
+<td>integer</td>
+<td>Associated Project Template</td>
+</tr>
+</tbody></table>
+<h1 id='sample-rejected'>Sample Rejected</h1><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"eventType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample_rejected"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"eventDetails"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The sample reject reason"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"requisitionIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"req-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-001"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"patientMRN"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0010015000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleGroup"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sampleLabel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample-label"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provider Account Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"providerAccountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99952255"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"physicianNPI"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"reportDownloadLink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://link_to_download_pdf"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p><strong>Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>eventType</td>
+<td>integer</td>
+<td>Filters workflow definitions by organization.</td>
+</tr>
+<tr>
+<td>eventDetails</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+<tr>
+<td>requisitionIdentifier</td>
+<td>string</td>
+<td>Requisition identifier</td>
+</tr>
+<tr>
+<td>sampleIdentifier</td>
+<td>string</td>
+<td>Sample identifier</td>
+</tr>
+<tr>
+<td>patientMRN</td>
+<td>string</td>
+<td>Patient medical record number</td>
+</tr>
+<tr>
+<td>sampleGroup</td>
+<td>string</td>
+<td>Sample group name</td>
+</tr>
+<tr>
+<td>sampleLabel</td>
+<td>string</td>
+<td>Sample Label description</td>
+</tr>
+<tr>
+<td>providerAccountName</td>
+<td>string</td>
+<td>Provider account name</td>
+</tr>
+<tr>
+<td>providerAccountNumber</td>
+<td>string</td>
+<td>Provider account number</td>
+</tr>
+<tr>
+<td>physicianNPI</td>
+<td>string</td>
+<td>The Physician NPI identifier</td>
+</tr>
+<tr>
+<td>reportDownloadLink</td>
+<td>string</td>
+<td>The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded)</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box"></div>
+    </div>
+  </body>
+</html>
