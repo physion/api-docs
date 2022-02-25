@@ -1,5 +1,5 @@
 # Webhook Endpoints
-## Get Webhook Endpoints 
+## Get Webhook Endpoints
 
 **Summary:** Get Webhook Endpoints
 
@@ -40,8 +40,9 @@ response = http.request(request)
 puts response.read_body
 ```
 
-### HTTP Request 
-`GET /v3/project_templates/{project_template_id}/webhook_endpoints` 
+### HTTP Request
+<span class="method get">GET</span>
+` /v3/project_templates/{project_template_id}/webhook_endpoints`
 
 **Permissions**
 
@@ -98,8 +99,9 @@ puts response.read_body
 ```
 
 
-### HTTP Request 
-`GET /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+### HTTP Request
+<span class="method get">GET</span>
+` /v3/project_templates/{project_template_id}/webhook_endpoints/{id}`
 
 **Permissions**
 
@@ -121,7 +123,7 @@ puts response.read_body
 | ---- | ----------- |
 | 200 | Webhook Endpoint |
 
-## Post Webhook Endpoint 
+## Post Webhook Endpoint
 
 **Summary:** Create a Webhook Endpoint
 
@@ -169,8 +171,9 @@ puts response.read_body
 }
 ```
 
-### HTTP Request 
-`POST /v3/project_templates/{project_template_id}/webhook_endpoints` 
+### HTTP Request
+<span class="method post">POST</span>
+` /v3/project_templates/{project_template_id}/webhook_endpoints`
 
 **Permissions**
 
@@ -195,7 +198,7 @@ puts response.read_body
 | ---- | ----------- |
 | 201 | Created Webhook Endpoint |
 
-## Put Webhook Endpoint 
+## Put Webhook Endpoint
 
 **Summary:** Update a Webhook Endpoint
 
@@ -244,8 +247,9 @@ puts response.read_body
 }
 ```
 
-### HTTP Request 
-`PUT /v3/project_templates/{project_template_id}/webhook_endpoints/{id}` 
+### HTTP Request
+<span class="method put">PUT</span>
+` /v3/project_templates/{project_template_id}/webhook_endpoints/{id}`
 
 **Permissions**
 
