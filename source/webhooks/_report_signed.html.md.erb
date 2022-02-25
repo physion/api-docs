@@ -32,19 +32,19 @@
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| eventType | integer | Filters workflow definitions by organization. |
-| eventDetails | string | Details | related to the action performed |
-| requisitionIdentifier | string | Requisition identifier |
-| sampleIdentifier | string | Sample identifier |
-| patientMRN | string | Patient medical record number |
-| sampleGroup | string | Sample group name |
-| sampleLabel | string | Sample Label description |
-| providerAccountName | string | Provider account name |
-| providerAccountNumber | string | Provider account number |
-| physicianNPI | string | The Physician NPI identifier |
-| reportResult | string | The report result |
-| reportResultDetails | object | Contains detailed information about the report result<br><ul><li>Detected or Positive</li><li>Not Detected or Negative</li><li>Inconclusive</li><li>Invalid</li></ul> |
-| reportType | string | Report type |
-| reportDate | string | Report date |
-| reportDownloadLink | string | The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded) |
-| signedBy | array | Contains an array of records for each person who signed the report.<br>Each record will include:<br><ul><li>name</li><li>email</li><li>signedDateTime</li></ul> |
+| `eventType` | `integer` | Filters workflow definitions by organization. |
+| `eventDetails` | `string` | Details | related to the action performed |
+| `requisitionIdentifier` | `string` | Requisition identifier |
+| `sampleIdentifier` | `string` | Sample identifier |
+| `patientMRN` | `string` | Patient medical record number |
+| `sampleGroup` | `string` | Sample group name |
+| `sampleLabel` | `string` | Sample Label description |
+| `providerAccountName` | `string` | Provider account name |
+| `providerAccountNumber` | `string` | Provider account number |
+| `physicianNPI` | `string` | The Physician NPI identifier |
+| `reportResult` | `string` | The report result |
+| `reportResultDetails` | `object` | Contains detailed information about the report result<br><ul><li>Detected or Positive</li><li>Not Detected or Negative</li><li>Inconclusive</li><li>Invalid</li></ul> |
+| `reportType` | `string` | Report type |
+| `reportDate` | `string` | Report date |
+| `reportDownloadLink` | `string` | The link to download the report file<br>(A GET call to this link with the same Bearer Token header used in the V3 API calls will allow this report to be downloaded) |
+| `signedBy` | `array` | Contains an array of records for each person who signed the report.<br>Each record will include:<br><ul><li>name</li><li>email</li><li>signedDateTime</li></ul> |

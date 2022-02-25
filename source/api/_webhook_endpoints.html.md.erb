@@ -54,7 +54,7 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| project_template_id | path | Associated project_template group | Yes | string |
+| `project_template_id` | path | Associated project_template group | Yes | `string` |
 
 **Responses**
 
@@ -112,8 +112,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| project_template_id | path | Associated project_template group | Yes | string |
-| id | path |  | Yes | integer |
+| `project_template_id` | path | Associated project_template group | Yes | `string` |
+| `id` | path |  | Yes | `integer` |
 
 **Responses**
 
@@ -183,11 +183,11 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| project_template_id | path | Associated project_template group | Yes | string |
-| targetUrl | body | Host URL to send webhook payload to | yes | string |
-| username | body | Username to connect to host | yes | string |
-| password | body | Password to connect to host | yes | string |
-| event | body | Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul> | yes | string |
+| `project_template_id` | path | Associated project_template group | Yes | `string` |
+| `targetUrl` | body | Host URL to send webhook payload to | yes | `string` |
+| `username` | body | Username to connect to host | yes | `string` |
+| `password` | body | Password to connect to host | yes | `string` |
+| `event` | body | Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul> | yes | `string` |
 
 **Responses**
 
@@ -258,12 +258,12 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| project_template_id | path | Associated project_template group | Yes | string |
-| id | path |  | Yes | integer |
-| targetUrl | body | Host URL to send webhook payload to | No | string |
-| username | body | Username to connect to host | No | string |
-| password | body | Password to connect to host | No | string |
-| event | body | Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul> | No | string |
+| `project_template_id` | path | Associated project_template group | Yes | `string` |
+| `id` | path |  | Yes | `integer` |
+| `targetUrl` | body | Host URL to send webhook payload to | No | `string` |
+| `username` | body | Username to connect to host | No | `string` |
+| `password` | body | Password to connect to host | No | `string` |
+| `event` | body | Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul> | No | `string` |
 
 **Responses**
 

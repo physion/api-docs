@@ -67,15 +67,15 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organization_id | path | Organization ID | Yes | integer |
-| projectTemplateIds | query | Project Template Ids | No | comma separated integers |
-| webhookEndpointIds | query | Webhook Endpoint Ids | No | comma separated integers |
-| event | body | Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul> | No | string |
-| eventStatus | query | Status of event. <br><ul><li>sent</li><li>send-failed</li><li>pending</li></ul> | No | string |
-| startDate | query | Starting date will be in UTC. Time will assume 00:00:00 | No | string |
-| endDate | query | Ending date will be in UTC. Time will assume 23:59:5 | No | string |
-| perPage | query | Results per page. Max 1000. Default 1000 | No | integer |
-| page | query | Page of results. Default 1 | No | integer |
+| `organization_id` | path | Organization ID | Yes | `integer` |
+| `projectTemplateIds` | query | Project Template Ids | No | comma separated `integers` |
+| `webhookEndpointIds` | query | Webhook Endpoint Ids | No | comma separated `integers` |
+| `event` | body | Event which triggers the webhook endpoint.<br>Options:<br><ul><li>report_signed</li><li>report_corrected</li><li>sample_rejected</li><li>requisition_canceled</li><li>requisition_signed_accession</li></ul> | No | `string` |
+| `eventStatus` | query | Status of event. <br><ul><li>sent</li><li>send-failed</li><li>pending</li></ul> | No | `string` |
+| `startDate` | query | Starting date will be in UTC. Time will assume 00:00:00 | No | `string` |
+| `endDate` | query | Ending date will be in UTC. Time will assume 23:59:5 | No | `string` |
+| `perPage` | query | Results per page. Max 1000. Default 1000 | No | `integer` |
+| `page` | query | Page of results. Default 1 | No | `integer` |
 
 **Responses**
 
@@ -128,7 +128,7 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| webhookEndpointEventIds | body | IDs of events to resend | Yes | array |
+| `webhookEndpointEventIds` | body | IDs of events to resend | Yes | `array` |
 
 **Responses**
 

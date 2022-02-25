@@ -70,12 +70,12 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| type | query | Type of report data you’re requesting.<br>Options:<br><ul><li>workflow_report</li></ul> | Yes | string |
-| startDate | query | Start date for query | Yes | string |
-| endDate | query | End date for query | Yes | string |
-| workflowDefinitionId | query | ID of workflow definition you want data for.<br>(Only required with type ' workflow_report') | Yes | integer |
-| page | query | Page of results. Defaults to 1. | No | string |
-| perPage | query | Number of results per page. Defaults to 100. | No | string |
+| `type` | query | Type of report data you’re requesting.<br>Options:<br><ul><li>workflow_report</li></ul> | Yes | `string` |
+| `startDate` | query | Start date for query | Yes | `string` |
+| `endDate` | query | End date for query | Yes | `string` |
+| `workflowDefinitionId` | query | ID of workflow definition you want data for.<br>(Only required with type ' workflow_report') | Yes | `integer` |
+| `page` | query | Page of results. Defaults to 1. | No | `string` |
+| `perPage` | query | Number of results per page. Defaults to 100. | No | `string` |
 
 **Responses**
 
