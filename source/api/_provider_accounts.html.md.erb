@@ -4,6 +4,7 @@ You must first create a Provider Account and can then add associated Providers a
 ## Get Provider Accounts
 
 **Summary:** Get All Provider Accounts
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `GET /v3/provider_accounts`
@@ -54,12 +55,12 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | query | Organization ID | Yes | integer |
-| name | query | Provider Account Name | No | string |
-| externalIdentifier | query | Provider Account External Identifier. | No | string |
-| accountNumber | query | Provider Account Number | No | string |
-| page | query | Page of results. | No | integer |
-| perPage | query | Results per page. Maximum of 5000. | No | integer |
+| `organizationId` | query | Organization ID | Yes | `integer` |
+| `name` | query | Provider Account Name | No | `string` |
+| `externalIdentifier` | query | Provider Account External Identifier. | No | `string` |
+| `accountNumber` | query | Provider Account Number | No | `string` |
+| `page` | query | Page of results. | No | `integer` |
+| `perPage` | query | Results per page. Maximum of 5000. | No | `integer` |
 
 **Responses**
 
@@ -70,6 +71,7 @@ puts response.read_body
 ## Post Provider Account
 
 **Summary:** Create a Provider Account
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `POST /v3/provider_accounts`
@@ -81,12 +83,12 @@ require "net/http"
 url = URI("{api_endpoint}/api/v3/provider_accounts")
 payload = {} # See payload tab
 
-http = Net::HTTP.new(url.host, url.port);
+http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
 request["Accept"] = "application/json"
 request["Authorization"] = "Bearer {token}"
-request.body = JSON.dump({ payload })
+request.body = JSON.dump(payload)
 
 response = http.request(request)
 puts response.read_body
@@ -168,7 +170,21 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body | Provider Account record | Yes |  |
+| `name` | providerAccount | Provider account name | Yes | `string` |
+| `externalIdentifier` | providerAccount | Ovation external provider identifier | No | `string` |
+| `accountNumber` | providerAccount | Provider account number | Yes | `string` |
+| `streetAddress` | providerAccount | Provider account street address | No | `string` |
+| `streetAddressCity` | providerAccount | Provider account address city | No | `string` |
+| `streetAddressState` | providerAccount | Provider account address state | No | `string` |
+| `streetAddressZipCode` | providerAccount | Provider account address zip code | No | `string` |
+| `mailingAddress` | providerAccount | Provider account mailing address | No | `string` |
+| `mailingAddressCity` | providerAccount | Provider account mailing address city | No | `string` |
+| `mailingAddressState` | providerAccount | Provider account mailing address state | No | `string` |
+| `mailingAddressZipCode` | providerAccount | Provider account mailing address zip code | No | `string` |
+| `faxNumber` | providerAccount | Provider account fax number | Yes | `integer` |
+| `emailReportReadyNotifications` | providerAccount | Notify provider's reports in ready status | No | `boolean` |
+| `faxSignedReports` | providerAccount | Fax signer reports from provider account | No | `boolean` |
+| `salesRepId` | providerAccount | Sales rep. associated to provider account| No | `integer` |
 
 **Responses**
 
@@ -179,6 +195,7 @@ puts response.read_body
 ## Get Provider Account
 
 **Summary:** Get a Provider Account
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `GET /v3/provider_accounts/{id}`
@@ -253,8 +270,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Account ID | Yes | integer |
-| organizationId | query | OrganizationId | Yes | integer |
+| `id` | path | Sales Account ID | Yes | `integer` |
+| `organizationId` | query | OrganizationId | Yes | `integer` |
 
 **Responses**
 
@@ -265,6 +282,7 @@ puts response.read_body
 ## Put Provider Account
 
 **Summary:** Update a Provider Account
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `PUT /v3/provider_accounts/{id}`
@@ -276,12 +294,12 @@ require "net/http"
 url = URI("{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}")
 payload = {} # See payload tab
 
-http = Net::HTTP.new(url.host, url.port);
+http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Put.new(url)
 request["Content-Type"] = "application/json"
 request["Accept"] = "application/json"
 request["Authorization"] = "Bearer {token}"
-request.body = JSON.dump({ payload })
+request.body = JSON.dump(payload)
 
 response = http.request(request)
 puts response.read_body
@@ -363,8 +381,22 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Account ID | Yes | integer |
-| body | body | Provider Account record | Yes |  |
+| `id` | path | Sales Account ID | Yes | `integer` |
+| `name` | providerAccount | Provider account name | Yes | `string` |
+| `externalIdentifier` | providerAccount | Ovation external provider identifier | No | `string` |
+| `accountNumber` | providerAccount | Provider account number | Yes | `string` |
+| `streetAddress` | providerAccount | Provider account street address | No | `string` |
+| `streetAddressCity` | providerAccount | Provider account address city | No | `string` |
+| `streetAddressState` | providerAccount | Provider account address state | No | `string` |
+| `streetAddressZipCode` | providerAccount | Provider account address zip code | No | `string` |
+| `mailingAddress` | providerAccount | Provider account mailing address | No | `string` |
+| `mailingAddressCity` | providerAccount | Provider account mailing address city | No | `string` |
+| `mailingAddressState` | providerAccount | Provider account mailing address state | No | `string` |
+| `mailingAddressZipCode` | providerAccount | Provider account mailing address zip code | No | `string` |
+| `faxNumber` | providerAccount | Provider account fax number | Yes | `integer` |
+| `emailReportReadyNotifications` | providerAccount | Notify provider's reports in ready status | No | `boolean` |
+| `faxSignedReports` | providerAccount | Fax signer reports from provider account | No | `boolean` |
+| `salesRepId` | providerAccount | Sales rep. associated to provider account| No | `integer` |
 
 **Responses**
 
@@ -375,6 +407,7 @@ puts response.read_body
 ## Delete Provider Account
 
 **Summary:** Delete a Provider Account
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `DELETE /v3/provider_accounts/{id}`
@@ -404,8 +437,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Provider Account ID | Yes | integer |
-| organizationId | query | Organization ID | Yes | integer |
+| `id` | path | Provider Account ID | Yes | `integer` |
+| `organizationId` | query | Organization ID | Yes | `integer` |
 
 **Responses**
 
