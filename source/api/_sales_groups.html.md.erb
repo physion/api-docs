@@ -1,16 +1,96 @@
 # Sales Group
-## Post Sales Group 
+## Post Sales Group
 
 **Summary:** Create a Sales Group
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`POST /v3/sales_groups` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_groups")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+
+payload = {} # See payload tab
+request.body = JSON.dump(payload)
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "salesGroup": {
+    "name": "string",
+    "organizationId": "string",
+    "parentId": "string",
+    "associatedSalesReps": [
+      {
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "hasRequisitionAccess": true,
+        "officePhoneNumber": "string"
+      }
+    ]
+  }
+}
+```
+
+```json
+{
+  "salesGroup": {
+    "id": 0,
+    "name": "string",
+    "organizationId": "string",
+    "parentId": "string",
+    "associatedSalesReps": [
+      {
+        "id": 0,
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "hasRequisitionAccess": true,
+        "officePhoneNumber": "string"
+      }
+    ]
+  }
+}
+```
+
+### HTTP Request
+`POST /v3/sales_groups`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body | Sales Group Record | Yes |  |
+| organizationId | body | Organization ID | Yes | integer |
+| salesGroup | body | Sales Group Record | Yes | json |
+
+**Sales Group Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| name | salesGroup | Name of the sales group | Yes | string |
+| parentId | salesGroup | Sales rep parent ID | No | integer |
+| associatedSalesReps | salesGroup | List of associated sales rep records | No | json |
+
+**Associated Sales Rep Parameters**
+
+| Name | Located in | Description | Required | Type | Value |
+| ---- | ---------- | ----------- | -------- | ---- | ----- |
+| firstName | associatedSalesRep | First name of associated sales rep | Yes | string ||
+| lastName | associatedSalesRep | Last name of associated sales rep | Yes | string ||
+| email | associatedSalesRep | Email of associated sales rep | Yes | string ||
+| officePhoneNumber | associatedSalesRep | Office phone number of associated sales rep | No | string ||
+| hasRequisitionAccess | associatedSalesRep | Mark as true if associated sales rep has access to requisition information | No | boolean | `true`, `false` |
 
 **Responses**
 
@@ -21,9 +101,44 @@
 ## Get Sales Groups
 
 **Summary:** Get All Sales Groups
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`GET /v3/sales_groups` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_groups?organization_id={organization_id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+```
+
+```json
+{
+  "meta": {
+    "currentPage": 0,
+    "perPage": 0,
+    "totalEntries": 0
+  },
+  "salesGroups": {
+    "name": "string",
+    "organizationId": "string",
+    "parentId": "string"
+  }
+}
+```
+
+### HTTP Request
+`GET /v3/sales_groups`
 
 **Parameters**
 
@@ -40,19 +155,99 @@
 | Code | Description |
 | ---- | ----------- |
 | 200 | Get all Sales Group |
-## Put Sales Group 
+## Put Sales Group
 
 **Summary:** Update a Sales Group
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`PUT /v3/sales_groups/{id}` 
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_groups/{id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Put.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+payload = {} # See payload tab
+request.body = JSON.dump(payload)
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "salesGroup": {
+    "name": "string",
+    "organizationId": "string",
+    "parentId": "string",
+    "associatedSalesReps": [
+      {
+        "id": 0,
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "hasRequisitionAccess": true,
+        "officePhoneNumber": "string"
+      }
+    ]
+  }
+}
+```
+
+```json
+{
+  "salesGroup": {
+    "id": 0,
+    "name": "string",
+    "organizationId": "string",
+    "parentId": "string",
+    "associatedSalesReps": [
+      {
+        "id": 0,
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "hasRequisitionAccess": true,
+        "officePhoneNumber": "string"
+      }
+    ]
+  }
+}
+```
+
+### HTTP Request
+`PUT /v3/sales_groups/{id}`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Group id | Yes | integer |
-| body | body | Sales Group Record | Yes |  |
+| organizationId | body | Organization ID | Yes | integer |
+| salesGroup | body | Sales Group Record | Yes | json |
+
+**Sales Group Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| name | salesGroup | Name of the sales group | Yes | string |
+| parentId | salesGroup | Sales rep parent ID | No | integer |
+| associatedSalesReps | salesGroup | List of associated sales rep records | No | json |
+
+**Associated Sales Rep Parameters**
+
+| Name | Located in | Description | Required | Type | Value |
+| ---- | ---------- | ----------- | -------- | ---- | ----- |
+| firstName | associatedSalesRep | First name of associated sales rep | Yes | string ||
+| lastName | associatedSalesRep | Last name of associated sales rep | Yes | string ||
+| email | associatedSalesRep | Email of associated sales rep | Yes | string ||
+| officePhoneNumber | associatedSalesRep | Office phone number of associated sales rep | No | string ||
+| hasRequisitionAccess | associatedSalesRep | Mark as true if associated sales rep has access to requisition information | No | boolean | `true`, `false` |
 
 **Responses**
 
@@ -60,12 +255,53 @@
 | ---- | ----------- |
 | 200 | Updated Sales Group Record |
 
-## Get Sales Group 
+## Get Sales Group
 
 **Summary:** Get a Sales Group
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`GET /v3/sales_groups/{id}` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_groups/{id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+```
+
+```json
+{
+  "salesGroup": {
+    "id": 0,
+    "name": "string",
+    "organizationId": "string",
+    "parentId": "string",
+    "associatedSalesReps": [
+      {
+        "id": 0,
+        "firstName": "string",
+        "lastName": "string",
+        "email": "string",
+        "hasRequisitionAccess": true,
+        "officePhoneNumber": "string"
+      }
+    ]
+  }
+}
+```
+
+### HTTP Request
+`GET /v3/sales_groups/{id}`
 
 **Parameters**
 
@@ -80,12 +316,38 @@
 | ---- | ----------- |
 | 200 | Get Sales Group Record |
 
-## Delete Sales Group 
+## Delete Sales Group
 
 **Summary:** Delete a Sales Group
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`DELETE /v3/sales_groups/{id}` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_groups/{id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Delete.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+```
+
+```json
+{
+  "message": "Sales Group successfully archived"
+}
+```
+
+### HTTP Request
+`DELETE /v3/sales_groups/{id}`
 
 **Parameters**
 
