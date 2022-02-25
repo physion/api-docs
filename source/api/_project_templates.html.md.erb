@@ -9,7 +9,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/project_templates")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/project_templates")
 payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port)

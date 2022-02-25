@@ -8,7 +8,7 @@
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/resources")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/resources")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true

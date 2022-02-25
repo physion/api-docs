@@ -176,6 +176,10 @@ html, body {
     color: $nav-active-parent-text;
   }
 
+  .menu-separator {
+    border-bottom: 1px dashed $nav-footer-border-color;
+  }
+
   .toc-list-h2 {
     display: none;
     background-color: $nav-subitem-bg;

@@ -16,6 +16,11 @@ under the License.
 <% language_tabs = current_page.data.language_tabs || [] %>
 <% page_content = yield %>
 <%
+  if current_page.data.includes
+    current_page.data.includes.each do |include|
+      page_content += partial("includes/#{include}")
+    end
+  end
   if current_page.data.apis
     current_page.data.apis.each do |api|
       page_content += partial("api/#{api}")
@@ -25,12 +30,7 @@ under the License.
     current_page.data.webhooks.each do |webhook|
       page_content += partial("webhooks/#{webhook}")
     end
-  end
-  if current_page.data.includes
-    current_page.data.includes.each do |include|
-      page_content += partial("includes/#{include}")
-    end
-  end
+  end  
 %>
 
 <!doctype html>
@@ -103,7 +103,13 @@ under the License.
       <% end %>
       <ul id="toc" class="toc-list-h1">
         <% toc_data(page_content).each do |h1| %>
-          <li>
+          <%
+            li_class = ""
+            if current_page.data.includes && current_page.data.includes.last == h1[:id]
+              li_class = "menu-separator"
+            end
+          %>
+          <li class="<%= li_class %>">
             <a href="#<%= h1[:id] %>" class="toc-h1 toc-link" data-title="<%= h1[:title] %>"><%= h1[:content] %></a>
             <% if h1[:children].length > 0 %>
               <ul class="toc-list-h2">

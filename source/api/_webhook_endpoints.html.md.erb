@@ -28,7 +28,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints")
+url = URI("<%= config[:api_env_endpoint] %>/project_templates/{project_template_id}/webhook_endpoints")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -85,7 +85,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}")
+url = URI("<%= config[:api_env_endpoint] %>/project_templates/{project_template_id}/webhook_endpoints/{id}")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -144,7 +144,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints")
+url = URI("<%= config[:api_env_endpoint] %>/project_templates/{project_template_id}/webhook_endpoints")
 payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);
@@ -218,7 +218,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/project_templates/{project_template_id}/webhook_endpoints/{id}")
+url = URI("<%= config[:api_env_endpoint] %>/project_templates/{project_template_id}/webhook_endpoints/{id}")
 payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);

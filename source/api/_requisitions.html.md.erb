@@ -9,7 +9,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/project_templates/{projectTemplateId}/requisitions")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
@@ -89,7 +89,7 @@ puts response.read_body
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
@@ -260,7 +260,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/project_templates/{projectTemplateId}/requisitions")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
@@ -647,7 +647,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true
@@ -1029,7 +1029,7 @@ puts response.read_body
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
 
 https = Net::HTTP.new(url.host, url.port)
 https.use_ssl = true

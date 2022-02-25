@@ -1,5 +1,6 @@
 # Unique header generation
 require './lib/unique_head.rb'
+require './lib/custom_helpers.rb'
 
 # Markdown
 set :markdown_engine, :redcarpet
@@ -39,6 +40,10 @@ end
 activate :relative_assets
 set :relative_links, true
 
+# Global Variables
+set :api_env_endpoint, "https://lab-services.ovation.io/api/v3"
+config[:api_env_endpoint]
+
 # Build Configuration
 configure :build do
   # We do want to hash woff and woff2 as there's a bug where woff2 will use
@@ -62,4 +67,5 @@ set :port, 4567
 
 helpers do
   require './lib/toc_data.rb'
+  require './lib/custom_helpers.rb'
 end

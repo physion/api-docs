@@ -56,7 +56,7 @@
 require "uri"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/admin_reports?type=workflow_report&startDate=2022-01-01&endDate=2022-01-12&workflowDefinitionId=1&perPage=10&page=1&workflowDefinitionId=1")
+url = URI("<%= config[:api_env_endpoint] %>/admin_reports?type=workflow_report&startDate=2022-01-01&endDate=2022-01-12&workflowDefinitionId=1&perPage=10&page=1&workflowDefinitionId=1")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)

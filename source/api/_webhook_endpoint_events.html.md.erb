@@ -43,7 +43,7 @@
 require "uri"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/organizations/{organization_id}/webhook_endpoint_events?eventStatus=sent&projectTemplateIds=1,2")
+url = URI("<%= config[:api_env_endpoint] %>/organizations/{organization_id}/webhook_endpoint_events?eventStatus=sent&projectTemplateIds=1,2")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -95,7 +95,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/organizations/659/webhook_endpoint_events/retry_events")
+url = URI("<%= config[:api_env_endpoint] %>/organizations/659/webhook_endpoint_events/retry_events")
 payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);

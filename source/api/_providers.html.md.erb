@@ -11,7 +11,7 @@
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/provider_accounts/{provider_account_id}/providers")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -82,7 +82,7 @@ Note: Ovation will pull the NPI Registry API data for you given the registryIden
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/provider_accounts/{provider_account_id}/providers")
 payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port)
@@ -146,7 +146,7 @@ puts response.read_body
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers/{id}")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/provider_accounts/{provider_account_id}/providers/{id}")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -194,7 +194,7 @@ puts response.read_body
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers/{id}")
+url = URI("<%= config[:api_env_endpoint] %>/api/v3/provider_accounts/{provider_account_id}/providers/{id}")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Delete.new(url)

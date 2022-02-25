@@ -4,7 +4,7 @@
 **Summary:** Update empty Report with content
 
 ### HTTP Request 
-`PUT /v3/reports/{id}` 
+`PUT /v3/reports/{id}`
 
 <%= partial "./partial_layouts/block_quotes.html.erb" %>
 
@@ -19,7 +19,7 @@ require "uri"
 require "json"
 require "net/http"
 
-url = URI("https://lab-services.ovatio.io/api/v3/reports/38640")
+url = URI("<%= config[:api_env_endpoint] %>/reports/38640")
 payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);
