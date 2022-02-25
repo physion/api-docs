@@ -2,6 +2,7 @@
 ## Post Provider Account Contact
 
 **Summary:** Create a Provider Account Contact
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -10,12 +11,12 @@ require "net/http"
 url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts")
 payload = {} # See payload tab
 
-http = Net::HTTP.new(url.host, url.port);
+http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = "application/json"
 request["Accept"] = "application/json"
 request["Authorization"] = "Bearer {token}"
-request.body = JSON.dump({ payload })
+request.body = JSON.dump(payload)
 
 response = http.request(request)
 puts response.read_body
@@ -91,10 +92,29 @@ puts response.read_body
 
 **Parameters**
 
+| Name | Located in | Description | Required | Type | Values |
+| ---- | ---------- | ----------- | -------- | ---- | ------ |
+| `providerAccountId` | path | Associated Provider Account ID | Yes | `integer` |  |
+| `externalIdentifier` | providerAccountContact | Contact external ID | No | `string` |  |
+| `firstName` | providerAccountContact | Contact first name | Yes | `string` |  |
+| `lastName` | providerAccountContact | Contact last name | Yes | `string` |  |
+| `email` | providerAccountContact | Contact email | Yes | `string` |  |
+| `officePhoneNumber` | providerAccountContact | Contact office phone number. Required if `communicationPreference` is `"Office"` | No | `string` |  |
+| `cellPhoneNumber` | providerAccountContact | Contact phone number. Required if `communicationPreference` is `"Text""` or `"Cell""` | No | `string` |  |
+| `providerAccountIds` | providerAccountContact | Provider account IDS associated to contact. Must be an array| Yes | `integer` |  |
+| `faxNumber` | providerAccountContact | Contact fax number | Yes | `integer` |  |
+| `communicationPreference` | providerAccountContact | Contact communication preference | Yes | `string` | `"Cell"`, `"Email"`, `"Office"`, `"Text"` |
+| `primaryContact` | providerAccountContact | Defines contact as primary contact | No | `boolean` |  |
+| `userId` | providerAccountContact | Ovation user ID associated to contact | No | `integer` |  |
+| `faxSignedReports` | providerAccountContact | Fax signed reports from contact | No | `boolean` |  |
+| `emailReportReadyNotifications` | providerAccountContact | Notify contact's reports in ready status | No | `boolean` |  |
+| `role` | providerAccountContact | Provider Account Contact record | No | `string` | `"provider"`, `"provider delegate"` |
+
+**Associated Providers Parameters**
+
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account ID | Yes | integer |
-| body | body | Provider Account Contact record | Yes |  |
+| `providerId` | associatedProviders | Provider Id associated to Contact | Yes | `integer` |
 
 **Responses**
 
@@ -105,6 +125,7 @@ puts response.read_body
 ## Get Provider Account Contacts
 
 **Summary:** Get a Provider Account Contacts
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -154,11 +175,11 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account ID | Yes | integer |
-| externalIdentifier | query | Provider Account Contact External ID. | No | string |
-| name | query | Provider Account Contact Email. | No | string |
-| page | query | Page of results. | No | integer |
-| perPage | query | Results per page. Maximum of 5000. | No | integer |
+| `providerAccountId` | path | Provider Account ID | Yes | `integer` |
+| `externalIdentifier` | query | Provider Account Contact External ID. | No | `string` |
+| `name` | query | Provider Account Contact Email. | No | `string` |
+| `page` | query | Page of results. | No | `integer` |
+| `perPage` | query | Results per page. Maximum of 5000. | No | `integer` |
 
 **Responses**
 
@@ -169,6 +190,7 @@ puts response.read_body
 ## Get Provider Account Contact
 
 **Summary:** Get a Provider Account Contact
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -226,8 +248,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account ID | Yes | integer |
-| id | path | Provider Account Contact ID | Yes | integer |
+| `providerAccountId` | path | Provider Account ID | Yes | `integer` |
+| `id` | path | Provider Account Contact ID | Yes | `integer` |
 
 **Responses**
 
@@ -238,6 +260,7 @@ puts response.read_body
 ## Put Provider Account Contact
 
 **Summary:** Update a Provider Account Contact
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -246,12 +269,12 @@ require "net/http"
 url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts/{id}")
 payload = {} # See payload tab
 
-http = Net::HTTP.new(url.host, url.port);
+http = Net::HTTP.new(url.host, url.port)
 request = Net::HTTP::Put.new(url)
 request["Content-Type"] = "application/json"
 request["Accept"] = "application/json"
 request["Authorization"] = "Bearer {token}"
-request.body = JSON.dump({ payload })
+request.body = JSON.dump(payload)
 
 response = http.request(request)
 puts response.read_body
@@ -327,11 +350,25 @@ puts response.read_body
 
 **Parameters**
 
-| Name | Located in | Description | Required | Type |
-| ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account ID | Yes | integer |
-| id | path | Provider Account Contact ID | Yes | integer |
-| body | body | Provider Account Contact record | Yes |  |
+| Name | Located in | Description | Required | Type | Values |
+| ---- | ---------- | ----------- | -------- | ---- | ------ |
+| `providerAccountId` | path | Provider Account ID | Yes | `integer` |
+| `id` | path | Provider Account Contact ID | Yes | `integer` |
+| `providerAccountId` | path | Associated Provider Account ID | Yes | `integer` |  |
+| `externalIdentifier` | providerAccountContact | Contact external ID | No | `string` |  |
+| `firstName` | providerAccountContact | Contact first name | Yes | `string` |  |
+| `lastName` | providerAccountContact | Contact last name | Yes | `string` |  |
+| `email` | providerAccountContact | Contact email | Yes | `string` |  |
+| `officePhoneNumber` | providerAccountContact | Contact office phone number. Required if `communicationPreference` is `"Office"` | No | `string` |  |
+| `cellPhoneNumber` | providerAccountContact | Contact phone number. Required if `communicationPreference` is `"Text""` or `"Cell""` | No | `string` |  |
+| `providerAccountIds` | providerAccountContact | Provider account IDS associated to contact. Must be an array| Yes | `integer` |  |
+| `faxNumber` | providerAccountContact | Contact fax number | Yes | `integer` |  |
+| `communicationPreference` | providerAccountContact | Contact communication preference | Yes | `string` | `"Cell"`, `"Email"`, `"Office"`, `"Text"` |
+| `primaryContact` | providerAccountContact | Defines contact as primary contact | No | `boolean` |  |
+| `userId` | providerAccountContact | Ovation user ID associated to contact | No | `integer` |  |
+| `faxSignedReports` | providerAccountContact | Fax signed reports from contact | No | `boolean` |  |
+| `emailReportReadyNotifications` | providerAccountContact | Notify contact's reports in ready status | No | `boolean` |  |
+| `role` | providerAccountContact | Provider Account Contact record | No | `string` | `"provider"`, `"provider delegate"` |
 
 **Responses**
 
@@ -342,6 +379,7 @@ puts response.read_body
 ## Delete Provider Account Contact
 
 **Summary:** Delete a Provider Account Contact
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
 `DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}`
@@ -372,8 +410,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| providerAccountId | path | Provider Account ID | Yes | integer |
-| id | path | Provider Account Contact ID | Yes | integer |
+| `providerAccountId` | path | Provider Account ID | Yes | `integer` |
+| `id` | path | Provider Account Contact ID | Yes | `integer` |
 
 **Responses**
 
