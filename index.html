@@ -2302,6 +2302,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h1 id='providers'>Providers</h1><h2 id='get-providers'>Get Providers</h2>
 <p><strong>Summary:</strong> Get All Providers</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET /v3/provider_accounts/{providerAccountId}/providers</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -2353,46 +2361,46 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account id</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>registryIdentifier</td>
+<td><code>registryIdentifier</code></td>
 <td>query</td>
 <td>Provider Registry Identifier.</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>licensingRegistry</td>
+<td><code>licensingRegistry</code></td>
 <td>query</td>
 <td>Provider Licensing Identifier</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>name</td>
+<td><code>name</code></td>
 <td>query</td>
 <td>Provider Name</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>query</td>
 <td>Page of results.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>perPage</td>
+<td><code>perPage</code></td>
 <td>query</td>
 <td>Results per page. Maximum of 5000.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -2412,7 +2420,15 @@ You must first create a Provider Account and can then add associated Providers a
 <h2 id='post-provider'>Post Provider</h2>
 <p><strong>Summary:</strong> Create a Provider</p>
 
-<p>Ovation differentiates provider accounts according to the type of licensing registry, these are the valid license registries: [‘NPI’, &#39;Australian Health Practitioner Registry&#39;, &#39;European Physician&#39;, &#39;ex-US / clinical trial&#39;, &#39;Philippines PRC&#39;, &#39;South American Physician&#39;]</p>
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
+
+<p>Ovation differentiates provider accounts according to the type of licensing registry, these are the valid license registries: <code>[‘NPI’, &#39;Australian Health Practitioner Registry&#39;, &#39;European Physician&#39;, &#39;ex-US / clinical trial&#39;, &#39;Philippines PRC&#39;, &#39;South American Physician&#39;]</code></p>
 
 <p>Note: Ovation will pull the NPI Registry API data for you given the registryIdentifier and then it’ll associate it with the Provider Account specified in the URL. If the licensingRegistry is not NPI, then the others fields will be required.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
@@ -2423,12 +2439,12 @@ You must first create a Provider Account and can then add associated Providers a
 <span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers"</span><span class="p">)</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -2462,32 +2478,32 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account id</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>name</td>
+<td><code>name</code></td>
 <td>body</td>
 <td>Provider record</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>registryIdentifier</td>
+<td><code>registryIdentifier</code></td>
 <td>body</td>
 <td>Registry identifier</td>
 <td>Yes</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>licensingRegistry</td>
+<td><code>licensingRegistry</code></td>
 <td>body</td>
 <td>Licensing registry by default is NPI</td>
-<td>Optional</td>
-<td>string</td>
+<td>No</td>
+<td><code>string</code></td>
 </tr>
 </tbody></table>
 
@@ -2506,6 +2522,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h2 id='get-provider'>Get Provider</h2>
 <p><strong>Summary:</strong> Get a Provider</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET /v3/provider_accounts/{providerAccountId}/providers/{id}</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -2543,18 +2567,18 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account id</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Provider ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -2573,6 +2597,14 @@ You must first create a Provider Account and can then add associated Providers a
 </tbody></table>
 <h2 id='delete-provider'>Delete Provider</h2>
 <p><strong>Summary:</strong> Delete a Provider</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -2604,18 +2636,18 @@ You must first create a Provider Account and can then add associated Providers a
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account id</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Provider ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
