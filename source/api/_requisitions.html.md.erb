@@ -2,6 +2,7 @@
 ## Get Requisitions
 
 **Summary:** Get Requisitions
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -20,6 +21,9 @@ request["Authorization"] = "Bearer <token>"
 
 response = https.request(request)
 puts response.read_body
+```
+
+```json-doc
 ```
 
 ```json
@@ -79,6 +83,7 @@ puts response.read_body
 ## Get Requisition
 
 **Summary:** Get a Requisition
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -94,6 +99,9 @@ request["Authorization"] = "Bearer {token}"
 
 response = https.request(request)
 puts response.read_body
+```
+
+```json-doc
 ```
 
 ```json
@@ -245,6 +253,7 @@ puts response.read_body
 ## Post Requisition
 
 **Summary:** Create a new Requisition
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -389,6 +398,7 @@ puts response.read_body
 ```json
 {
   "requisition": {
+    "id": 0,
     "identifier": "string",
     "requestedTests": [
       {
@@ -628,7 +638,269 @@ puts response.read_body
 
 ## Put Requisition
 
+
 **Summary:** Update a Requisition
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
+
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("{env_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Put.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+payload = {} # See payload tab
+request.body = JSON.dump(payload)
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "requisition": {
+    "identifier": "string",
+    "requestedTests": [
+      {
+        "panelCode": "string",
+        "tests": [
+          {
+            "testCode": "string"
+          }
+        ]
+      }
+    ],
+    "diagnosis": [
+      "string"
+    ],
+    "medications": [
+      {
+        "rxcui": "string",
+        "name": "string"
+      }
+    ],
+    "custom_attributes": {
+      "key": "string",
+      "value": {}
+    },
+    "patient": {
+      "identifier": "string",
+      "mrn": "string",
+      "lastName": "string",
+      "middleName": "string",
+      "firstName": "string",
+      "streetAddress": "string",
+      "streetAddressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "dateOfBirth": "string",
+      "phoneNumber": "string",
+      "email": "string",
+      "gender": "M",
+      "height": "string",
+      "weight": 0,
+      "race": "white",
+      "ethnicity": "hispanic",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    },
+    "providerAccount": {
+      "name": "string",
+      "accountNumber": "string"
+    },
+    "provider": {
+      "npi": "string"
+    },
+    "billingInformation": {
+      "billTo": "Bill Insurance",
+      "memberId": "string",
+      "name": "string",
+      "email": "string",
+      "phoneNumber": "string",
+      "state": "string",
+      "city": "string",
+      "street": "string",
+      "zip": "string",
+      "insuranceInformations": [
+        {
+          "insuranceProviderName": "string",
+          "subscriberNumber": "string",
+          "idNumber": "string",
+          "groupNumber": "string",
+          "nameOfPersonInsured": "string",
+          "relationshipToInsured": "Self",
+          "otherRelationshipToInsured": "string",
+          "dobOfInsured": "string",
+          "insuranceType": "Primary",
+          "reimbursementEligibilityVerified": true,
+          "insuredEmail": "string",
+          "insuredStreetAddress": "string",
+          "insuredCity": "string",
+          "insuredState": "string",
+          "insuredZipCode": "string",
+          "insuredSex": "M",
+          "preAuthorization": {
+            "authorizationNumber": "string",
+            "numTests": 0,
+            "effectiveStartDate": "string",
+            "effectiveEndDate": "string",
+            "contactName": "string",
+            "contactPhoneNumber": "string"
+          }
+        }
+      ]
+    },
+    "samples": [
+      {
+        "identifier": "string",
+        "label": "string",
+        "group": "string",
+        "containerType": "Tube",
+        "containerBarcodeLabel": "string",
+        "receivedDateTime": "string",
+        "collectionDateTime": "string",
+        "custom_attributes": {
+          "key": "string",
+          "value": {}
+        }
+      }
+    ],
+    "test": true,
+    "signedConsent": true,
+    "markAsSigned": true
+  }
+}
+```
+
+```json
+{
+  "requisition": {
+    "id": 0,
+    "identifier": "string",
+    "requestedTests": [
+      {
+        "panelCode": "string",
+        "tests": [
+          {
+            "testCode": "string"
+          }
+        ]
+      }
+    ],
+    "diagnosis": [
+      "string"
+    ],
+    "medications": [
+      {
+        "rxcui": "string",
+        "name": "string"
+      }
+    ],
+    "custom_attributes": {
+      "key": "string",
+      "value": {}
+    },
+    "patient": {
+      "identifier": "string",
+      "mrn": "string",
+      "lastName": "string",
+      "middleName": "string",
+      "firstName": "string",
+      "streetAddress": "string",
+      "streetAddressLine2": "string",
+      "city": "string",
+      "state": "string",
+      "zipCode": "string",
+      "dateOfBirth": "string",
+      "phoneNumber": "string",
+      "email": "string",
+      "gender": "M",
+      "height": "string",
+      "weight": 0,
+      "race": "white",
+      "ethnicity": "hispanic",
+      "custom_attributes": {
+        "key": "string",
+        "value": {}
+      }
+    },
+    "providerAccount": {
+      "name": "string",
+      "accountNumber": "string"
+    },
+    "provider": {
+      "npi": "string"
+    },
+    "billingInformation": {
+      "billTo": "Bill Insurance",
+      "memberId": "string",
+      "name": "string",
+      "email": "string",
+      "phoneNumber": "string",
+      "state": "string",
+      "city": "string",
+      "street": "string",
+      "zip": "string",
+      "insuranceInformations": [
+        {
+          "insuranceProviderName": "string",
+          "subscriberNumber": "string",
+          "idNumber": "string",
+          "groupNumber": "string",
+          "nameOfPersonInsured": "string",
+          "relationshipToInsured": "Self",
+          "otherRelationshipToInsured": "string",
+          "dobOfInsured": "string",
+          "insuranceType": "Primary",
+          "reimbursementEligibilityVerified": true,
+          "insuredEmail": "string",
+          "insuredStreetAddress": "string",
+          "insuredCity": "string",
+          "insuredState": "string",
+          "insuredZipCode": "string",
+          "insuredSex": "M",
+          "preAuthorization": {
+            "authorizationNumber": "string",
+            "numTests": 0,
+            "effectiveStartDate": "string",
+            "effectiveEndDate": "string",
+            "contactName": "string",
+            "contactPhoneNumber": "string"
+          }
+        }
+      ]
+    },
+    "samples": [
+      {
+        "identifier": "string",
+        "label": "string",
+        "group": "string",
+        "containerType": "Tube",
+        "containerBarcodeLabel": "string",
+        "receivedDateTime": "string",
+        "collectionDateTime": "string",
+        "custom_attributes": {
+          "key": "string",
+          "value": {}
+        }
+      }
+    ],
+    "test": true,
+    "signedConsent": true,
+    "markAsSigned": true
+  }
+}
+```
+
 
 ### HTTP Request
 `PUT /v3/project_templates/{projectTemplateId}/requisitions/{identifier}`
@@ -639,7 +911,109 @@ puts response.read_body
 | ---- | ---------- | ----------- | -------- | ---- |
 | projectTemplateId | path | Associated project_template group | Yes | string |
 | identifier | path | Requisition identifier | Yes | string |
-| body | body | Requisition record | Yes |  |
+| requisition | body | Requisition record | Yes | json |
+
+**Requisition Parameters**
+
+| Name | Located in | Description | Required | Type | Values |
+| ---- | ---------- | ----------- | -------- | ---- | ------ |
+| identifier | requisition | Unique identifier for requisition | Yes | string ||
+| requestedTests | requisition | List of requested test panel codes | No | array ||
+| diagnosis | requisition | List of ICD-10 diagnosis codes | No | array ||
+| medications | requisition | List of medications | No | array ||
+| custom_attributes | requisition | Object of custom attributes | No | json ||
+| test | requisition | Marks requisition as test data | No | boolean | `true`, `false` |
+| signedConsent | requisition | If specified as true, informed consent was signed by the patient | No | boolean | `true`, `false` |
+| markAsSigned | requisition | If specified as true, the accession status is set to signed if request contains all required fields | No | boolean | `true`, `false` |
+| patient | requisition | Patient record | No | json ||
+| samples | requisition | List of sample records | Yes | json ||
+| providerAccount | requisition | Provider account record | No | json ||
+| provider | requisition | Provider record | No | json ||
+| billingInformation | requisition | Billing information record | No | json ||
+
+**Patient Parameters**
+
+| Name | Located in | Description | Required | Type | Values |
+| ---- | ---------- | ----------- | -------- | ---- | ------ |
+| identifier | patient | Unique identifier for patient | No | string | |
+| mrn | patient | Medical record number | No | string | |
+| lastName | patient | Patient last name | No | string | |
+| middleName | patient | Patient middle name | No | string | |
+| firstName | patient | Patient first name | No | string | |
+| streetAddress | patient | Patient street address | No | string | |
+| streetAddressLine2 | patient | Patient street address line 2 | No | string | |
+| city | patient | Patient city | No | string | |
+| state | patient | Patient state | No | string | |
+| zipCode | patient | Patient zip code | No | string | |
+| dateOfBirth | patient | Patient date of birth | No | ISO8601 date string | |
+| phoneNumber | patient | Patient phone number | No | string | |
+| email | patient | Patient email | No | string | |
+| gender | patient | Patient gender | No | string | M,F |
+| height | patient | Patient height | No | integer | |
+| race | patient | Patient race | No | string | `"white"`,`"asian"`,`"native"`,`"black"`,`"islander"` |
+| custom_attributes | patient | Object of custom attributes | No | json |
+
+**Sample Parameters**
+
+| Name | Located in | Description | Required | Type | Values |
+| ---- | ---------- | ----------- | -------- | ---- | ------ |
+| identifier | sample | Unique identifier for sample | Yes | string | |
+| label | sample | Sample label | Yes | string | |
+| group | sample | Sample group | Yes | string | |
+| containerType | sample | Sample container type | Yes | string | `"Type"`, `"96Plate"` |
+| containerBarcodeLabel | sample | Sample container barcode label | No | string | |
+| receivedDateTime | sample | Date time of sample received | No | ISO8601 date string | |
+| collectionDateTime | sample | Date time of sample collection | No | ISO8601 date string | |
+| custom_attributes | sample | Object of custom attributes | No | json |
+
+**Provider Account Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| name | providerAccount | Provider account name | Yes | string |
+| accountNumber | providerAccount | Provider account number | Yes | string |
+
+**Provider Parameters**
+
+| Name | Located in | Description | Required | Type |
+| ---- | ---------- | ----------- | -------- | ---- |
+| npi | provider | Provider npi number | Yes | string |
+
+**Billing Information Parameters**
+
+| Name | Located in | Description | Required | Type | Values |
+| ---- | ---------- | ----------- | -------- | ---- | ------ |
+| billTo | billingInformation | Billing information type | Yes | string | `"Bill Insurance"`,`"Patient Pay"`, `"Facility Pay"` |
+| memberId | billingInformation | Billing Information member id (deprecated) | No | string ||
+| name | billingInformation | Billing information name, used for Patient Pay and Facility Pay | No | string ||
+| email | billingInformation | Billing information email, used for Patient Pay and Facility Pay | No | string ||
+| phoneNumber | billingInformation | Billing information phone number, used for Patient Pay and Facility Pay | No | string ||
+| state | billingInformation | Billing information state, used for Patient Pay and Facility Pay | No | string ||
+| city | billingInformation | Billing information city, used for Patient Pay and Facility Pay | No | string ||
+| street | billingInformation | Billing information street address, used for Patient Pay and Facility Pay | No | string ||
+| zip | billingInformation | Billing information zip code, used for Patient Pay and Facility Pay | No | string ||
+| insuranceInformations | billingInformation | List of insurance information records, used for Billing Insurance | No | json ||
+
+**Insurance Information Parameters**
+
+| Name | Located in | Description | Required | Type | Values |
+| ---- | ---------- | ----------- | -------- | ---- | ------ |
+| insuranceProviderName | insuranceInformation | Insurance provider name | Yes | string ||
+| subscriberNumber | insuranceInformation | Insurance subscriber number | No | string ||
+| idNumber | insuranceInformation | Insurance ID number | No | string ||
+| groupNumber | insuranceInformation | Insurance group number | No | string ||
+| nameOfPersonInsured | insuranceInformation | Name of person insured | No | string ||
+| relationshipToInsured | insuranceInformation | Relationship to insured | No | string |`"Self"`,`"Spouse"`,`"Life partner"`,`"Child"`,`"Ward"`,`"Handicapped Dependent"`,`"Sponsored Dependent"`,`"Dependent of a minor Dependent"`,`"Other"`|
+| otherRelationshipToInsured | insuranceInformation | Specify other relationship to insured | No | string ||
+| dobOfInsured | insuranceInformation | Date of birth of person insured | No | ISO8601 date string ||
+| insuranceType | insuranceInformation | Insurance information type | Yes | string | `"Primary"`, `"Secondary"` |
+| reimbursementEligibilityVerified | insuranceInformation | Insurance reimbursement eligibility verified | No | boolean | `true`, `false` |
+| insuredEmail | insuranceInformation | Email of person insured | No | string ||
+| insuredStreetAddress | insuranceInformation | Street address of person insured | No | string ||
+| insuredCity | insuranceInformation | City of person insured | No | string ||
+| insuredState | insuranceInformation | State of person insured | No | string ||
+| insuredZipCode | insuranceInformation | Zip code of person insured | No | string ||
+| insuredSex | insuranceInformation | Sex of person insured | No | string | `"M"`, `"F"` |
 
 **Responses**
 
@@ -650,6 +1024,31 @@ puts response.read_body
 ## Archive Requisition
 
 **Summary:** Archive a Requisition
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{env_endpoint}/api/v3/project_templates/{projectTemplateId}/requisitions/{identifier}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Delete.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+```
+
+```json
+{
+    "message": "Requisition successfully archived"
+}
+```
 
 ### HTTP Request
 `DELETE /v3/project_templates/{projectTemplateId}/requisitions/{identifier}`
