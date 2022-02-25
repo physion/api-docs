@@ -23,10 +23,10 @@ response = https.request(request)
 puts response.read_body
 ```
 
-````json`-doc
+```json-doc
 ```
 
-````json`
+```json
 {
   "requisitions": [
     {
@@ -101,10 +101,10 @@ response = https.request(request)
 puts response.read_body
 ```
 
-````json`-doc
+```json-doc
 ```
 
-````json`
+```json
 {
   "requisition": {
     "identifier": "string",
@@ -276,7 +276,7 @@ response = https.request(request)
 puts response.read_body
 ```
 
-````json`-doc
+```json-doc
 {
   "requisition": {
     "identifier": "string",
@@ -395,7 +395,7 @@ puts response.read_body
 }
 ```
 
-````json`
+```json
 {
   "requisition": {
     "id": 0,
@@ -662,7 +662,7 @@ response = https.request(request)
 puts response.read_body
 ```
 
-````json`-doc
+```json-doc
 {
   "requisition": {
     "identifier": "string",
@@ -781,7 +781,7 @@ puts response.read_body
 }
 ```
 
-````json`
+```json
 {
   "requisition": {
     "id": 0,
@@ -1024,6 +1024,7 @@ puts response.read_body
 ## Archive Requisition
 
 **Summary:** Archive a Requisition
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ```ruby
 require "uri"
@@ -1041,10 +1042,10 @@ response = https.request(request)
 puts response.read_body
 ```
 
-````json`-doc
+```json-doc
 ```
 
-````json`
+```json
 {
     "message": "Requisition successfully archived"
 }
