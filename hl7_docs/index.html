@@ -1,0 +1,618 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="../images/favicon-7be98e91.ico" rel="icon" type="image/ico" />
+    <title>Ovation API Reference</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../stylesheets/screen-421e4bea.css" rel="stylesheet" media="screen" />
+    <link href="../stylesheets/print-7ae61719.css" rel="stylesheet" media="print" />
+      <script src="../javascripts/all-b12a2749.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="hl7_docs hl7_docs_index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="../images/ov-logo-63df0128.png" class="logo center-img" alt="" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#overview" class="toc-h1 toc-link" data-title="Overview">Overview</a>
+          </li>
+          <li>
+            <a href="#hl7-fields" class="toc-h1 toc-link" data-title="HL7 Fields">HL7 Fields</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="/">APIs</a></li>
+            <li><a href="/webhooks">Webhooks</a></li>
+            <li><a href="/hl7_docs">HL7</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>LIMS+: logical sample tracking, document and training record management</p>
+
+<p><strong>Version:</strong> 1.0.0</p>
+<h1 id='overview'>Overview</h1>
+<p>Ovation has an integration with sftp to import and export requisition data. Here is documented how you will receive the hl7 content including your fields and also how we expect you to send it to us.</p>
+<h1 id='hl7-fields'>HL7 Fields</h1>
+<table><thead>
+<tr>
+<th>Description</th>
+<th>Import Section</th>
+<th>Export Section</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Diagnosis code</td>
+<td>DG1-3.1</td>
+<td>DG1-3.1</td>
+</tr>
+<tr>
+<td>Insured First Name</td>
+<td>IN1-16.1</td>
+<td>IN1-16.1</td>
+</tr>
+<tr>
+<td>Insured Last Name</td>
+<td>IN1-16.2</td>
+<td>IN1-16.2</td>
+</tr>
+<tr>
+<td>Relationship to Insured</td>
+<td>IN1-17</td>
+<td>IN1-17</td>
+</tr>
+<tr>
+<td>DOB of Insured</td>
+<td>IN1-18</td>
+<td>IN1-18</td>
+</tr>
+<tr>
+<td>Insured Street Address</td>
+<td>IN1-19.1</td>
+<td>IN1-19.1</td>
+</tr>
+<tr>
+<td>Insured City</td>
+<td>IN1-19.3</td>
+<td>IN1-19.3</td>
+</tr>
+<tr>
+<td>Insured State</td>
+<td>IN1-19.4</td>
+<td>IN1-19.4</td>
+</tr>
+<tr>
+<td>Insured Zip Code</td>
+<td>IN1-19.5</td>
+<td>IN1-19.5</td>
+</tr>
+<tr>
+<td>Insurance ID Number</td>
+<td>IN1-36</td>
+<td>IN1-36</td>
+</tr>
+<tr>
+<td>Insurance Provider Name</td>
+<td>IN1-4</td>
+<td>IN1-4</td>
+</tr>
+<tr>
+<td>Insured Sex</td>
+<td>IN1-43</td>
+<td>IN1-43</td>
+</tr>
+<tr>
+<td>Insurance Group Number</td>
+<td>IN1-8</td>
+<td>IN1-8</td>
+</tr>
+<tr>
+<td>Sample Type</td>
+<td>OBR-15</td>
+<td>OBR-15</td>
+</tr>
+<tr>
+<td>Sample Identifier</td>
+<td>OBR-3</td>
+<td>OBR-3</td>
+</tr>
+<tr>
+<td>Sample Received Date/Time</td>
+<td>OBR-14</td>
+<td>OBR-14</td>
+</tr>
+<tr>
+<td>Sample Group</td>
+<td>OBR-20</td>
+<td>OBR-20</td>
+</tr>
+<tr>
+<td>Test Panel Result Status</td>
+<td>OBR-25</td>
+<td>OBR-25</td>
+</tr>
+<tr>
+<td>Test Panel Code</td>
+<td>OBR-4.1</td>
+<td>OBR-4.1</td>
+</tr>
+<tr>
+<td>Test Panel Name</td>
+<td>OBR-4.2</td>
+<td>OBR-4.2</td>
+</tr>
+<tr>
+<td>Sample Collection Date/Time</td>
+<td>OBR-7</td>
+<td>OBR-7</td>
+</tr>
+<tr>
+<td>Medication Type</td>
+<td>OBX-3</td>
+<td>#N/A</td>
+</tr>
+<tr>
+<td>Custom Attribute Key (AOE Key)</td>
+<td>OBX-3.2</td>
+<td>OBX-3.2</td>
+</tr>
+<tr>
+<td>Custom Attribute Value (AOE Value)</td>
+<td>OBX-5.1</td>
+<td>OBX-5.1</td>
+</tr>
+<tr>
+<td>Medication Value</td>
+<td>OBX-5.2</td>
+<td>#N/A</td>
+</tr>
+<tr>
+<td>Physician NPI</td>
+<td>ORC-12.1</td>
+<td>ORC-12.1; OBR-16.1</td>
+</tr>
+<tr>
+<td>Facility Name</td>
+<td>ORC-13.4.1</td>
+<td>ORC-13.4.1</td>
+</tr>
+<tr>
+<td>Facilty Identifier</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Requisition Identifier</td>
+<td>ORC-2</td>
+<td>ORC-2;OBR-2</td>
+</tr>
+<tr>
+<td>Patient Race</td>
+<td>PID-10</td>
+<td>PID-10</td>
+</tr>
+<tr>
+<td>Patient Street Address</td>
+<td>PID-11.1</td>
+<td>PID-11.1</td>
+</tr>
+<tr>
+<td>Patient City</td>
+<td>PID-11.3</td>
+<td>PID-11.3</td>
+</tr>
+<tr>
+<td>Patient State</td>
+<td>PID-11.4</td>
+<td>PID-11.4</td>
+</tr>
+<tr>
+<td>Patient Zip Code</td>
+<td>PID-11.5</td>
+<td>PID-11.5</td>
+</tr>
+<tr>
+<td>Patient Phone Number</td>
+<td>PID-13.1</td>
+<td>PID-13.1</td>
+</tr>
+<tr>
+<td>Insured Email</td>
+<td>PID-13.4</td>
+<td>#N/A</td>
+</tr>
+<tr>
+<td>Patient Ethnicity</td>
+<td>PID-22</td>
+<td>PID-22</td>
+</tr>
+<tr>
+<td>Patient ID</td>
+<td>PID-2</td>
+<td>PID-2</td>
+</tr>
+<tr>
+<td>Patient Last Name</td>
+<td>PID-5.1</td>
+<td>PID-5.1</td>
+</tr>
+<tr>
+<td>Patient First Name</td>
+<td>PID-5.2</td>
+<td>PID-5.2</td>
+</tr>
+<tr>
+<td>Patient Middle Name</td>
+<td>PID-5.3</td>
+<td>PID-5.3</td>
+</tr>
+<tr>
+<td>Patient DOB</td>
+<td>PID-7</td>
+<td>PID-7</td>
+</tr>
+<tr>
+<td>Patient Gender</td>
+<td>PID-8</td>
+<td>PID-8</td>
+</tr>
+<tr>
+<td>Billing Type</td>
+<td>PV1-20.1</td>
+<td>PV1-20.1</td>
+</tr>
+<tr>
+<td>Physician Last Name</td>
+<td>#N/A</td>
+<td>ORC-12.2; OBR-16.2</td>
+</tr>
+<tr>
+<td>Physician First Name</td>
+<td>#N/A</td>
+<td>ORC-12.3; OBR-16.3</td>
+</tr>
+<tr>
+<td>Physician Code</td>
+<td>#N/A</td>
+<td>OBR-16.12</td>
+</tr>
+<tr>
+<td>Report OBX Segment Number</td>
+<td>#N/A</td>
+<td>OBX-1</td>
+</tr>
+<tr>
+<td>Report Type</td>
+<td>#N/A</td>
+<td>OBX-2</td>
+</tr>
+<tr>
+<td>Report Result</td>
+<td>#N/A</td>
+<td>OBR-5</td>
+</tr>
+<tr>
+<td>Report PDF Format</td>
+<td>#N/A</td>
+<td>OBX-3</td>
+</tr>
+<tr>
+<td>Report Base64 Format</td>
+<td>#N/A</td>
+<td>OBX-4</td>
+</tr>
+<tr>
+<td>Report Content</td>
+<td>#N/A</td>
+<td>OBX-5.3</td>
+</tr>
+<tr>
+<td>Report Generated At</td>
+<td>#N/A</td>
+<td>OBX-6</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box"></div>
+    </div>
+  </body>
+</html>
