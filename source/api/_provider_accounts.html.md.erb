@@ -187,7 +187,7 @@ puts response.read_body
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/provider_accounts/736?organization_id=659")
+url = URI("{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Get.new(url)
@@ -273,7 +273,7 @@ puts response.read_body
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/provider_accounts/736?organization_id=659")
+url = URI("{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}")
 payload = {} # See payload tab
 
 http = Net::HTTP.new(url.host, url.port);
@@ -383,7 +383,7 @@ puts response.read_body
 require "uri"
 require "net/http"
 
-url = URI("{api_endpoint}/api/v3/provider_accounts/736?organization_id=659")
+url = URI("{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}")
 
 http = Net::HTTP.new(url.host, url.port);
 request = Net::HTTP::Delete.new(url)
