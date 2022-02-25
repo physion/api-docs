@@ -54,19 +54,19 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | body | Organization ID | Yes | integer |
-| salesRep | body | Sales Rep Record | Yes | json |
+| `organizationId` | body | Organization ID | Yes | `integer` |
+| `salesRep` | body | Sales Rep Record | Yes | `json` |
 
 **Sales Rep Parameters**
 
 | Name | Located in | Description | Required | Type | Value |
 | ---- | ---------- | ----------- | -------- | ---- | ----- |
-| firstName | salesRep | Sales rep first name | Yes | string ||
-| lastName | salesRep | Sales rep last name | Yes | string ||
-| email | salesRep | Sales rep email | Yes | string ||
-| salesGroupId | salesRep | Sales group ID | No | integer ||
-| hasRequisitionAccess | salesRep | Mark as true if sales rep has access to requisition information | No | boolean | `true`,`false` |
-| officePhoneNumber | salesRep | Office phone number of sales rep | No | string ||
+| `firstName` | salesRep | Sales rep first name | Yes | `string` ||
+| `lastName` | salesRep | Sales rep last name | Yes | `string` ||
+| `email` | salesRep | Sales rep email | Yes | `string` ||
+| `salesGroupId` | salesRep | Sales group ID | No | `integer` ||
+| `hasRequisitionAccess` | salesRep | Mark as true if sales rep has access to requisition information | No | boolean | `true`,`false` |
+| `officePhoneNumber` | salesRep | Office phone number of sales rep | No | `string` ||
 
 **Responses**
 
@@ -126,11 +126,11 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | query | Organization ID | Yes | integer |
-| sales_group_id | query | Sales Group ID | No | integer |
-| email | query | Sales Group Email | No | string |
-| page | query | Page of results. | No | integer |
-| perPage | query | Results per page. Maximum of 5000. | No | integer |
+| `organizationId` | query | Organization ID | Yes | `integer` |
+| `sales_group_id` | query | Sales Group ID | No | `integer` |
+| `email` | query | Sales Group Email | No | `string` |
+| `page` | query | Page of results. | No | `integer` |
+| `perPage` | query | Results per page. Maximum of 5000. | No | `integer` |
 
 **Responses**
 
@@ -180,8 +180,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Rep ID | Yes | integer |
-| organizationId | query | Organization ID | Yes | integer |
+| `id` | path | Sales Rep ID | Yes | `integer` |
+| `organizationId` | query | Organization ID | Yes | `integer` |
 
 **Responses**
 
@@ -243,19 +243,19 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Rep ID | Yes | integer |
-| salesRep | body | Sales Rep Record | Yes | json |
+| `id` | path | Sales Rep ID | Yes | `integer` |
+| `salesRep` | body | Sales Rep Record | Yes | `json` |
 
 **Sales Rep Parameters**
 
 | Name | Located in | Description | Required | Type | Value |
 | ---- | ---------- | ----------- | -------- | ---- | ----- |
-| firstName | salesRep | Sales rep first name | Yes | string ||
-| lastName | salesRep | Sales rep last name | Yes | string ||
-| email | salesRep | Sales rep email | Yes | string ||
-| salesGroupId | salesRep | Sales group ID | No | integer ||
-| hasRequisitionAccess | salesRep | Mark as true if sales rep has access to requisition information | No | boolean | `true`,`false` |
-| officePhoneNumber | salesRep | Office phone number of sales rep | No | string ||
+| `firstName` | salesRep | Sales rep first name | Yes | `string` ||
+| `lastName` | salesRep | Sales rep last name | Yes | `string` ||
+| `email` | salesRep | Sales rep email | Yes | `string` ||
+| `salesGroupId` | salesRep | Sales group ID | No | `integer` ||
+| `hasRequisitionAccess` | salesRep | Mark as true if sales rep has access to requisition information | No | boolean | `true`,`false` |
+| `officePhoneNumber` | salesRep | Office phone number of sales rep | No | `string` ||
 
 **Responses**
 
@@ -300,8 +300,8 @@ puts response.read_body
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Rep ID | Yes | integer |
-| organizationId | query | Organization ID | Yes | integer |
+| `id` | path | Sales Rep ID | Yes | `integer` |
+| `organizationId` | query | Organization ID | Yes | `integer` |
 
 **Responses**
 
