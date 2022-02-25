@@ -1,16 +1,69 @@
 # Resources
-## Post Resource 
+## Post Resource
 
 **Summary:** Create a Resource
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`POST /v3/resources` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/resources")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+
+payload = {} # See payload tab
+request.body = JSON.dump(payload)
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "resource": {
+    "organizationId": 0,
+    "requisitionIdentifier": "string",
+    "sampleIdentifier": "string",
+    "resourceGroupName": "string",
+    "fileContent": "string",
+    "fileName": "string"
+  }
+}
+```
+
+```json
+{
+  "resource": {
+    "id": 0,
+    "organizationId": 0,
+    "requisitionIdentifier": "string",
+    "sampleIdentifier": "string",
+    "resourceGroupName": "string",
+    "fileContent": "string",
+    "fileName": "string"
+  }
+}
+```
+
+### HTTP Request
+`POST /v3/resources`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body | Resource record | Yes |  |
+| organizationId | body | Organization ID | Yes | integer |
+| requisitionIdentifier | body | Identifier of requisition sample is associated to | Yes | string |
+| sampleIdentifier | body | Identifier of sample resource is associated to | Yes | string |
+| resourceGroupName | body | Name of Resource Group defined in workflow definition to find resource | Yes | string |
+| fileContent | body | Base64-encoded data of initial revision. Use :resource_id if file is already uploaded | Yes | Base64 string |
+| fileName | body | File name (optional). If not specified file name will be 'sample_identifier_timestamp' | No | string |
 
 **Responses**
 
