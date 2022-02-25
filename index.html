@@ -1013,8 +1013,82 @@
 </tbody></table>
 <h1 id='provider-account-contacts'>Provider Account Contacts</h1><h2 id='post-provider-account-contact'>Post Provider Account Contact</h2>
 <p><strong>Summary:</strong> Create a Provider Account Contact</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"providerAccountContact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@ovation.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">3722</span><span class="p">,</span><span class="w">
+            </span><span class="mi">7016</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"communicationPreference"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"primaryContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1085</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"associatedProviders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8722</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9840</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"providerAccountContact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5200</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@ovation.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">3722</span><span class="p">,</span><span class="w">
+            </span><span class="mi">7016</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"communicationPreference"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"primaryContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1085</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"associatedProviders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8722</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9840</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1058,8 +1132,43 @@
 </tbody></table>
 <h2 id='get-provider-account-contacts'>Get Provider Account Contacts</h2>
 <p><strong>Summary:</strong> Get a Provider Account Contacts</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code> </p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"providers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5200</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestName"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastName"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@ovation.io"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"providerAccountIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="mi">3722</span><span class="p">,</span><span class="w">
+              </span><span class="mi">7016</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1124,8 +1233,51 @@
 </tbody></table>
 <h2 id='get-provider-account-contact'>Get Provider Account Contact</h2>
 <p><strong>Summary:</strong> Get a Provider Account Contact</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"providerAccountContact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5200</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@ovation.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">3722</span><span class="p">,</span><span class="w">
+            </span><span class="mi">7016</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"communicationPreference"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"primaryContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1085</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"associatedProviders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8722</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9840</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1169,8 +1321,82 @@
 </tbody></table>
 <h2 id='put-provider-account-contact'>Put Provider Account Contact</h2>
 <p><strong>Summary:</strong> Update a Provider Account Contact</p>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts/{id}"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"providerAccountContact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestName"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastName"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@ovation.io"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"providerAccountIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">3722</span><span class="p">,</span><span class="w">
+      </span><span class="mi">7016</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"communicationPreference"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"primaryContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1085</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"associatedProviders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8722</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9840</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"providerAccountContact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5200</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LastName"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@ovation.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="mi">3722</span><span class="p">,</span><span class="w">
+            </span><span class="mi">7016</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"communicationPreference"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"primaryContact"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1085</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"associatedProviders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8722</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"providerId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9840</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code></p>
 
 <p><strong>Parameters</strong></p>
 
@@ -1222,8 +1448,24 @@
 <h2 id='delete-provider-account-contact'>Delete Provider Account Contact</h2>
 <p><strong>Summary:</strong> Delete a Provider Account Contact</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code> </p>
+<p><code>DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts/{id}"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Delete</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provider Account Contact successfully archived"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1264,11 +1506,50 @@
 <td>Provider Account Contact archived</td>
 </tr>
 </tbody></table>
-<h1 id='provider-accounts'>Provider Accounts</h1><h2 id='get-provider-accounts'>Get Provider Accounts</h2>
+<h1 id='provider-accounts'>Provider Accounts</h1>
+<p>Ovation allows users to manage Provider Accounts, Providers (i.e. Physicians) and Provider Account Contacts through the following APIs.
+You must first create a Provider Account and can then add associated Providers and Provider Account Contacts.</p>
+<h2 id='get-provider-accounts'>Get Provider Accounts</h2>
 <p><strong>Summary:</strong> Get All Provider Accounts</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts</code> </p>
+<p><code>GET /v3/provider_accounts</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"providerAccounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PQ Test Sales Account"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"salesReps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">699</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Rep PQ Test"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@ovation.io"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">659</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1340,8 +1621,89 @@
 <h2 id='post-provider-account'>Post Provider Account</h2>
 <p><strong>Summary:</strong> Create a Provider Account</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts</code> </p>
+<p><code>POST /v3/provider_accounts</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"providerAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fake Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546454"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddress"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressZipCode"</span><span class="w">
+    </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">151688952522</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesRepId"</span><span class="p">:</span><span class="w"> </span><span class="mi">699</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"providerAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fake Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">546454</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesRep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">699</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Rep Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@ovation.io"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">659</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddress"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">151688952522</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"providers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">847</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"providerAccountContacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1084</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bobjones@ovation.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1378,8 +1740,68 @@
 <h2 id='get-provider-account'>Get Provider Account</h2>
 <p><strong>Summary:</strong> Get a Provider Account</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{id}</code> </p>
+<p><code>GET /v3/provider_accounts/{id}</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"providerAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fake Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">546454</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesRep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">699</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Rep Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@ovation.io"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">659</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddress"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">151688952522</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"providers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">847</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"providerAccountContacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1084</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bobjones@ovation.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1423,8 +1845,89 @@
 <h2 id='put-provider-account'>Put Provider Account</h2>
 <p><strong>Summary:</strong> Update a Provider Account</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>PUT /v3/provider_accounts/{id}</code> </p>
+<p><code>PUT /v3/provider_accounts/{id}</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"providerAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fake Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"546454"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddress"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressZipCode"</span><span class="w">
+    </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">151688952522</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesRepId"</span><span class="p">:</span><span class="w"> </span><span class="mi">699</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"providerAccount"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fake Name"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"accountNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">546454</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"salesRep"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">699</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales Rep Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test@ovation.io"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"organizationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">659</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddress"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"streetAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"streetAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddress"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fakename@email.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressCity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressState"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"mailingAddressZipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mailingAddressZipCode"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">151688952522</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"emailReportReadyNotifications"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"faxSignedReports"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"providers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">847</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"providerAccountContacts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1084</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"externalIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bob"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jones"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bobjones@ovation.io"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"officePhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cellPhoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">736</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1468,8 +1971,23 @@
 <h2 id='delete-provider-account'>Delete Provider Account</h2>
 <p><strong>Summary:</strong> Delete a Provider Account</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>DELETE /v3/provider_accounts/{id}</code> </p>
+<p><code>DELETE /v3/provider_accounts/{id}</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{id}?organization_id={organization_id}"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Delete</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provider Account successfully archived"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1513,8 +2031,44 @@
 <h1 id='providers'>Providers</h1><h2 id='get-providers'>Get Providers</h2>
 <p><strong>Summary:</strong> Get All Providers</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/providers</code> </p>
+<p><code>GET /v3/provider_accounts/{providerAccountId}/providers</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"providers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11955</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999999"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9651</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11974</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0000000000"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9651</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"currentPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"perPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"totalEntries"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1585,9 +2139,45 @@
 </tbody></table>
 <h2 id='post-provider'>Post Provider</h2>
 <p><strong>Summary:</strong> Create a Provider</p>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST /v3/provider_accounts/{providerAccountId}/providers</code> </p>
 
+<p>Ovation differentiates provider accounts according to the type of licensing registry, these are the valid license registries: [‘NPI’, &#39;Australian Health Practitioner Registry&#39;, &#39;European Physician&#39;, &#39;ex-US / clinical trial&#39;, &#39;Philippines PRC&#39;, &#39;South American Physician&#39;]</p>
+
+<p>Note: Ovation will pull the NPI Registry API data for you given the registryIdentifier and then it’ll associate it with the Provider Account specified in the URL. If the licensingRegistry is not NPI, then the others fields will be required.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v3/provider_accounts/{providerAccountId}/providers</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers"</span><span class="p">)</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json-doc tab-json-doc"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999999"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9651</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11955</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Provider"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9999999999"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9651</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1607,11 +2197,25 @@
 <td>integer</td>
 </tr>
 <tr>
-<td>body</td>
+<td>name</td>
 <td>body</td>
 <td>Provider record</td>
 <td>Yes</td>
-<td></td>
+<td>string</td>
+</tr>
+<tr>
+<td>registryIdentifier</td>
+<td>body</td>
+<td>Registry identifier</td>
+<td>Yes</td>
+<td>string</td>
+</tr>
+<tr>
+<td>licensingRegistry</td>
+<td>body</td>
+<td>Licensing registry by default is NPI</td>
+<td>Optional</td>
+<td>string</td>
 </tr>
 </tbody></table>
 
@@ -1631,8 +2235,30 @@
 <h2 id='get-provider'>Get Provider</h2>
 <p><strong>Summary:</strong> Get a Provider</p>
 <h3 id='http-request-3'>HTTP Request</h3>
-<p><code>GET /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
+<p><code>GET /v3/provider_accounts/{providerAccountId}/providers/{id}</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers/{id}"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Get</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"provider"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11938</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doctor McDoctorface"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"registryIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"providerAccountId"</span><span class="p">:</span><span class="w"> </span><span class="mi">9651</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"licensingRegistry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NPI"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
@@ -1676,8 +2302,24 @@
 <h2 id='delete-provider'>Delete Provider</h2>
 <p><strong>Summary:</strong> Delete a Provider</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}</code> </p>
+<p><code>DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}</code></p>
+<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
+<span class="nb">require</span> <span class="s2">"net/http"</span>
 
+<span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers/{id}"</span><span class="p">)</span>
+
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Delete</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
+<span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provider successfully archived"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
 <p><strong>Parameters</strong></p>
 
 <table><thead>
