@@ -1049,18 +1049,26 @@
 </tbody></table>
 <h1 id='provider-account-contacts'>Provider Account Contacts</h1><h2 id='post-provider-account-contact'>Post Provider Account Contact</h2>
 <p><strong>Summary:</strong> Create a Provider Account Contact</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts"</span><span class="p">)</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Post</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -1135,21 +1143,148 @@
 <th>Description</th>
 <th>Required</th>
 <th>Type</th>
+<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
-<td>Provider Account ID</td>
+<td>Associated Provider Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
+<td></td>
 </tr>
 <tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account Contact record</td>
-<td>Yes</td>
+<td><code>externalIdentifier</code></td>
+<td>providerAccountContact</td>
+<td>Contact external ID</td>
+<td>No</td>
+<td><code>string</code></td>
 <td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td>providerAccountContact</td>
+<td>Contact first name</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td>providerAccountContact</td>
+<td>Contact last name</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>providerAccountContact</td>
+<td>Contact email</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>officePhoneNumber</code></td>
+<td>providerAccountContact</td>
+<td>Contact office phone number. Required if <code>communicationPreference</code> is <code>&quot;Office&quot;</code></td>
+<td>No</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cellPhoneNumber</code></td>
+<td>providerAccountContact</td>
+<td>Contact phone number. Required if <code>communicationPreference</code> is <code>&quot;Text&quot;&quot;</code> or <code>&quot;Cell&quot;&quot;</code></td>
+<td>No</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>providerAccountIds</code></td>
+<td>providerAccountContact</td>
+<td>Provider account IDS associated to contact. Must be an array</td>
+<td>Yes</td>
+<td><code>integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faxNumber</code></td>
+<td>providerAccountContact</td>
+<td>Contact fax number</td>
+<td>Yes</td>
+<td><code>integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>communicationPreference</code></td>
+<td>providerAccountContact</td>
+<td>Contact communication preference</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td><code>&quot;Cell&quot;</code>, <code>&quot;Email&quot;</code>, <code>&quot;Office&quot;</code>, <code>&quot;Text&quot;</code></td>
+</tr>
+<tr>
+<td><code>primaryContact</code></td>
+<td>providerAccountContact</td>
+<td>Defines contact as primary contact</td>
+<td>No</td>
+<td><code>boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td>providerAccountContact</td>
+<td>Ovation user ID associated to contact</td>
+<td>No</td>
+<td><code>integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faxSignedReports</code></td>
+<td>providerAccountContact</td>
+<td>Fax signed reports from contact</td>
+<td>No</td>
+<td><code>boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>emailReportReadyNotifications</code></td>
+<td>providerAccountContact</td>
+<td>Notify contact&#39;s reports in ready status</td>
+<td>No</td>
+<td><code>boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>providerAccountContact</td>
+<td>Provider Account Contact record</td>
+<td>No</td>
+<td><code>string</code></td>
+<td><code>&quot;provider&quot;</code>, <code>&quot;provider delegate&quot;</code></td>
+</tr>
+</tbody></table>
+
+<p><strong>Associated Providers Parameters</strong></p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Located in</th>
+<th>Description</th>
+<th>Required</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>providerId</code></td>
+<td>associatedProviders</td>
+<td>Provider Id associated to Contact</td>
+<td>Yes</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -1168,6 +1303,14 @@
 </tbody></table>
 <h2 id='get-provider-account-contacts'>Get Provider Account Contacts</h2>
 <p><strong>Summary:</strong> Get a Provider Account Contacts</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
 
@@ -1218,39 +1361,39 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>externalIdentifier</td>
+<td><code>externalIdentifier</code></td>
 <td>query</td>
 <td>Provider Account Contact External ID.</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>name</td>
+<td><code>name</code></td>
 <td>query</td>
 <td>Provider Account Contact Email.</td>
 <td>No</td>
-<td>string</td>
+<td><code>string</code></td>
 </tr>
 <tr>
-<td>page</td>
+<td><code>page</code></td>
 <td>query</td>
 <td>Page of results.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>perPage</td>
+<td><code>perPage</code></td>
 <td>query</td>
 <td>Results per page. Maximum of 5000.</td>
 <td>No</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -1269,6 +1412,14 @@
 </tbody></table>
 <h2 id='get-provider-account-contact'>Get Provider Account Contact</h2>
 <p><strong>Summary:</strong> Get a Provider Account Contact</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
 
@@ -1327,18 +1478,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Provider Account Contact ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -1357,18 +1508,26 @@
 </tbody></table>
 <h2 id='put-provider-account-contact'>Put Provider Account Contact</h2>
 <p><strong>Summary:</strong> Update a Provider Account Contact</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
 <span class="nb">require</span> <span class="s2">"net/http"</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s2">"{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts/{id}"</span><span class="p">)</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># See payload tab</span>
 
-<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">);</span>
+<span class="n">http</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">.</span><span class="nf">host</span><span class="p">,</span> <span class="n">url</span><span class="p">.</span><span class="nf">port</span><span class="p">)</span>
 <span class="n">request</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="o">::</span><span class="no">Put</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Content-Type"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Accept"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"application/json"</span>
 <span class="n">request</span><span class="p">[</span><span class="s2">"Authorization"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Bearer {token}"</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">({</span> <span class="n">payload</span> <span class="p">})</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">body</span> <span class="o">=</span> <span class="no">JSON</span><span class="p">.</span><span class="nf">dump</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">http</span><span class="p">.</span><span class="nf">request</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
 <span class="nb">puts</span> <span class="n">response</span><span class="p">.</span><span class="nf">read_body</span>
@@ -1443,28 +1602,144 @@
 <th>Description</th>
 <th>Required</th>
 <th>Type</th>
+<th>Values</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
+<td></td>
 </tr>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Provider Account Contact ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
+<td></td>
 </tr>
 <tr>
-<td>body</td>
-<td>body</td>
-<td>Provider Account Contact record</td>
+<td><code>providerAccountId</code></td>
+<td>path</td>
+<td>Associated Provider Account ID</td>
 <td>Yes</td>
+<td><code>integer</code></td>
 <td></td>
+</tr>
+<tr>
+<td><code>externalIdentifier</code></td>
+<td>providerAccountContact</td>
+<td>Contact external ID</td>
+<td>No</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>firstName</code></td>
+<td>providerAccountContact</td>
+<td>Contact first name</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>lastName</code></td>
+<td>providerAccountContact</td>
+<td>Contact last name</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>email</code></td>
+<td>providerAccountContact</td>
+<td>Contact email</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>officePhoneNumber</code></td>
+<td>providerAccountContact</td>
+<td>Contact office phone number. Required if <code>communicationPreference</code> is <code>&quot;Office&quot;</code></td>
+<td>No</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>cellPhoneNumber</code></td>
+<td>providerAccountContact</td>
+<td>Contact phone number. Required if <code>communicationPreference</code> is <code>&quot;Text&quot;&quot;</code> or <code>&quot;Cell&quot;&quot;</code></td>
+<td>No</td>
+<td><code>string</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>providerAccountIds</code></td>
+<td>providerAccountContact</td>
+<td>Provider account IDS associated to contact. Must be an array</td>
+<td>Yes</td>
+<td><code>integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faxNumber</code></td>
+<td>providerAccountContact</td>
+<td>Contact fax number</td>
+<td>Yes</td>
+<td><code>integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>communicationPreference</code></td>
+<td>providerAccountContact</td>
+<td>Contact communication preference</td>
+<td>Yes</td>
+<td><code>string</code></td>
+<td><code>&quot;Cell&quot;</code>, <code>&quot;Email&quot;</code>, <code>&quot;Office&quot;</code>, <code>&quot;Text&quot;</code></td>
+</tr>
+<tr>
+<td><code>primaryContact</code></td>
+<td>providerAccountContact</td>
+<td>Defines contact as primary contact</td>
+<td>No</td>
+<td><code>boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>userId</code></td>
+<td>providerAccountContact</td>
+<td>Ovation user ID associated to contact</td>
+<td>No</td>
+<td><code>integer</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>faxSignedReports</code></td>
+<td>providerAccountContact</td>
+<td>Fax signed reports from contact</td>
+<td>No</td>
+<td><code>boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>emailReportReadyNotifications</code></td>
+<td>providerAccountContact</td>
+<td>Notify contact&#39;s reports in ready status</td>
+<td>No</td>
+<td><code>boolean</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>role</code></td>
+<td>providerAccountContact</td>
+<td>Provider Account Contact record</td>
+<td>No</td>
+<td><code>string</code></td>
+<td><code>&quot;provider&quot;</code>, <code>&quot;provider delegate&quot;</code></td>
 </tr>
 </tbody></table>
 
@@ -1483,6 +1758,14 @@
 </tbody></table>
 <h2 id='delete-provider-account-contact'>Delete Provider Account Contact</h2>
 <p><strong>Summary:</strong> Delete a Provider Account Contact</p>
+
+<blockquote>
+    <div class="lang-selector">
+          <a href="#" data-language-name="ruby">ruby</a>
+          <a href="#" data-language-name="json-doc">payload</a>
+          <a href="#" data-language-name="json">response</a>
+    </div>
+</blockquote>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}</code></p>
 <div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s2">"uri"</span>
@@ -1514,18 +1797,18 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>providerAccountId</td>
+<td><code>providerAccountId</code></td>
 <td>path</td>
 <td>Provider Account ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 <tr>
-<td>id</td>
+<td><code>id</code></td>
 <td>path</td>
 <td>Provider Account Contact ID</td>
 <td>Yes</td>
-<td>integer</td>
+<td><code>integer</code></td>
 </tr>
 </tbody></table>
 
@@ -1861,7 +2144,7 @@ You must first create a Provider Account and can then add associated Providers a
 <tr>
 <td><code>faxSignedReports</code></td>
 <td>providerAccount</td>
-<td>Fax signer reports from provider account</td>
+<td>Fax signed reports from provider account</td>
 <td>No</td>
 <td><code>boolean</code></td>
 </tr>
@@ -2206,7 +2489,7 @@ You must first create a Provider Account and can then add associated Providers a
 <tr>
 <td><code>faxSignedReports</code></td>
 <td>providerAccount</td>
-<td>Fax signer reports from provider account</td>
+<td>Fax signed reports from provider account</td>
 <td>No</td>
 <td><code>boolean</code></td>
 </tr>
