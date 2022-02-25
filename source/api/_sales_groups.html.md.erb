@@ -65,32 +65,33 @@ puts response.read_body
 ```
 
 ### HTTP Request
-`POST /v3/sales_groups`
+<span class="method post">POST</span>
+` /v3/sales_groups`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | body | Organization ID | Yes | integer |
-| salesGroup | body | Sales Group Record | Yes | json |
+| `organizationId` | body | Organization ID | Yes | `integer` |
+| `salesGroup` | body | Sales Group Record | Yes | `json` |
 
 **Sales Group Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| name | salesGroup | Name of the sales group | Yes | string |
-| parentId | salesGroup | Sales rep parent ID | No | integer |
-| associatedSalesReps | salesGroup | List of associated sales rep records | No | json |
+| `name` | salesGroup | Name of the sales group | Yes | `string` |
+| `parentId` | salesGroup | Sales rep parent ID | No | `integer` |
+| `associatedSalesReps` | salesGroup | List of associated sales rep records | No | `json` |
 
 **Associated Sales Rep Parameters**
 
 | Name | Located in | Description | Required | Type | Value |
 | ---- | ---------- | ----------- | -------- | ---- | ----- |
-| firstName | associatedSalesRep | First name of associated sales rep | Yes | string ||
-| lastName | associatedSalesRep | Last name of associated sales rep | Yes | string ||
-| email | associatedSalesRep | Email of associated sales rep | Yes | string ||
-| officePhoneNumber | associatedSalesRep | Office phone number of associated sales rep | No | string ||
-| hasRequisitionAccess | associatedSalesRep | Mark as true if associated sales rep has access to requisition information | No | boolean | `true`, `false` |
+| `firstName` | associatedSalesRep | First name of associated sales rep | Yes | `string` ||
+| `lastName` | associatedSalesRep | Last name of associated sales rep | Yes | `string` ||
+| `email` | associatedSalesRep | Email of associated sales rep | Yes | `string` ||
+| `officePhoneNumber` | associatedSalesRep | Office phone number of associated sales rep | No | `string` ||
+| `hasRequisitionAccess` | associatedSalesRep | Mark as true if associated sales rep has access to requisition information | No | `boolean` | `true`, `false` |
 
 **Responses**
 
@@ -138,17 +139,18 @@ puts response.read_body
 ```
 
 ### HTTP Request
-`GET /v3/sales_groups`
+<span class="method get">GET</span>
+` /v3/sales_groups`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | query | Organization id | Yes | integer |
-| name | query | Sales Group Name. | No | string |
-| parentId | query | Sales Group Parent ID. | No | integer |
-| page | query | Page of results. | No | integer |
-| perPage | query | Results per page. Maximum of 5000. | No | integer |
+| `organizationId` | query | Organization id | Yes | `integer` |
+| `name` | query | Sales Group Name. | No | `string` |
+| `parentId` | query | Sales Group Parent ID. | No | `integer` |
+| `page` | query | Page of results. | No | `integer` |
+| `perPage` | query | Results per page. Maximum of 5000. | No | `integer` |
 
 **Responses**
 
@@ -222,32 +224,33 @@ puts response.read_body
 ```
 
 ### HTTP Request
-`PUT /v3/sales_groups/{id}`
+<span class="method put">PUT</span>
+` /v3/sales_groups/{id}`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | body | Organization ID | Yes | integer |
-| salesGroup | body | Sales Group Record | Yes | json |
+| `organizationId` | body | Organization ID | Yes | `integer` |
+| `salesGroup` | body | Sales Group Record | Yes | `json` |
 
 **Sales Group Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| name | salesGroup | Name of the sales group | Yes | string |
-| parentId | salesGroup | Sales rep parent ID | No | integer |
-| associatedSalesReps | salesGroup | List of associated sales rep records | No | json |
+| `name` | salesGroup | Name of the sales group | Yes | `string` |
+| `parentId` | salesGroup | Sales rep parent ID | No | `integer` |
+| `associatedSalesReps` | salesGroup | List of associated sales rep records | No | `json` |
 
 **Associated Sales Rep Parameters**
 
 | Name | Located in | Description | Required | Type | Value |
 | ---- | ---------- | ----------- | -------- | ---- | ----- |
-| firstName | associatedSalesRep | First name of associated sales rep | Yes | string ||
-| lastName | associatedSalesRep | Last name of associated sales rep | Yes | string ||
-| email | associatedSalesRep | Email of associated sales rep | Yes | string ||
-| officePhoneNumber | associatedSalesRep | Office phone number of associated sales rep | No | string ||
-| hasRequisitionAccess | associatedSalesRep | Mark as true if associated sales rep has access to requisition information | No | boolean | `true`, `false` |
+| `firstName` | associatedSalesRep | First name of associated sales rep | Yes | `string` ||
+| `lastName` | associatedSalesRep | Last name of associated sales rep | Yes | `string` ||
+| `email` | associatedSalesRep | Email of associated sales rep | Yes | `string` ||
+| `officePhoneNumber` | associatedSalesRep | Office phone number of associated sales rep | No | `string` ||
+| `hasRequisitionAccess` | associatedSalesRep | Mark as true if associated sales rep has access to requisition information | No | `boolean` | `true`, `false` |
 
 **Responses**
 
@@ -301,14 +304,15 @@ puts response.read_body
 ```
 
 ### HTTP Request
-`GET /v3/sales_groups/{id}`
+<span class="method get">GET</span>
+` /v3/sales_groups/{id}`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Group id | Yes | integer |
-| organizationId | query | Organization id | Yes | integer |
+| `id` | path | Sales Group id | Yes | `integer` |
+| `organizationId` | query | Organization id | Yes | `integer` |
 
 **Responses**
 
@@ -347,14 +351,15 @@ puts response.read_body
 ```
 
 ### HTTP Request
-`DELETE /v3/sales_groups/{id}`
+<span class="method delete">DELETE</span>
+` /v3/sales_groups/{id}`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Group id | Yes | integer |
-| organizationId | query | Organization id | Yes | integer |
+| `id` | path | Sales Group id | Yes | `integer` |
+| `organizationId` | query | Organization id | Yes | `integer` |
 
 **Responses**
 

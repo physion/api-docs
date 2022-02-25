@@ -5,7 +5,8 @@
 <%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
-`GET /v3/provider_accounts/{providerAccountId}/providers`
+<span class="method get">GET</span>
+` /v3/provider_accounts/{providerAccountId}/providers`
 
 ```ruby
 require "uri"
@@ -76,7 +77,8 @@ Ovation differentiates provider accounts according to the type of licensing regi
 Note: Ovation will pull the NPI Registry API data for you given the registryIdentifier and then it’ll associate it with the Provider Account specified in the URL. If the licensingRegistry is not NPI, then the others fields will be required.
 
 ### HTTP Request
-`POST /v3/provider_accounts/{providerAccountId}/providers`
+<span class="method post">POST</span>
+` /v3/provider_accounts/{providerAccountId}/providers`
 
 ```ruby
 require "uri"
@@ -140,7 +142,8 @@ puts response.read_body
 <%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
-`GET /v3/provider_accounts/{providerAccountId}/providers/{id}`
+<span class="method get">GET</span>
+` /v3/provider_accounts/{providerAccountId}/providers/{id}`
 
 ```ruby
 require "uri"
@@ -188,7 +191,8 @@ puts response.read_body
 <%= partial "./partial_layouts/block_quotes.html.erb" %>
 
 ### HTTP Request
-`DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}`
+<span class="method delete">DELETE</span>
+` /v3/provider_accounts/{providerAccountId}/providers/{id}`
 
 ```ruby
 require "uri"

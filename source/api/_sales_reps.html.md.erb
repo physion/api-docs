@@ -2,15 +2,72 @@
 ## Post Sales Rep
 
 **Summary:** Create a Sales Rep
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`POST /v3/sales_reps` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_reps")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Post.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+
+payload = {} # See payload tab
+request.body = JSON.dump(payload)
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "salesGroupId": "string",
+  "hasRequisitionAccess": true,
+  "firstName": "string",
+  "lastName": "string",
+  "officePhoneNumber": "string",
+  "email": "string"
+}
+```
+
+```json
+{
+  "id": 0,
+  "salesGroupId": "string",
+  "hasRequisitionAccess": true,
+  "firstName": "string",
+  "lastName": "string",
+  "officePhoneNumber": "string",
+  "email": "string"
+}
+```
+
+### HTTP Request
+<span class="method post">POST</span>
+` /v3/sales_reps`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| body | body | Sales Rep Record | Yes |  |
+| `organizationId` | body | Organization ID | Yes | `integer` |
+| `salesRep` | body | Sales Rep Record | Yes | `json` |
+
+**Sales Rep Parameters**
+
+| Name | Located in | Description | Required | Type | Value |
+| ---- | ---------- | ----------- | -------- | ---- | ----- |
+| `firstName` | salesRep | Sales rep first name | Yes | `string` ||
+| `lastName` | salesRep | Sales rep last name | Yes | `string` ||
+| `email` | salesRep | Sales rep email | Yes | `string` ||
+| `salesGroupId` | salesRep | Sales group ID | No | `integer` ||
+| `hasRequisitionAccess` | salesRep | Mark as true if sales rep has access to requisition information | No | boolean | `true`,`false` |
+| `officePhoneNumber` | salesRep | Office phone number of sales rep | No | `string` ||
 
 **Responses**
 
@@ -21,57 +78,188 @@
 ## Get Sales Reps
 
 **Summary:** Get All Sales Reps
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`GET /v3/sales_reps` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_reps?organization_id={organization_id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+```
+
+```json
+{
+  "meta": {
+    "currentPage": 0,
+    "perPage": 0,
+    "totalEntries": 0
+  },
+  "salesReps": [
+    {
+      "id": 0,
+      "salesGroupId": "string",
+      "hasRequisitionAccess": true,
+      "firstName": "string",
+      "lastName": "string",
+      "officePhoneNumber": "string",
+      "email": "string"
+    }
+  ]
+}
+```
+
+### HTTP Request
+<span class="method get">GET</span>
+` /v3/sales_reps`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| organizationId | query | Organization ID | Yes | integer |
-| sales_group_id | query | Sales Group ID | No | integer |
-| email | query | Sales Group Email | No | string |
-| page | query | Page of results. | No | integer |
-| perPage | query | Results per page. Maximum of 5000. | No | integer |
+| `organizationId` | query | Organization ID | Yes | `integer` |
+| `sales_group_id` | query | Sales Group ID | No | `integer` |
+| `email` | query | Sales Group Email | No | `string` |
+| `page` | query | Page of results. | No | `integer` |
+| `perPage` | query | Results per page. Maximum of 5000. | No | `integer` |
 
 **Responses**
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | Get all Sales Reps |
-## Get Sales Rep 
+## Get Sales Rep
 
 **Summary:** Get a Sales Rep
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`GET /v3/sales_reps/{id}` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_reps/{id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+```
+
+```json
+{
+  "id": 0,
+  "salesGroupId": "string",
+  "hasRequisitionAccess": true,
+  "firstName": "string",
+  "lastName": "string",
+  "officePhoneNumber": "string",
+  "email": "string"
+}
+```
+
+### HTTP Request
+<span class="method get">GET</span>
+` /v3/sales_reps/{id}`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Rep ID | Yes | integer |
-| organizationId | query | Organization ID | Yes | integer |
+| `id` | path | Sales Rep ID | Yes | `integer` |
+| `organizationId` | query | Organization ID | Yes | `integer` |
 
 **Responses**
 
 | Code | Description |
 | ---- | ----------- |
 | 200 | Get Sales Rep Record |
-## Put Sales Rep 
+## Put Sales Rep
 
 **Summary:** Update a Sales Rep
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`PUT /v3/sales_reps/{id}` 
+```ruby
+require "uri"
+require "json"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_reps/{id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Put.new(url)
+request["Authorization"] = "Bearer {token}"
+request["Content-Type"] = "application/json"
+payload = {} # See payload tab
+request.body = JSON.dump(payload)
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "salesGroupId": "string",
+  "hasRequisitionAccess": true,
+  "firstName": "string",
+  "lastName": "string",
+  "officePhoneNumber": "string",
+  "email": "string"
+}
+```
+
+```json
+{
+  "id": 0,
+  "salesGroupId": "string",
+  "hasRequisitionAccess": true,
+  "firstName": "string",
+  "lastName": "string",
+  "officePhoneNumber": "string",
+  "email": "string"
+}
+```
+
+### HTTP Request
+<span class="method put">PUT</span>
+` /v3/sales_reps/{id}`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Rep ID | Yes | integer |
-| body | body | Sales Rep Record | Yes |  |
+| `id` | path | Sales Rep ID | Yes | `integer` |
+| `salesRep` | body | Sales Rep Record | Yes | `json` |
+
+**Sales Rep Parameters**
+
+| Name | Located in | Description | Required | Type | Value |
+| ---- | ---------- | ----------- | -------- | ---- | ----- |
+| `firstName` | salesRep | Sales rep first name | Yes | `string` ||
+| `lastName` | salesRep | Sales rep last name | Yes | `string` ||
+| `email` | salesRep | Sales rep email | Yes | `string` ||
+| `salesGroupId` | salesRep | Sales group ID | No | `integer` ||
+| `hasRequisitionAccess` | salesRep | Mark as true if sales rep has access to requisition information | No | boolean | `true`,`false` |
+| `officePhoneNumber` | salesRep | Office phone number of sales rep | No | `string` ||
 
 **Responses**
 
@@ -82,16 +270,43 @@
 ## Delete Sales Rep
 
 **Summary:** Delete a Sales Rep
+<%= partial "./partial_layouts/block_quotes.html.erb" %>
 
-### HTTP Request 
-`DELETE /v3/sales_reps/{id}` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/sales_reps/{id}")
+
+https = Net::HTTP.new(url.host, url.port)
+https.use_ssl = true
+
+request = Net::HTTP::Delete.new(url)
+request["Authorization"] = "Bearer {token}"
+
+response = https.request(request)
+puts response.read_body
+```
+
+```json-doc
+```
+
+```json
+{
+  "message": "Sales Rep successfully archived"
+}
+```
+
+### HTTP Request
+<span class="method delete">DELETE</span>
+` /v3/sales_reps/{id}`
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
-| id | path | Sales Rep ID | Yes | integer |
-| organizationId | query | Organization ID | Yes | integer |
+| `id` | path | Sales Rep ID | Yes | `integer` |
+| `organizationId` | query | Organization ID | Yes | `integer` |
 
 **Responses**
 

@@ -1,0 +1,68 @@
+# Introduction
+
+LIMS+: logical sample tracking, document and training record management
+
+**Version:** 1.0.0
+
+# Overview
+
+Ovation has an integration with SFTP to import and export requisition data using HL7 messages. Here is documented how you will receive the HL7 content including your fields and also how we expect you to send it to us.
+
+# HL7 Fields
+
+|Description | Import Section | Export Section |
+| ---- | ---- | ----------- |
+| Diagnosis code | DG1-3.1 | DG1-3.1 |
+| Insured First Name | IN1-16.1 | IN1-16.1 |
+| Insured Last Name | IN1-16.2 | IN1-16.2 |
+| Relationship to Insured | IN1-17 | IN1-17 |
+| DOB of Insured | IN1-18 | IN1-18 |
+| Insured Street Address | IN1-19.1 | IN1-19.1 |
+| Insured City | IN1-19.3 | IN1-19.3 |
+| Insured State | IN1-19.4 | IN1-19.4 |
+| Insured Zip Code | IN1-19.5 | IN1-19.5 |
+| Insurance ID Number | IN1-36 | IN1-36 |
+| Insurance Provider Name | IN1-4 | IN1-4 |
+| Insured Sex | IN1-43 | IN1-43 |
+| Insurance Group Number | IN1-8 | IN1-8 |
+| Sample Type | OBR-15 | OBR-15 |
+| Sample Identifier | OBR-3 | OBR-3 |
+| Sample Received Date/Time | OBR-14 | OBR-14 |
+| Sample Group | OBR-20 | OBR-20 |
+| Test Panel Result Status | OBR-25 | OBR-25 |
+| Test Panel Code | OBR-4.1 | OBR-4.1 |
+| Test Panel Name | OBR-4.2 | OBR-4.2 |
+| Sample Collection Date/Time | OBR-7 | OBR-7 |
+| Medication Type | OBX-3 | #N/A |
+| Custom Attribute Key (AOE Key) | OBX-3.2 | OBX-3.2 |
+| Custom Attribute Value (AOE Value) | OBX-5.1 | OBX-5.1 |
+| Medication Value | OBX-5.2 | #N/A |
+| Physician NPI | ORC-12.1 | ORC-12.1; OBR-16.1 |
+| Facility Name | ORC-13.4.1 | ORC-13.4.1 |
+| Facilty Identifier |  |  |
+| Requisition Identifier | ORC-2 | ORC-2;OBR-2 |
+| Patient Race | PID-10 | PID-10 |
+| Patient Street Address | PID-11.1 | PID-11.1 |
+| Patient City | PID-11.3 | PID-11.3 |
+| Patient State | PID-11.4 | PID-11.4 |
+| Patient Zip Code | PID-11.5 | PID-11.5 |
+| Patient Phone Number | PID-13.1 | PID-13.1 |
+| Insured Email | PID-13.4 | #N/A |
+| Patient Ethnicity | PID-22 | PID-22 |
+| Patient ID | PID-2 | PID-2 |
+| Patient Last Name | PID-5.1 | PID-5.1 |
+| Patient First Name | PID-5.2 | PID-5.2 |
+| Patient Middle Name | PID-5.3 | PID-5.3 |
+| Patient DOB | PID-7 | PID-7 |
+| Patient Gender | PID-8 | PID-8 |
+| Billing Type | PV1-20.1 | PV1-20.1 |
+| Physician Last Name | #N/A | ORC-12.2; OBR-16.2 |
+| Physician First Name | #N/A | ORC-12.3; OBR-16.3 |
+| Physician Code | #N/A | OBR-16.12 |
+| Report OBX Segment Number | #N/A | OBX-1 |
+| Report Type | #N/A | OBX-2 |
+| Report Result | #N/A | OBR-5 |
+| Report PDF Format | #N/A | OBX-3 |
+| Report Base64 Format | #N/A | OBX-4 |
+| Report Content | #N/A | OBX-5.3 |
+| Report Generated At | #N/A | OBX-6 |

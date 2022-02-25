@@ -30,7 +30,12 @@ under the License.
     current_page.data.webhooks.each do |webhook|
       page_content += partial("webhooks/#{webhook}")
     end
-  end  
+  end
+  if current_page.data.hl7_docs
+    current_page.data.hl7_docs.each do |hl7_doc|
+      page_content += partial("hl7_docs/#{hl7_doc}")
+    end
+  end
 %>
 
 <!doctype html>
