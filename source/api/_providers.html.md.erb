@@ -1,10 +1,52 @@
 # Providers
-## Get Providers 
+## Get Providers
 
 **Summary:** Get All Providers
 
-### HTTP Request 
-`GET /v3/provider_accounts/{providerAccountId}/providers` 
+### HTTP Request
+`GET /v3/provider_accounts/{providerAccountId}/providers`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "providers": [
+        {
+            "id": 11955,
+            "name": "Test Provider",
+            "registryIdentifier": "9999999999",
+            "providerAccountId": 9651,
+            "licensingRegistry": "NPI"
+        },
+        {
+            "id": 11974,
+            "name": "Test Provider",
+            "registryIdentifier": "0000000000",
+            "providerAccountId": 9651,
+            "licensingRegistry": "NPI"
+        }
+    ],
+    "meta": {
+        "currentPage": 1,
+        "perPage": 5000,
+        "totalEntries": 4
+    }
+}
+```
 
 **Parameters**
 
@@ -23,19 +65,66 @@
 | ---- | ----------- |
 | 200 | Get Providers |
 
-## Post Provider 
+## Post Provider
 
 **Summary:** Create a Provider
 
-### HTTP Request 
-`POST /v3/provider_accounts/{providerAccountId}/providers` 
+Ovation differentiates provider accounts according to the type of licensing registry, these are the valid license registries: [‘NPI’, 'Australian Health Practitioner Registry', 'European Physician', 'ex-US / clinical trial', 'Philippines PRC', 'South American Physician']
+
+Note: Ovation will pull the NPI Registry API data for you given the registryIdentifier and then it’ll associate it with the Provider Account specified in the URL. If the licensingRegistry is not NPI, then the others fields will be required.
+
+### HTTP Request
+`POST /v3/provider_accounts/{providerAccountId}/providers`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers")
+payload = {} # See payload tab
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+request.body = JSON.dump({ payload })
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "provider": {
+    "name": "Test Provider",
+    "registryIdentifier": "9999999999",
+    "providerAccountId": 9651,
+    "licensingRegistry": "NPI"
+  }
+}
+```
+
+```json
+{
+  "provider": {
+    "id": 11955,
+    "name": "Test Provider",
+    "registryIdentifier": "9999999999",
+    "providerAccountId": 9651,
+    "licensingRegistry": "NPI"
+  }
+}
+```
 
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
 | ---- | ---------- | ----------- | -------- | ---- |
 | providerAccountId | path | Provider Account id | Yes | integer |
-| body | body | Provider record | Yes |  |
+| name | body | Provider record | Yes | string |
+| registryIdentifier | body | Registry identifier | Yes | string |
+| licensingRegistry | body | Licensing registry by default is NPI | Optional | string |
 
 **Responses**
 
@@ -47,9 +136,36 @@
 
 **Summary:** Get a Provider
 
-### HTTP Request 
-`GET /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+### HTTP Request
+`GET /v3/provider_accounts/{providerAccountId}/providers/{id}`
 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers/{id}")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "provider": {
+        "id": 11938,
+        "name": "Doctor McDoctorface",
+        "registryIdentifier": "123456789",
+        "providerAccountId": 9651,
+        "licensingRegistry": "NPI"
+    }
+}
+```
 **Parameters**
 
 | Name | Located in | Description | Required | Type |
@@ -67,8 +183,30 @@
 
 **Summary:** Delete a Provider
 
-### HTTP Request 
-`DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}` 
+### HTTP Request
+`DELETE /v3/provider_accounts/{providerAccountId}/providers/{id}`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/providers/{id}")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Delete.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "message": "Provider successfully archived"
+}
+```
 
 **Parameters**
 

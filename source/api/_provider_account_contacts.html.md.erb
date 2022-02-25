@@ -3,8 +3,91 @@
 
 **Summary:** Create a Provider Account Contact
 
-### HTTP Request 
-`POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts")
+payload = {} # See payload tab
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Post.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+request.body = JSON.dump({ payload })
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+    "providerAccountContact": {
+        "externalIdentifier": null,
+        "firstName": "TestName",
+        "lastName": "LastName",
+        "email": "fakename@ovation.io",
+        "officePhoneNumber": null,
+        "cellPhoneNumber": null,
+        "providerAccountIds": [
+            3722,
+            7016
+        ],
+        "faxNumber": null,
+        "communicationPreference": null,
+        "primaryContact": true,
+        "userId": 1085,
+        "faxSignedReports": false,
+        "emailReportReadyNotifications": true,
+        "role": null,
+        "associatedProviders": [
+            {
+                "providerId": 8722
+            },
+            {
+                "providerId": 9840
+            }
+        ]
+    }
+}
+```
+
+```json
+{
+    "providerAccountContact": {
+        "id": 5200,
+        "externalIdentifier": null,
+        "firstName": "TestName",
+        "lastName": "LastName",
+        "email": "fakename@ovation.io",
+        "officePhoneNumber": null,
+        "cellPhoneNumber": null,
+        "providerAccountIds": [
+            3722,
+            7016
+        ],
+        "faxNumber": null,
+        "communicationPreference": null,
+        "primaryContact": true,
+        "userId": 1085,
+        "faxSignedReports": false,
+        "emailReportReadyNotifications": true,
+        "role": null,
+        "associatedProviders": [
+            {
+                "providerId": 8722
+            },
+            {
+                "providerId": 9840
+            }
+        ]
+    }
+}
+```
+
+### HTTP Request
+`POST /v3/provider_accounts/{providerAccountId}/provider_account_contacts`
 
 **Parameters**
 
@@ -23,8 +106,49 @@
 
 **Summary:** Get a Provider Account Contacts
 
-### HTTP Request 
-`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "providers": [
+        {
+          "id": 5200,
+          "externalIdentifier": null,
+          "firstName": "TestName",
+          "lastName": "LastName",
+          "email": "fakename@ovation.io",
+          "officePhoneNumber": null,
+          "cellPhoneNumber": null,
+          "providerAccountIds": [
+              3722,
+              7016
+          ]
+        }
+    ],
+    "meta": {
+        "currentPage": 1,
+        "perPage": 5000,
+        "totalEntries": 4
+    }
+}
+```
+
+### HTTP Request
+`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts`
 
 **Parameters**
 
@@ -42,12 +166,61 @@
 | ---- | ----------- |
 | 200 | Get Provider Account Contacts |
 
-## Get Provider Account Contact 
+## Get Provider Account Contact
 
 **Summary:** Get a Provider Account Contact
 
-### HTTP Request 
-`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Get.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "providerAccountContact": {
+        "id": 5200,
+        "externalIdentifier": null,
+        "firstName": "TestName",
+        "lastName": "LastName",
+        "email": "fakename@ovation.io",
+        "officePhoneNumber": null,
+        "cellPhoneNumber": null,
+        "providerAccountIds": [
+            3722,
+            7016
+        ],
+        "faxNumber": null,
+        "communicationPreference": null,
+        "primaryContact": true,
+        "userId": 1085,
+        "faxSignedReports": false,
+        "emailReportReadyNotifications": true,
+        "role": null,
+        "associatedProviders": [
+            {
+                "providerId": 8722
+            },
+            {
+                "providerId": 9840
+            }
+        ]
+    }
+}
+```
+
+### HTTP Request
+`GET /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}`
 
 **Parameters**
 
@@ -62,12 +235,95 @@
 | ---- | ----------- |
 | 200 | Got Provider Account Contact |
 
-## Put Provider Account Contact 
+## Put Provider Account Contact
 
 **Summary:** Update a Provider Account Contact
 
-### HTTP Request 
-`PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts/{id}")
+payload = {} # See payload tab
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Put.new(url)
+request["Content-Type"] = "application/json"
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+request.body = JSON.dump({ payload })
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json-doc
+{
+  "providerAccountContact": {
+    "externalIdentifier": null,
+    "firstName": "TestName",
+    "lastName": "LastName",
+    "email": "fakename@ovation.io",
+    "officePhoneNumber": null,
+    "cellPhoneNumber": null,
+    "providerAccountIds": [
+      3722,
+      7016
+    ],
+    "faxNumber": null,
+    "communicationPreference": null,
+    "primaryContact": true,
+    "userId": 1085,
+    "faxSignedReports": false,
+    "emailReportReadyNotifications": true,
+    "role": null,
+    "associatedProviders": [
+      {
+          "providerId": 8722
+      },
+      {
+          "providerId": 9840
+      }
+    ]
+  }
+}
+```
+
+```json
+{
+    "providerAccountContact": {
+        "id": 5200,
+        "externalIdentifier": null,
+        "firstName": "TestName",
+        "lastName": "LastName",
+        "email": "fakename@ovation.io",
+        "officePhoneNumber": null,
+        "cellPhoneNumber": null,
+        "providerAccountIds": [
+            3722,
+            7016
+        ],
+        "faxNumber": null,
+        "communicationPreference": null,
+        "primaryContact": true,
+        "userId": 1085,
+        "faxSignedReports": false,
+        "emailReportReadyNotifications": true,
+        "role": null,
+        "associatedProviders": [
+            {
+                "providerId": 8722
+            },
+            {
+                "providerId": 9840
+            }
+        ]
+    }
+}
+```
+
+### HTTP Request
+`PUT /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}`
 
 **Parameters**
 
@@ -87,8 +343,30 @@
 
 **Summary:** Delete a Provider Account Contact
 
-### HTTP Request 
-`DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}` 
+### HTTP Request
+`DELETE /v3/provider_accounts/{providerAccountId}/provider_account_contacts/{id}`
+
+```ruby
+require "uri"
+require "net/http"
+
+url = URI("{api_endpoint}/api/v3/provider_accounts/{provider_account_id}/provider_account_contacts/{id}")
+
+http = Net::HTTP.new(url.host, url.port);
+request = Net::HTTP::Delete.new(url)
+request["Accept"] = "application/json"
+request["Authorization"] = "Bearer {token}"
+
+
+response = http.request(request)
+puts response.read_body
+```
+
+```json
+{
+    "message": "Provider Account Contact successfully archived"
+}
+```
 
 **Parameters**
 
